@@ -3,7 +3,7 @@
 
 
 
-import Settings from './Pages/Settings/Settings';
+
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         Hello
         <img width="20%" src="./logo.png" alt="" />
       </header> */}
-      <Settings/>
+     
      
     </div>
   );
