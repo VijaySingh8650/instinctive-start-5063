@@ -1,13 +1,20 @@
 
-import './App.css';
+// import './App.css';
+
+
+
+import Settings from './Pages/Settings/Settings';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         Hello
         <img width="20%" src="./logo.png" alt="" />
-      </header>
+      </header> */}
+      <Settings/>
+     
     </div>
   );
 }
