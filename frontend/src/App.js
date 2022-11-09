@@ -1,22 +1,20 @@
 
-// import './App.css';
-
-
-
-
-
+/import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Navbar from './Components/Admin/Navbar/Navbar';
+// import AdminRouter from './Routers/Admin/AdminRouter';
 
 function App() {
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        Hello
-        <img width="20%" src="./logo.png" alt="" />
-      </header> */}
-     
-     
-    </div>
+   
+      <Routes>
+
+        <Route path="/admin/*" element={<Navbar />}></Route>
+      
+      </Routes>
+ 
+
   );
 }
 
-export default App;
+export default App
