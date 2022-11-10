@@ -1,0 +1,12 @@
+.container{
+    width: 40%;
+    background-color: rgb(214, 210, 210);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   border-radius: 10px;
+    margin: auto;
+    height: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 40px;
+}
