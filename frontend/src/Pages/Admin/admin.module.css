@@ -28,3 +28,13 @@
     align-items: center;
     justify-content: space-between;
 }
+.heading_products{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn_heading{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

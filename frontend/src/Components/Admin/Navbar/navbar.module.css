@@ -6,7 +6,7 @@
   background-color: #f9fafb;
   height: 100vh;
   /* overflow: hidden; */
-  /* #f9fafb */
+  /* #f9fafb #4d4e4f */
   
   
 }
@@ -35,6 +35,7 @@
   height: 100%;
   overflow-y: scroll;
   border-right: 1px solid rgba(27, 31, 35, 0.15);
+  
 }
 
 
@@ -52,11 +53,13 @@
 .topNavbar{
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   height: 10%;
   background-color: #ffffff;
   border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+  z-index: 100;
+ 
   
-  padding: 1rem 0;
   
 }
 .topNavbarBox{
@@ -88,8 +91,52 @@
   font-weight: 600;
 }
 .content{
-  height: 90%;
+  height:90%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y:auto;
+  /* z-index:100;  */
+}
+.content::-webkit-scrollbar {
+  width: 6px;
+
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgb(209, 212, 219);
+}
+
+@media screen and (max-width:850px) {
+  .sideNames{
+    display: none;
+  }
+  .sideNavbar{
+    width: 5rem;
+    padding: 1rem .2rem;
+  }
+  .reactIcons{
+    font-size: .9rem;
+  }
+  .name{
+    display: none;
+  }
+  .sideNavbar::-webkit-scrollbar {
+    width: 2px;
+  
+  }
+}
+
+@media screen and (max-width:690px) {
+  .topNavbarBox {
+    width: 90%;
+  }
+}
+@media screen and (max-width:630px) {
+  .topNavbarBox {
+    width: 88%;
+  }
+  .content{
+    padding: .5rem;
+  }
 }

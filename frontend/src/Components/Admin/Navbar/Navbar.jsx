@@ -12,21 +12,21 @@ import Router from '../../../Routers/Admin/AdminRouter';
 import logo from "../Images/logo.png";
 import { activeStyle } from './activeStyles';
 import { noActiveStyle } from './activeStyles';
+import { useEffect } from 'react';
 
 
-// const activeStyle = {
-//     backgroundColor: "#babec2",
-//   borderRadius: "1rem",
-//     display: "flex",
-//   alignItems: "center",
-//   padding: ".5rem 1rem"
-// }
+
 
 
 
 
 const Navbar = () => {
-  console.log(navlinks);
+
+  useEffect(() => {
+    window.document.title = "Welcome Admin";
+  },[])
+
+
   return (<>
     <Box className={styles.container}>
         {/* side navbar */}
@@ -47,8 +47,9 @@ const Navbar = () => {
                   
                 </NavLink>
              })}
-          
+             
             </Box>
+            <hr style={{borderTop:"1px solid rgba(27, 31, 35, 0.15)"}}/>
         </Box>
           
         {/* search top navbar */}

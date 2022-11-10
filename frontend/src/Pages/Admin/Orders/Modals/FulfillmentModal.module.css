@@ -1,0 +1,26 @@
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading_text{
+    color: #343535;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .3rem 0;
+}
+.box1{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 1rem;
+}
+.productsImage{
+    height: 10%;
+    width: 10%;
+}

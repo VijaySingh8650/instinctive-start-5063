@@ -1,0 +1,122 @@
+.parent{
+    margin: 2rem;
+    height: 100%;
+    
+}
+
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    /* justify-content: ; */
+    margin: .5rem 0;
+    
+}
+.link{
+    color: blue;
+}
+.breadIcon{
+    margin: 0 .5rem;
+    font-size: 1rem;
+}
+.productsImage{
+    height: 15%;
+    width: 15%;
+    border-radius: .5rem;
+}
+.container {
+    
+    width: 100%;
+ 
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+}
+
+.heading{
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.box{
+    display: flex;
+    align-items: center;
+}
+.box1 {
+    display: flex;
+    align-items: center;
+}
+.box2 {
+    display: flex;
+    align-items: center;
+}
+.box2_name{
+    margin-left:.5rem;
+}
+.box1_name{
+    margin-left: .3rem;
+}
+.totalCost{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .5rem 0;
+}
+
+
+
+/* payments */
+.container2 {
+
+    width: 100%;
+    
+    margin: 1rem 0;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+}
+.container2_Payment_first{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  
+}
+.container2_Payment_first2 {
+    display: flex;
+    /* align-items: center;
+    justify-content: space-between; */
+}
+.container2_Payment_first2_btn{
+    margin-left: .5rem;
+}
+.totalCostInPayment{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        /* margin: .5rem 0; */
+}
+
+
+/* Fulfillment */
+.container3 {
+
+    width: 100%;
+
+    
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+}
+
+/* Tracking */
+.container3_Traking{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container3_Traking_update{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

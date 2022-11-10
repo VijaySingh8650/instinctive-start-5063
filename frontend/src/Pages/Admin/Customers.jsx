@@ -1,5 +1,5 @@
 import { Box,  Input, Text, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./admin.module.css";
 import { SearchIcon } from '@chakra-ui/icons'
 import {
@@ -19,6 +19,11 @@ import {
 
 
 const Customers = () => {
+
+  useEffect(() => {
+    window.document.title = "Welcome Admin - Customers";
+  }, [])
+
   return (
     <Box className={styles.container}>
       <Text className={styles.heading}>Customers</Text>

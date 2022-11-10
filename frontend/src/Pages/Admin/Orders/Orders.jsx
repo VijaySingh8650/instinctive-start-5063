@@ -1,6 +1,6 @@
 import { Box, Button, Input, Text, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import React from 'react'
-import styles from "./admin.module.css";
+import React, { useEffect } from 'react'
+import styles from "../admin.module.css";
 import { SearchIcon } from '@chakra-ui/icons'
 import {
   Table,
@@ -12,7 +12,7 @@ import {
 
   TableContainer,
 } from '@chakra-ui/react'
-import OrdersTable from '../../Components/Admin/Table/OrdersTable';
+import OrdersTable from '../../../Components/Admin/Table/OrdersTable/OrdersTable';
 
 
 
@@ -20,6 +20,11 @@ import OrdersTable from '../../Components/Admin/Table/OrdersTable';
 
 
 const Orders = () => {
+
+  useEffect(() => {
+    window.document.title = "Welcome Admin - Orders";
+  }, [])
+  
   return (
     <Box className={styles.container}>
       <Text className={styles.heading}>Orders</Text>
@@ -50,6 +55,7 @@ const Orders = () => {
                 <Th>Date</Th>
                 <Th>Customer</Th>
                 <Th>Payment Status</Th>
+                <Th>Fulfillment</Th>
                 <Th>Total</Th>
                 
               </Tr>
@@ -59,6 +65,7 @@ const Orders = () => {
                 const { _id } = order;
                 return <OrdersTable key={_id} />
               })} */}
+              <OrdersTable/>
             </Tbody>
           </Table>
         </TableContainer>
