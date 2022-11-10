@@ -8,6 +8,8 @@ import Orders from '../../Pages/Admin/Orders'
 import Pricing from '../../Pages/Admin/Pricing'
 import Products from '../../Pages/Admin/Products'
 import Setting from '../../Pages/Admin/Setting'
+import PriceIn from "../Admin/PriceIn"
+import DiscountIn from "../Admin/DiscountIn"
 
 const Router = () => {
   return (
@@ -21,6 +23,8 @@ const Router = () => {
               <Route path="/giftcards" element={<GiftCards/>} />   
               <Route path="/discounts" element={<Discounts/>} />   
               <Route path="/customers" element={<Customers/>} />   
+              <Route path="/priceinner" element={<PriceIn/>} />   
+              <Route path="/discountinner" element={<DiscountIn/>} />   
               <Route path="/*" element={<NoMatch/>} />   
      
     </Routes>
