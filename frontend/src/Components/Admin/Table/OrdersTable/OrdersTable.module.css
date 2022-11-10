@@ -1,0 +1,7 @@
+.row{
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.row:hover{
+  background-color: #f9fafb;
+}
