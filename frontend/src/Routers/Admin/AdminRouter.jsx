@@ -4,18 +4,24 @@ import Customers from '../../Pages/Admin/Customers'
 import Discounts from '../../Pages/Admin/Discounts'
 import GiftCards from '../../Pages/Admin/GiftCards'
 import NoMatch from '../../Pages/Admin/NoMatch'
-import Orders from '../../Pages/Admin/Orders'
+import Orders from '../../Pages/Admin/Orders/Orders'
+import OrdersCustomer from '../../Pages/Admin/Orders/OrdersDetails'
 import Pricing from '../../Pages/Admin/Pricing'
-import Products from '../../Pages/Admin/Products'
+import NewProducts from '../../Pages/Admin/Products/NewProducts'
+import Products from '../../Pages/Admin/Products/Products'
 import Setting from '../../Pages/Admin/Setting'
 
 const Router = () => {
   return (
     <Routes>
        
-              <Route path={"/"} element={<Navigate to="/admin/orders"/>} />   
+              <Route path={"/"} element={<Navigate to="/admin/orders"/>}/>   
               <Route path={"/orders"} element={<Orders/>} />   
+              <Route path={"/orders/:id"} element={<OrdersCustomer/>} /> 
+                
               <Route path="/products" element={<Products/>} />   
+              <Route path="/products/newproducts" element={<NewProducts/>} />   
+              
               <Route path="/pricing" element={<Pricing/>} />   
               <Route path="/setting" element={<Setting/>} />   
               <Route path="/giftcards" element={<GiftCards/>} />   
