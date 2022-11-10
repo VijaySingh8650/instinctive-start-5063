@@ -1,13 +1,18 @@
 
-import './App.css';
+import "./App.css";
+import Routes from "./Pages/Routes";
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        Hello
-        <img width="20%" src="./logo.png" alt="" />
-      </header>
+
+
+      <Routes />
+
+
     </div>
   );
 }
