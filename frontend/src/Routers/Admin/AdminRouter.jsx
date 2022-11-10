@@ -10,6 +10,8 @@ import Pricing from '../../Pages/Admin/Pricing'
 import NewProducts from '../../Pages/Admin/Products/NewProducts'
 import Products from '../../Pages/Admin/Products/Products'
 import Setting from '../../Pages/Admin/Setting'
+import PriceIn from "../Admin/PriceIn"
+import DiscountIn from "../Admin/DiscountIn"
 
 const Router = () => {
   return (
@@ -27,6 +29,8 @@ const Router = () => {
               <Route path="/giftcards" element={<GiftCards/>} />   
               <Route path="/discounts" element={<Discounts/>} />   
               <Route path="/customers" element={<Customers/>} />   
+              <Route path="/priceinner" element={<PriceIn/>} />   
+              <Route path="/discountinner" element={<DiscountIn/>} />   
               <Route path="/*" element={<NoMatch/>} />   
      
     </Routes>
