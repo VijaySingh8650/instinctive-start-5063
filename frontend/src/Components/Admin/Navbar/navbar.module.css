@@ -1,0 +1,95 @@
+.container{
+  display: flex;
+  
+  justify-content: space-between;
+  width: auto;
+  background-color: #f9fafb;
+  height: 100vh;
+  /* overflow: hidden; */
+  /* #f9fafb */
+  
+  
+}
+.navbarImg{
+  width: 20px;
+}
+.box{
+  display: flex;
+  padding: 0 1rem;
+   align-items: center;
+  
+
+}
+.sideImage{
+  border-radius: 50%;
+  border: 2px solid #bf9850;
+  margin: 0 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: .1rem;
+}
+.sideNavbar{
+  width: 15rem;
+  background-color: #ffffff;
+  padding: 1rem 1.5rem ;
+  height: 100%;
+  overflow-y: scroll;
+  border-right: 1px solid rgba(27, 31, 35, 0.15);
+}
+
+
+
+.sideNavbar::-webkit-scrollbar {
+  width: 4px;
+
+}
+
+.sideNavbar::-webkit-scrollbar-thumb {
+  background: rgb(209, 212, 219);
+}
+
+
+.topNavbar{
+  display: flex;
+  justify-content: flex-end;
+  height: 10%;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+  
+  padding: 1rem 0;
+  
+}
+.topNavbarBox{
+  width: 100%;
+}
+
+.sideIcons{
+  padding: 2rem 0;
+}
+.sideIconsBox{
+  display: flex;
+  align-items: center;
+  padding: .5rem 1rem;
+}
+.sideNames{
+  margin-left: 1rem;
+}
+.reactIcons ,.icons{
+  font-size: 1.1rem;
+  color:rgba(27, 31, 35, 0.8);
+}
+.icons{
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+.name{
+  color: #bf9850;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+.content{
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
