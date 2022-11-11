@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Customers from '../../Pages/Admin/Customers'
+import Customers from '../../Pages/Admin/Customers/Customers'
 import Discounts from '../../Pages/Admin/Discounts'
 import GiftCards from '../../Pages/Admin/GiftCards'
 import NoMatch from '../../Pages/Admin/NoMatch'
@@ -25,8 +25,9 @@ const Router = () => {
               <Route path="/pricing" element={<Pricing/>} />   
               <Route path="/setting" element={<Setting/>} />   
               <Route path="/giftcards" element={<GiftCards/>} />   
-              <Route path="/discounts" element={<Discounts/>} />   
-              <Route path="/customers" element={<Customers/>} />   
+              <Route path="/discounts" element={<Discounts/>} /> 
+                
+              <Route path="/customers" element={<Customers/>} />                  
               <Route path="/*" element={<NoMatch/>} />   
      
     </Routes>
