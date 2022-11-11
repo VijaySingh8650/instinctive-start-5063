@@ -25,9 +25,10 @@ const Router = () => {
               <Route path="/pricing" element={<Pricing/>} />   
               <Route path="/setting" element={<Setting/>} />   
               <Route path="/giftcards" element={<GiftCards/>} />   
-              <Route path="/discounts" element={<Discounts/>} /> 
-                
-              <Route path="/customers" element={<Customers/>} />                  
+              <Route path="/discounts" element={<Discounts/>} />   
+              <Route path="/customers" element={<Customers/>} />   
+              <Route path="/priceinner" element={<PriceIn/>} />   
+              <Route path="/discountinner" element={<DiscountIn/>} />   
               <Route path="/*" element={<NoMatch/>} />   
      
     </Routes>
