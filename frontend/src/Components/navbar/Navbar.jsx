@@ -19,11 +19,11 @@ import {
 
 const Navbar = () => {
   return (
-    <Box boxShadow="rgba(33, 35, 38, 0.1) 0px 10px 10px -10px">
+    <Box width="100%" boxShadow="rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" position="fixed" top={0} bgColor="white" zIndex={4}>
       {/* ///////////////// Nav 1 ////////////// */}
       <Flex p=".5rem" justifyContent="space-between" pl="3%" pr="3%" >
         <Flex align="center" gap="10px">
-        <Image src={logo} alt="logo" width="38px"  ></Image>
+        <Image src={logo} alt="logo" width="38px"></Image>
         <Text color="#bf9852" fontSize="20px" fontWeight={500}>HomeDecor</Text>
         </Flex>
         <Flex alignItems="center" bgColor="#f5f5f6" width="60%" pl=".6rem" borderRadius="5px">
@@ -61,21 +61,21 @@ const Navbar = () => {
 
       {/* /////////////////// Nav 2 /////////// */}
 
-      <Flex p=".2rem" justifyContent="space-between" pl="3%" pr="3%" fontSize="14px">
+      <Flex p=".2rem" justifyContent="space-between" pl="2%" pr="2%" fontSize="14px">
         
-        <Button variant="unstyled">Furniture</Button>
-        <Button variant="unstyled">Rugs</Button>
-        <Button variant="unstyled">Decor</Button>
-        <Button variant="unstyled">Bedding</Button>
-        <Button variant="unstyled">Home Improvement</Button>
-        <Button variant="unstyled">Kitchen</Button>
-        <Button variant="unstyled">Outdoor</Button>
-        <Button variant="unstyled">Lighting</Button>
-        <Button variant="unstyled">Kids & Baby</Button>
-        <Button variant="unstyled">More</Button>
-        <Button variant="unstyled" color='grey'>|</Button>
-        <Button variant="unstyled">Ideas</Button>
-        <Button variant="unstyled">Sales & Deals</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Furniture</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Rugs</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Decor</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Bedding</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Home Improvement</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Kitchen</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Outdoor</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Lighting</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Kids & Baby</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">More</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400" color='grey'>|</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400">Ideas</Button>
+        <Button variant="unstyled" fontSize="13px" fontWeight="400" color="red">Sales & Deals</Button>
 
         <Menu  >
             {/* //////////// Button ///////////// */}
