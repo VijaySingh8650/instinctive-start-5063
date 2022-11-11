@@ -1,6 +1,6 @@
 import { Box,  Input, Text, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-import styles from "./admin.module.css";
+import styles from "../admin.module.css";
 import { SearchIcon } from '@chakra-ui/icons'
 import {
   Table,
@@ -12,6 +12,8 @@ import {
   
   TableContainer,
 } from '@chakra-ui/react'
+
+import CustomerTable from '../../../Components/Admin/Table/CustomersTable/CustomerTable';
 
 
 
@@ -54,7 +56,7 @@ const Customers = () => {
               </Tr>
             </Thead>
             <Tbody>
-              
+              <CustomerTable/>
             </Tbody>
           </Table>
         </TableContainer>

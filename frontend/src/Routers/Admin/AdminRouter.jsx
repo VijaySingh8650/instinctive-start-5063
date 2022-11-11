@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Customers from '../../Pages/Admin/Customers'
+import Customers from '../../Pages/Admin/Customers/Customers'
 import Discounts from '../../Pages/Admin/Discounts'
 import GiftCards from '../../Pages/Admin/GiftCards'
 import NoMatch from '../../Pages/Admin/NoMatch'
@@ -10,8 +10,6 @@ import Pricing from '../../Pages/Admin/Pricing'
 import NewProducts from '../../Pages/Admin/Products/NewProducts'
 import Products from '../../Pages/Admin/Products/Products'
 import Setting from '../../Pages/Admin/Setting'
-import PriceIn from "../Admin/PriceIn"
-import DiscountIn from "../Admin/DiscountIn"
 
 const Router = () => {
   return (
