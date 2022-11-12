@@ -148,7 +148,7 @@ const getFurnitureLivingIndividualData = async (req, res) => {
 }
 
 
-
+// search products at the frontend
 const searchFurniture = async (req, res) => {
     const { subset, orderby, max, min } = req.query;
     let queryObj = {};
@@ -186,4 +186,18 @@ const searchFurniture = async (req, res) => {
 }
 
 
-module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData, searchFurniture };
+
+//for admin use only
+const getTotalProductsAdminSide = async (req, res) => {
+    try {
+        const totalProducts = await Furniture.find({});
+
+        res.status(200).send({ message: "success", total: totalProducts.length, products: totalProducts });
+
+    }
+    catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData, searchFurniture , getTotalProductsAdminSide};

@@ -1,5 +1,5 @@
 const express = require("express");
-const { PostFurnitureData, getFurnitureBedroomData, getFurnitureMattresData, getFurnitureLivingData, getFurnitureBedroomIndividualData, getFurnitureMattresIndividualData, getFurnitureLivingIndividualData, searchFurniture} = require("../Controllers/furnitureControllers");
+const { PostFurnitureData, getFurnitureBedroomData, getFurnitureMattresData, getFurnitureLivingData, getFurnitureBedroomIndividualData, getFurnitureMattresIndividualData, getFurnitureLivingIndividualData, searchFurniture, getTotalProductsAdminSide} = require("../Controllers/furnitureControllers");
 const app = express();
 app.use(express.json());
 
@@ -22,5 +22,7 @@ app.route("/living/:id").get(getFurnitureLivingIndividualData);
 
 
 
+//for admin use only
+app.route("/products").get(getTotalProductsAdminSide);
 
 module.exports = app;
