@@ -6,7 +6,7 @@ import SignUp from "../Pages/Signup/Signup";
 // import Navbar from '../Components/Admin/Navbar/Navbar';
 import Navbar from "../Components/navbar/Navbar";
 import Cart from "../Components/cart/Cart";
-import ProductPage from "../Components/productpage/ProductPage";
+import SingleProduct from "../Components/singleProduct/SingleProduct";
 
 const AllRoutes = () => {
   return (

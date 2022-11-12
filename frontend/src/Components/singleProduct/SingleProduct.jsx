@@ -28,7 +28,7 @@ const SingleProduct = () => {
         {/* ////////////////// Single product display card ///////////// */}
 
         <Flex p="1%"  gap="26px">
-        <Image width="34%" src={data[0].image} />
+        <Image width="34%" height="400px" src={data[0].image} objectFit="fill" />
         <Box>
             <Text  fontSize="18px" >{data[0].title}</Text>
             <Flex mt="4%" align="center" gap="5px"><AiFillStar color="#bf9852"/> <AiFillStar color="#bf9852"/><AiFillStar color="#bf9852"/> {data[0].rating} </Flex>
@@ -45,35 +45,8 @@ const SingleProduct = () => {
                 <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>3' X 3'</Button>
                 <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>4' X 4'</Button>
                 <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>4' X 6'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>5'1" X 5'1"</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>5'1" X 7'6"</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>6'7" X 6'7"</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}} >6'7" X 9'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>8' X 8'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>8' X 10'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>9' X 12'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>9' X 9'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>10' X 14'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>11' X 15'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 13'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 15'</Button>
-
-            </SimpleGrid>
-        </Box>
-
-        </Flex>
-            {/* /////////////////// add to cart tags///////////////// */}
-            <Flex p="1%">
-                    <Flex align={"center"} gap="10px">
-                    <Text fontStyle='italic' fontSize={"14px"} >Share This Product: </Text>
-                    <MdEmail size='30px' />
-                    <BsFacebook size='30px' />
-                    <AiFillTwitterCircle size='32px' />
-                    <BsPinterest size='30px' />
-                    </Flex>
-                    
-                    {/* /////// Quantity ////////// */}
-                    <Flex ml="160px">
+        </SimpleGrid>
+        <Flex mt="10%" gap="20px">
                     <Select width="200px">
                         <option>Quantity: 1</option>
                         <option>Quantity: 2</option>
@@ -88,8 +61,24 @@ const SingleProduct = () => {
                         <option>Quantity: 11</option>
                         <option>Quantity: 12</option>
                     </Select>
-                    <Button bg="teal" color={"white"}>Add to Cart</Button>
+                    <Button width="200px" bg="teal" color={"white"}>Add to Cart</Button>
                     </Flex>
+
+        </Box>
+
+        </Flex>
+            {/* /////////////////// add to cart tags///////////////// */}
+            <Flex p="1%">
+                    <Flex align={"center"} gap="10px">
+                    <Text fontStyle='italic' fontSize={"14px"} >Share This Product: </Text>
+                    <MdEmail size='30px' />
+                    <BsFacebook size='30px' />
+                    <AiFillTwitterCircle size='32px' />
+                    <BsPinterest size='30px' />
+                    </Flex>
+                    
+                    {/* /////// Quantity ////////// */}
+                    
             </Flex>
 
 
