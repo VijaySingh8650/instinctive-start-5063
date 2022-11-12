@@ -1,5 +1,5 @@
-const notFoundURL = (req, res) => {
-    return res.status(404).send({message:"URL not found"})
+const notFoundURL = async(req,res) => {
+    return res.status(500).send({ message: "URL not found" });
 }
 
-module.exports =  notFoundURL;
+module.exports = notFoundURL;

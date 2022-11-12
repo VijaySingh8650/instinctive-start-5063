@@ -298,10 +298,12 @@ const searchFurniture = async (req, res) => {
 
 //for admin use only
 const getTotalProductsAdminSide = async (req, res) => {
+    const {page, limit} = req.query;
     try {
-        const totalProducts = await Furniture.find({});
+        const total = await Furniture.find({});
+        const totalProducts = await Furniture.find({}).skip((page-1)*limit).limit(limit);
 
-        res.status(200).send({ message: "success", total: totalProducts.length, products: totalProducts });
+        res.status(200).send({ message: "success", total: total.length, products: totalProducts });
 
     }
     catch (err) {
@@ -309,5 +311,21 @@ const getTotalProductsAdminSide = async (req, res) => {
     }
 }
 
-module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData,getFurnitureDiningData,getFurnitureDiningIndividualData,getFurnitureKitchenData,getFurnitureKitchenIndividualData,getFurnitureRecreationData,getFurnitureRecreationIndividualData,getFurnitureKidsRoomData,getFurnitureKidsRoomIndividualData,searchFurniture, getTotalProductsAdminSide  };
+const deleteProductAdminSide = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const product = await Furniture.find({ _id: id });
+        const productSizeAndColor = await FurnitureColor.find({ furnitureId: id });
+        
+        await product.deleteOne();
+        await productSizeAndColor.deleteMany();
+        res.status(201).send({ message: "success"});
+        
+    }
+    catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+} 
+
+module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData,getFurnitureDiningData,getFurnitureDiningIndividualData,getFurnitureKitchenData,getFurnitureKitchenIndividualData,getFurnitureRecreationData,getFurnitureRecreationIndividualData,getFurnitureKidsRoomData,getFurnitureKidsRoomIndividualData,searchFurniture, getTotalProductsAdminSide , deleteProductAdminSide };
 
