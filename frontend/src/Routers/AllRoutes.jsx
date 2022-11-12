@@ -12,8 +12,9 @@ const AllRoutes = () => {
   return (
     <>
     <Navbar />
-    <ProductPage />
+    {/* <ProductPage /> */}
     {/* <Cart /> */}
+    <SingleProduct />
     </>
     // <Routes>
     //   <Route path="/signup" element={<SignUp />} />
