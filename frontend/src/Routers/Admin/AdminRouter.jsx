@@ -10,6 +10,8 @@ import Pricing from '../../Pages/Admin/Pricing'
 import NewProducts from '../../Pages/Admin/Products/NewProducts'
 import Products from '../../Pages/Admin/Products/Products'
 import Setting from '../../Pages/Admin/Setting'
+import PriceIn from '../../Pages/Admin/PriceIn'
+import DiscountIn from '../../Pages/Admin/DiscountIn'
 
 const Router = () => {
   return (
