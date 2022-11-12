@@ -15,6 +15,9 @@ import {
   TableContainer,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
+import ProductsTable from '../../../Components/Admin/Table/ProductsTable/ProductsTable';
+import { useDispatch } from 'react-redux';
+import { getProductsAdminSide } from '../../../Store/Admin/products.action';
 
 
 
@@ -22,9 +25,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     window.document.title = "Welcome Admin - Products";
+    dispatch(getProductsAdminSide());
   }, []);
 
   const redirect = () => {
@@ -58,16 +64,17 @@ const Products = () => {
           <Table size='sm'>
             <Thead>
               <Tr>
+
                 <Th>Name</Th>
-                <Th>Collection</Th>
-                <Th>Status</Th>
-                <Th>Inventory</Th>
+                <Th>SubName</Th>
+                <Th>Price</Th>
+                <Th>Original Price</Th>
                 <Th>Edit</Th>
                 
               </Tr>
             </Thead>
             <Tbody>
-              
+              <ProductsTable/>
             </Tbody>
           </Table>
         </TableContainer>

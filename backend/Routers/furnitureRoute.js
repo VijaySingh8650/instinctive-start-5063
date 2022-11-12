@@ -1,5 +1,7 @@
 const express = require("express");
+
 const { PostFurnitureData, getFurnitureBedroomData, getFurnitureMattresData, getFurnitureLivingData, getFurnitureBedroomIndividualData, getFurnitureMattresIndividualData, getFurnitureLivingIndividualData, searchFurniture, getFurnitureDiningData, getFurnitureDiningIndividualData, getFurnitureKidsRoomData, getFurnitureKitchenData, getFurnitureKitchenIndividualData, getFurnitureRecreationData, getFurnitureRecreationIndividualData, getFurnitureKidsRoomIndividualData} = require("../Controllers/furnitureControllers");
+
 const app = express();
 app.use(express.json());
 
@@ -7,6 +9,7 @@ app.use(express.json());
 // Post Furniture Data
 //search furniture data
 app.route("/").get(searchFurniture).post(PostFurnitureData);
+
 
 // Bedroom Data
 app.route("/bedroom").get(getFurnitureBedroomData);
@@ -40,5 +43,11 @@ app.route("/kids/:id").get(getFurnitureKidsRoomIndividualData);
 
 
 
+
+
+
+
+//for admin use only
+app.route("/products").get(getTotalProductsAdminSide);
 
 module.exports = app;
