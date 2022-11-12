@@ -20,6 +20,8 @@ const furnitureColorSchema = new mongoose.Schema({
     coral: { type: String },
     cederGreen: { type: String },
     navy: { type: String },
+    size: { type: String, enum: ["King", "Queen", "Twin","Twin XL","Full","California King"] },
+    price:{type:Number}
     
    },
    { timestamps: true }
