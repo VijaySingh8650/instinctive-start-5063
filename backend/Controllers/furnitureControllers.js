@@ -93,9 +93,28 @@ const getFurnitureLivingIndividualData = async (req, res) => {
 
 //get Dining room data
 const getFurnitureDiningData = async (req, res) => {
+    const {orderby, max, min } = req.query;
+    let queryObj = {};
+    
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
     
     try {
-        const diningData = await Furniture.find({subSet:"Dining Room & Bar Furniture"});
+        const diningData = await Furniture.find({subSet:"Dining Room & Bar Furniture",...queryObj}).sort({price:orderby});
         res.status(200).send({ message: "success",total:diningData.length, diningRoom: diningData });
     }
     catch (err) {
@@ -119,9 +138,28 @@ const getFurnitureDiningIndividualData = async (req, res) => {
 
 //get Kitchen data
 const getFurnitureKitchenData = async (req, res) => {
+    const {orderby, max, min } = req.query;
+    let queryObj = {};
+    
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
     
     try {
-        const kitchenData = await Furniture.find({subSet:"Kitchen Furniture"});
+        const kitchenData = await Furniture.find({subSet:"Kitchen Furniture",...queryObj}).sort({price:orderby});
         res.status(200).send({ message: "success",total:kitchenData.length, kitchenRoom: kitchenData });
     }
     catch (err) {
@@ -146,9 +184,29 @@ const getFurnitureKitchenIndividualData = async (req, res) => {
 //get recreation data game
 
 const getFurnitureRecreationData = async (req, res) => {
+    const {orderby, max, min } = req.query;
+    let queryObj = {};
+    
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
+
     
     try {
-        const recreationData = await Furniture.find({subSet:" Recreation Room"});
+        const recreationData = await Furniture.find({subSet:" Recreation Room",...queryObj}).sort({price:orderby});
         res.status(200).send({ message: "success",total:recreationData.length, recreationRoom: recreationData });
     }
     catch (err) {
@@ -172,9 +230,29 @@ const getFurnitureRecreationIndividualData = async (req, res) => {
 //get kids room data
 const getFurnitureKidsRoomData = async (req, res) => {
     const { subset, orderby } = req.query;
+    let queryObj = {};
+    
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
+
+    
     
     try {
-        const kidsData = await Furniture.find({subSet:" Kids & Toddler Furniture"});
+        const kidsData = await Furniture.find({subSet:" Kids & Toddler Furniture",...queryObj}).sort({price:orderby});
         res.status(200).send({ message: "success",total:kidsData.length, kidsRoom: kidsData });
     }
     catch (err) {
