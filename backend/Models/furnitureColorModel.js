@@ -16,6 +16,10 @@ const furnitureColorSchema = new mongoose.Schema({
     lightGrey: { type: String },
     charcoal: { type: String },
     mint: { type: String },
+    aqua: { type: String },
+    coral: { type: String },
+    cederGreen: { type: String },
+    navy: { type: String },
     
    },
    { timestamps: true }

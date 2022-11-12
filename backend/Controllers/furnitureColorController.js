@@ -1,14 +1,19 @@
 const FurnitureColor = require("../Models/furnitureColorModel");
 
 const postFurnitureColor = async (req, res) => {
-    
+    console.log("Inside");
     try {
-        const furnitureColorPost = await FurnitureColor.create({ ...req. body });
-        res.status(200).send({ message: "success", data: furnitureColorPost});
+        const furnitureColorPost = await FurnitureColor.create({ ...req.body });
+        console.log(furnitureColorPost);
+        res.status(201).send({ message: "success", data: furnitureColorPost});
     }
     catch (err) {
         res.status(500).send({ error: err.message }); 
     }
 }
 
-module.exports = { postFurnitureColor };
+const getFurnitureColor =  (req, res) => {
+    res.send("Hello I am inside of the furniture color ")
+}
+
+module.exports = { postFurnitureColor, getFurnitureColor };
