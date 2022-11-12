@@ -140,13 +140,8 @@ const getFurnitureLivingIndividualData = async (req, res) => {
     const { id } = req.params;
     try {
         const livingRoomData = await Furniture.find({ _id: id });
-        const livingColorandSize = await FurnitureColor.find({furnitureId: id });
-        res.status(200).send({ message: "success", livingRoom: livingRoomData, colorAndSizeLength:livingColorandSize.length, ColorAndSize:livingColorandSize});
-
-    try {
-        const livingRoomData = await Furniture.find({ subSet: "Living Room Furniture", ...queryObj }).sort({ price: orderby });
-        
-        res.status(200).send({ message: "success",total:livingRoomData.length, livingRoom: livingRoomData});
+        const livingColorandSize = await FurnitureColor.find({ furnitureId: id });
+        res.status(200).send({ message: "success", livingRoom: livingRoomData, colorAndSizeLength: livingColorandSize.length, ColorAndSize: livingColorandSize });
     }
     catch (err) {
        res.status(500).send({ error: err.message }); 
@@ -314,5 +309,5 @@ const getTotalProductsAdminSide = async (req, res) => {
     }
 }
 
-module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData,getFurnitureDiningData,getFurnitureDiningIndividualData,getFurnitureKitchenData,getFurnitureKitchenIndividualData,getFurnitureRecreationData,getFurnitureRecreationIndividualData,getFurnitureKidsRoomData,getFurnitureKidsRoomIndividualData,searchFurniture };
+module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData,getFurnitureDiningData,getFurnitureDiningIndividualData,getFurnitureKitchenData,getFurnitureKitchenIndividualData,getFurnitureRecreationData,getFurnitureRecreationIndividualData,getFurnitureKidsRoomData,getFurnitureKidsRoomIndividualData,searchFurniture, getTotalProductsAdminSide  };
 

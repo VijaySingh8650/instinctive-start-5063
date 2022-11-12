@@ -6,7 +6,7 @@ const initialValue = {
     adminProducts:""
 }
 
- export const productsAdminSideReducer = (state=initialValue, {type,payload}) => {
+export const productsAdminSideReducer = (state=initialValue, {type,payload}) => {
      switch (type) {
          case ADMIN_PRODUCTS_LOADING: {
              return {

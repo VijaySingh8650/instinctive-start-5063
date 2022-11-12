@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { PostFurnitureData, getFurnitureBedroomData, getFurnitureMattresData, getFurnitureLivingData, getFurnitureBedroomIndividualData, getFurnitureMattresIndividualData, getFurnitureLivingIndividualData, searchFurniture, getFurnitureDiningData, getFurnitureDiningIndividualData, getFurnitureKidsRoomData, getFurnitureKitchenData, getFurnitureKitchenIndividualData, getFurnitureRecreationData, getFurnitureRecreationIndividualData, getFurnitureKidsRoomIndividualData} = require("../Controllers/furnitureControllers");
+const { PostFurnitureData, getFurnitureBedroomData, getFurnitureMattresData, getFurnitureLivingData, getFurnitureBedroomIndividualData, getFurnitureMattresIndividualData, getFurnitureLivingIndividualData, searchFurniture, getFurnitureDiningData, getFurnitureDiningIndividualData, getFurnitureKidsRoomData, getFurnitureKitchenData, getFurnitureKitchenIndividualData, getFurnitureRecreationData, getFurnitureRecreationIndividualData, getFurnitureKidsRoomIndividualData, getTotalProductsAdminSide} = require("../Controllers/furnitureControllers");
 
 const app = express();
 app.use(express.json());
