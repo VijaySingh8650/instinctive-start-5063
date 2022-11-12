@@ -3,6 +3,7 @@ import React from 'react'
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillStar  } from 'react-icons/ai';
 import { BiHeartCircle  } from 'react-icons/bi';
+
 let data=[
           {
             image:"https://ak1.ostkcdn.com/images/products/is/images/direct/466343107cab3e7c879f53099991f03c082bcca1/Modern-Arched-Mirror-Full-length-Floor-Mirror-with-Standing.jpg?imwidth=480&impolicy=medium",
@@ -110,6 +111,7 @@ const ProductPage = () => {
     <Flex gap="2%" width='98%' m="auto" height="auto" mb="140px">
       
           {/* ////////////// Filter By/////////////// */}
+          <Hide below="sm">
         <Box  position={"sticky"} top={"120px"} width="20%" height="320px">
 
         <Flex flexDir={"column"} gap="10px" >
@@ -121,12 +123,12 @@ const ProductPage = () => {
          <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Brand</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
          <Hide below="md"><Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Customer Ratings</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button> </Hide>
          <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Types</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Availability</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
+         <Hide below="md"><Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Availability</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button></Hide>
          </Flex>
           </Box>
-         
+          </Hide>
 
-      <SimpleGrid columns={[1,2,3,3]} width="80%" pl="1%" pr="1%" rowGap={"1.5%"} >
+      <SimpleGrid columns={[1,2,3,3]} width="80%" pl="1%" pr="1%" rowGap={"20px"} m="auto" >
 
           {/* //////////////// Product display card ///////////////// */}
           {data && data.map((el)=>{

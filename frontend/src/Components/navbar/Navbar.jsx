@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Flex, Image, Input, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Input, Text, SimpleGrid, Hide } from "@chakra-ui/react";
 import logo from "./images/logo.png";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { BsPerson } from "react-icons/bs";
@@ -24,7 +24,9 @@ const Navbar = () => {
       <Flex p=".5rem" justifyContent="space-between" pl="3%" pr="3%" >
         <Flex align="center" gap="10px">
         <Image src={logo} alt="logo" width="38px"></Image>
+        <Hide below="lg">
         <Text color="#bf9852" fontSize="20px" fontWeight={500}>HomeDecor</Text>
+        </Hide>
         </Flex>
         <Flex alignItems="center" bgColor="#f5f5f6" width="60%" pl=".6rem" borderRadius="5px">
           <Box width="6%">
@@ -45,12 +47,12 @@ const Navbar = () => {
           <Box ><BsPerson size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Profile</Text>
         </Flex>
-
+        <Hide below="lg">
         <Flex flexDir="column"  align="center">
           <Box ><AiOutlineHeart size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Wishlist</Text>
         </Flex>
-
+        </Hide>
         <Flex flexDir="column"  align="center">
           <Box ><BsCart3 size="20px" color="#717288"  /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Bag</Text>
@@ -67,14 +69,19 @@ const Navbar = () => {
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Rugs</Button>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Decor</Button>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Bedding</Button>
+        <Hide below="lg">
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Home Improvement</Button>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Kitchen</Button>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Outdoor</Button>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Lighting</Button>
+        </Hide>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Kids & Baby</Button>
         <Button variant="unstyled" fontSize="13px" fontWeight="400">More</Button>
+        <Hide below="md">
         <Button variant="unstyled" fontSize="13px" fontWeight="400" color='grey'>|</Button>
+       
         <Button variant="unstyled" fontSize="13px" fontWeight="400">Ideas</Button>
+        </Hide>
         <Button variant="unstyled" fontSize="13px" fontWeight="400" color="red">Sales & Deals</Button>
 
         <Menu  >
