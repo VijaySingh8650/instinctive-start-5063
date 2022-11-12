@@ -171,6 +171,7 @@ const getFurnitureRecreationIndividualData = async (req, res) => {
 
 //get kids room data
 const getFurnitureKidsRoomData = async (req, res) => {
+    const { subset, orderby } = req.query;
     
     try {
         const kidsData = await Furniture.find({subSet:" Kids & Toddler Furniture"});
