@@ -22,7 +22,7 @@ let data=[
 
 const SingleProduct = () => {
   return (
-    <Box mt="8%" width="100%" align="left" pl="2%">
+    <Box mt="8%" width="100%" align="left">
         <Text p="1%" fontSize="14px" >Home Decor / Rugs / Area Rugs / Transitional Rugs</Text>
 
         {/* ////////////////// Single product display card ///////////// */}
@@ -53,7 +53,7 @@ const SingleProduct = () => {
                         <option>Quantity: 3</option>
                         <option>Quantity: 4</option>
                         <option>Quantity: 5</option>
-                        <option>Quantity: 5</option>
+                        <option>Quantity: 6</option>
                         <option>Quantity: 7</option>
                         <option>Quantity: 8</option>
                         <option>Quantity: 9</option>

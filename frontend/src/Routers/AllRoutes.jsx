@@ -7,14 +7,15 @@ import SignUp from "../Pages/Signup/Signup";
 import Navbar from "../Components/navbar/Navbar";
 import Cart from "../Components/cart/Cart";
 import SingleProduct from "../Components/singleProduct/SingleProduct";
+import ProductPage from "../Components/productpage/ProductPage";
 
 const AllRoutes = () => {
   return (
     <>
     <Navbar />
-    {/* <ProductPage /> */}
-    {/* <Cart /> */}
-    <SingleProduct />
+    <ProductPage />
+    <Cart />
+    {/* <SingleProduct />  // need to work on single page responsiveness */}
     </>
     // <Routes>
     //   <Route path="/signup" element={<SignUp />} />

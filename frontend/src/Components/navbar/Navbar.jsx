@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <Box width="100%" boxShadow="rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" position="fixed" top={0} bgColor="white" zIndex={4}>
       {/* ///////////////// Nav 1 ////////////// */}
-      <Flex p=".5rem" justifyContent="space-between" pl="3%" pr="3%" >
+      <Flex p=".5rem" justifyContent="space-between" pl="3%" pr="3%">
         <Flex align="center" gap="10px">
         <Image src={logo} alt="logo" width="38px"></Image>
         <Hide below="lg">
