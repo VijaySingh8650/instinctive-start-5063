@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../Models/userModel");
+
 const access_key = process.env.access_secret_key;
 const refresh_key = process.env.refresh_secret_key;
 
@@ -17,7 +18,7 @@ const SignUp = async(req,res)=>{
       const hashedPassword = await bcrypt.hash(password,10)
       const newUser = await User.create({email,password:hashedPassword});
       newUser.save();
-      return res.status(200).send("SignUp Successfully");
+      return res.status(200).send({message:"SignUp Successfully"});
    }catch(err){
     res.status(500).send(err.message)
    }
@@ -38,43 +39,14 @@ const SignIn = async(req,res)=>{
       }
       const accessToken = jwt.sign({id:user._id},access_key,{expiresIn:"25m"});
       const refreshToken = jwt.sign({id:user._id},refresh_key,{expiresIn:"7d"});
-      return res.status(200).send({message:"Logged Successfully",accessToken,refreshToken})
+      return res.status(200).send({message:"Log In Successfully",accessToken,refreshToken,email})
     }catch(err){
         res.status(500).send(err.message)
     }
  };
 
- const ForgotPassword = async(req,res)=>{
-   const {email} = req.body;
-   console.log(email);
-   try{
-      const oldUser = await User.findOne({email});
-      if(!oldUser){
-         return res.status(404).json({status:"User Doesn't Exist"})
-      }
-      let secret = access_key+oldUser.password;
-      const token = jwt.sign({email:oldUser.email,id:oldUser._id},secret,{expiresIn:"5min"});
-      const link = `http://localhost:7000/reset-password/${oldUser._id}/${token}`;
-      console.log(link);
-      return res.send(link)
-   }catch(err){
-      res.status(500).send(err.message);
-   }
- }
 
- const ResetPassword = async(req,res)=>{
-   const {id,token} = req.params;
-   console.log(req.params)
-   const oldUser = await User.findOne({_id:id});
-   if(!oldUser){
-      return res.status(404).json({status:"User Doesn't Exist"})
-   }
-   let secret = access_key+oldUser.password;
-   try{
-     const verify = jwt.verify(token,secret);
-     return res.status(200).send("Verified")
-   }catch(err){
-      res.status(500).send(err.message)
-   }
- }
- module.exports = {SignUp,SignIn,ForgotPassword,ResetPassword};
+
+ 
+
+ module.exports = {SignUp,SignIn};

@@ -1,12 +1,32 @@
 .signin{
-    width: 40%;
-    background-color: rgb(214, 210, 210);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   border-radius: 10px;
+    width:40%;
+    margin-top: px;
+    background: #fffaf7;
     margin: auto;
-    height: 400px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+   border-radius: 10px;
+    padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 40px;
+}
+.text1{
+    color: black;
+    font-weight: bold;
+    text-align: end;
+}
+
+
+@media screen and (max-width:950px){
+    
+    .signin{
+        width:90%;
+        margin: auto;
+        /* border: 1px solid #FA5D00 ; */
+        padding: 30px;
+    }
+    .text1{
+        color: black;
+        font-weight: bold;
+        text-align: end;
+        font-size: x-small;
+
+    }
 }
