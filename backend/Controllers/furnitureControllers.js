@@ -16,11 +16,29 @@ const PostFurnitureData = async (req,res) => {
 }
 
 
-// get bedrrom data
+// get bedroom data
 const getFurnitureBedroomData = async (req, res) => {
+    const {orderby, max, min } = req.query;
+    let queryObj = {};
     
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
     try {
-        const bedroomData = await Furniture.find({subSet:"Bedroom Furniture"});
+        const bedroomData = await Furniture.find({subSet:"Bedroom Furniture", ...queryObj}).sort({price:orderby});
         res.status(200).send({ message: "success",total:bedroomData.length, bedroom: bedroomData });
     }
     catch (err) {
@@ -44,9 +62,27 @@ const getFurnitureBedroomIndividualData = async (req, res) => {
 
 //get mattresses data
 const getFurnitureMattresData = async (req, res) => {
+    const {orderby, max, min } = req.query;
+    let queryObj = {};
     
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
     try {
-        const mattressesData = await Furniture.find({subSet:"Mattresses"});
+        const mattressesData = await Furniture.find({subSet:"Mattresses", ...queryObj}).sort({price:orderby});
         res.status(200).send({ message: "success",total:mattressesData.length, mattresses: mattressesData });
     }
     catch (err) {
@@ -70,9 +106,28 @@ const getFurnitureMattresIndividualData = async (req, res) => {
 
 //get living room data
 const getFurnitureLivingData = async (req, res) => {
+    const {orderby, max, min } = req.query;
+    let queryObj = {};
+    
+    
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
+    let asc;
+    if (orderby === "desc") {
+            asc = -1;
+    } else {
+            asc = 1;
+    }
     
     try {
-        const livingRoomData = await Furniture.find({ subSet: "Living Room Furniture" });
+        const livingRoomData = await Furniture.find({ subSet: "Living Room Furniture", ...queryObj }).sort({ price: orderby });
         
         res.status(200).send({ message: "success",total:livingRoomData.length, livingRoom: livingRoomData});
     }
@@ -95,7 +150,21 @@ const getFurnitureLivingIndividualData = async (req, res) => {
 
 
 const searchFurniture = async (req, res) => {
-    const { subset, orderby } = req.query;
+    const { subset, orderby, max, min } = req.query;
+    let queryObj = {};
+    queryObj.subset = subset;
+    if (subset) {
+        queryObj.subset = { $regex: subset, $options: "i" };
+    }
+    if (min) {
+        queryObj.price = { $gt: min };
+    }
+    if (max) {
+        queryObj.price = { $lt: max };
+    }
+    if (max && min) {
+        queryObj.price = {$gt:min, $lt:max}
+    }
     try {
         let asc;
         if (orderby === "desc") {
@@ -103,7 +172,11 @@ const searchFurniture = async (req, res) => {
         } else {
             asc = 1;
         }
-        const newFurniture = await Furniture.find({ subSet: { $regex: subset, $options: "i" }, price:{$gt:1000, $lt:4000} }).sort({price:asc});
+        if (!subset) {
+
+            return res.status(404).send({ message: "Nothing Found" });
+        }
+        const newFurniture = await Furniture.find(queryObj).sort({price:asc});
         res.send({total:newFurniture.length, data:newFurniture});
     }
     catch (err) {
