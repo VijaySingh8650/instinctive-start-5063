@@ -5,7 +5,7 @@ const connectDB = require("./ConnectDB/db")
 const port = process.env.PORT || 8080;
 const userRouter = require("./Routers/userRoute");
 const furnitureRouter = require("./Routers/furnitureRoute");
-const furniturecolroRouter = require("./Routers/furnitureColorsRoute");
+const furniturecolorRouter = require("./Routers/furnitureColorsRoute");
 const furnituresizeRouter = require("./Routers/furnitureSizeRoute");
 
 
@@ -14,10 +14,12 @@ app.use(cors({
     origin: "http://localhost:3000",
     successStatus: 200,
 }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use("/",userRouter);
 app.use("/furniture",furnitureRouter);
-app.use("/furniture-color",furniturecolroRouter);
+app.use("/furniture-color",furniturecolorRouter);
 app.use("/furniture-size",furnituresizeRouter);
 
 

@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 
-app.route("/").get().post(postFurnitureSize);
+app.route("/").post(postFurnitureSize);
 
 
 
