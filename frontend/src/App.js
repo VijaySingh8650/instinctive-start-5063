@@ -1,20 +1,12 @@
+import './App.css';
+import AllRoutes from './Routers/AllRoutes';
 
-import "./App.css";
-import Routes from "./Pages/Routes";
 
 function App() {
-
-
-
   return (
-    <div className="App">
+   <>
+      <AllRoutes/>
 
-{/* 
-      <Routes /> */}
-
-
-    </div>
+   </>
   );
 }
-
-export default App;
