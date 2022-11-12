@@ -6,7 +6,9 @@ const port = process.env.PORT || 8080;
 const userRouter = require("./Routers/userRoute");
 const furnitureRouter = require("./Routers/furnitureRoute");
 const furniturecolorRouter = require("./Routers/furnitureColorsRoute");
-const notFoundURL = require("./Middlewares/NotFoundURL");
+
+const notFoundURL = require("./Middlewares/notFoundURL");
+
 
 const app = express();
 app.use(cors({
