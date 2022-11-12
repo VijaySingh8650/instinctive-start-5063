@@ -103,6 +103,7 @@ const getFurnitureMattresIndividualData = async (req, res) => {
 
 
 
+
 //get living room data
 const getFurnitureLivingData = async (req, res) => {
     const {orderby, max, min } = req.query;
@@ -125,6 +126,7 @@ const getFurnitureLivingData = async (req, res) => {
             asc = 1;
     }
     
+
     try {
         const livingRoomData = await Furniture.find({ subSet: "Living Room Furniture", ...queryObj }).sort({ price: orderby });
         
@@ -138,8 +140,8 @@ const getFurnitureLivingIndividualData = async (req, res) => {
     const { id } = req.params;
     try {
         const livingRoomData = await Furniture.find({ _id: id });
-        const livingColorandSize = await FurnitureColor.find({furnitureId: id });
-        res.status(200).send({ message: "success", livingRoom: livingRoomData, colorAndSizeLength:livingColorandSize.length, ColorAndSize:livingColorandSize});
+        const livingColorandSize = await FurnitureColor.find({ furnitureId: id });
+        res.status(200).send({ message: "success", livingRoom: livingRoomData, colorAndSizeLength: livingColorandSize.length, ColorAndSize: livingColorandSize });
     }
     catch (err) {
        res.status(500).send({ error: err.message }); 
@@ -152,6 +154,7 @@ const getFurnitureDiningData = async (req, res) => {
     try {
         const diningData = await Furniture.find({subSet:"Dining Room & Bar Furniture"});
         res.status(200).send({ message: "success",total:diningData.length, diningRoom: diningData });
+
     }
     catch (err) {
        res.status(500).send({ error: err.message }); 
@@ -289,4 +292,22 @@ const searchFurniture = async (req, res) => {
 }
 
 
-module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData,getFurnitureDiningData,getFurnitureDiningIndividualData,getFurnitureKitchenData,getFurnitureKitchenIndividualData,getFurnitureRecreationData,getFurnitureRecreationIndividualData,getFurnitureKidsRoomData,getFurnitureKidsRoomIndividualData,searchFurniture };
+
+
+
+
+//for admin use only
+const getTotalProductsAdminSide = async (req, res) => {
+    try {
+        const totalProducts = await Furniture.find({});
+
+        res.status(200).send({ message: "success", total: totalProducts.length, products: totalProducts });
+
+    }
+    catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+module.exports = { PostFurnitureData,getFurnitureBedroomData,getFurnitureBedroomIndividualData , getFurnitureMattresData, getFurnitureMattresIndividualData, getFurnitureLivingData, getFurnitureLivingIndividualData,getFurnitureDiningData,getFurnitureDiningIndividualData,getFurnitureKitchenData,getFurnitureKitchenIndividualData,getFurnitureRecreationData,getFurnitureRecreationIndividualData,getFurnitureKidsRoomData,getFurnitureKidsRoomIndividualData,searchFurniture, getTotalProductsAdminSide  };
+
