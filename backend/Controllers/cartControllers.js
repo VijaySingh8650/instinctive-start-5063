@@ -11,17 +11,29 @@ const addProductsInCart = async (req, res) => {
 
         if (cart) {
 
-            const index = cart.item.findIndex((product) => product.productId.toString() === productId); 
+            const index = cart.item.findIndex((product) => product.productId._id.toString() === productId); 
             
             if (index > -1) {
                 //product is there in cart of user
                 
                 
+                if (size) {
+                    
+                    cart.item[index].size = size;
+                }
+                if (color) {
+                    
+                    cart.item[index].color = color;
+                }
+                if (quantity) {
+                    
+                    cart.item[index].quantity = quantity;
+                }
+                if (price) {
+                    
+                    cart.item[index].price = price;
+                }
                 
-                cart.item[index].size = size;
-                cart.item[index].color = color;
-                cart.item[index].quantity = quantity;
-                cart.item[index].price = price;
                 cart.item[index].total = quantity*price;
             } 
             else {
@@ -36,7 +48,7 @@ const addProductsInCart = async (req, res) => {
             cart.subTotal = cart.item.map(item => item.total).reduce((acc, next) => acc + next);
             
             let data =await cart.save();
-            Cart.find({ userId }).populate("productId");
+            
             res.status(200).send({ message: "success", total: cart.item.length, cart: data});
 
            
@@ -61,4 +73,38 @@ const addProductsInCart = async (req, res) => {
     }
 }
 
-module.exports = {addProductsInCart}
+const deleteProductsInCart = async (req, res) => {
+    const { userId } = req.body;
+    const { id } = req.params;
+    try {
+        const cart = await Cart.findOne({ userId });
+        
+        
+        if (cart) {
+            const index = cart.item.findIndex((product) => product.productId._id.toString() === id);
+            if (index > -1) {
+                
+                const deleteProduct = cart.item.find((product) => product.productId._id.toString() === id);
+                cart.item.splice(index, 1);
+                cart.subTotal = cart.subTotal - (deleteProduct.total);
+                
+                let data = await cart.save();
+                
+                
+                res.status(201).send({message:"success"});
+            } else {
+                res.status(400).send("Nothing Found");
+            }
+            
+        } 
+        else {
+            res.status(401).send("Unauthorised");
+            
+        }
+    }
+    catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+module.exports = {addProductsInCart, deleteProductsInCart}
