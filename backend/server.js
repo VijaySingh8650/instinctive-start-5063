@@ -136,8 +136,6 @@ app.post("/reset-password/:id/:token",async(req,res)=>{
 	      },
 	    }
 	  );
-	  
-  
 	  res.render("index", { email: verify.email, status: "verified" });
 	}catch(err){
 	   res.status(500).send(err.message)
