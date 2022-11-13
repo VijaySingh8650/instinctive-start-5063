@@ -1,5 +1,5 @@
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Container, Flex, Input, Radio, Select, Text } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Container, Flex, Input, Radio, Select, Text, RadioGroup } from '@chakra-ui/react'
 import React from 'react'
 
 const PriceIn = () => {
@@ -34,8 +34,8 @@ const PriceIn = () => {
                     <AccordionPanel pb={4}>
                         <Flex gap={8}>
 
-                            <Flex><Box boxShadow='xs' p='8 ' pl='2rem' rounded='md' bg='white'><Radio /><Text>Sale</Text><Text>Use is if you are creating prices for a sale.</Text></Box><Box></Box><Box></Box></Flex>
-                            <Flex><Box boxShadow='xs' p='6' pl='2rem' rounded='md' bg='white'><Radio /><Text>Override</Text><Text>Use this to override prices.</Text></Box></Flex>
+                            <Flex><Box boxShadow='xs' p='8 ' pl='2rem' rounded='md' bg='white'><RadioGroup defaultValue=''><Radio value='2'><Text>Sale</Text><Text>Use is if you are creating prices for a sale.</Text></Radio></RadioGroup></Box><Box></Box><Box></Box></Flex>
+                            <Flex><Box boxShadow='xs' p='6' pl='2rem' rounded='md' bg='white'><RadioGroup defaultValue=''><Radio value='2'><Text>Override</Text><Text>Use this to override prices.</Text></Radio></RadioGroup></Box></Flex>
                             </Flex>
 
                     </AccordionPanel>

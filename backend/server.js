@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("./Models/userModel");
@@ -13,6 +14,18 @@ const furnitureRouter = require("./Routers/furnitureRoute");
 const furniturecolorRouter = require("./Routers/furnitureColorsRoute");
 const access_key = process.env.access_secret_key;
 const nodemailer = require('nodemailer');
+
+const cors = require("cors")
+const connectDB = require("./ConnectDB/db")
+const port = 8080;
+const userRouter = require("./Routers/userRoute");
+const furnitureRouter = require("./Routers/furnitureRoute");
+const furniturecolorRouter = require("./Routers/furnitureColorsRoute");
+const cartRouter = require("./Routers/cartRoute");
+
+const notFoundURL = require("./Middlewares/notFoundURL");
+
+
 
 const app = express();
 app.use(
@@ -127,6 +140,7 @@ app.post("/forgot-password", async (req, res) => {
   }
 });
 
+
 app.get("/reset-password/:id/:token", async (req, res) => {
   const { id, token } = req.params;
   console.log(req.params);
@@ -178,6 +192,15 @@ app.post("/reset-password/:id/:token",async(req,res)=>{
 
 
 //Port is listening
+
+app.use("/",userRouter);
+app.use("/api/furniture",furnitureRouter);
+app.use("/api/furniture-color",furniturecolorRouter);
+app.use("/api/cart",cartRouter);
+
+
+app.use(notFoundURL);
+
 
 app.listen(port, async () => {
   await connectDB();

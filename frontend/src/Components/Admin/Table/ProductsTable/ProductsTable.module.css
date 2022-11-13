@@ -1,0 +1,19 @@
+.row {
+    transition: all 0.3s;
+    
+}
+
+.row:hover {
+    background-color: #cdd0d2;
+}
+
+.icon_products{
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.edit_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

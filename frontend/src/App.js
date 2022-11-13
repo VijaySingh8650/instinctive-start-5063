@@ -3,9 +3,13 @@ import AllRoutes from "./Routers/AllRoutes";
 
 function App() {
   return (
-    <>
-      <AllRoutes />
-    </>
+
+   <>
+      <AllRoutes/>
+      
+   </>
+
   );
 }
+
 export default App;
