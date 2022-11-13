@@ -1,11 +1,11 @@
 require("dotenv").config();
-const express = require("express");
+require("./Google_oAuth/google_oauth");
 
+const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("./Models/userModel");
 const passport = require("passport");
-require("./Google_oAuth/google_oauth");
 const connectDB = require("./ConnectDB/db");
 const port = process.env.PORT || 8080;
 const userRouter = require("./Routers/userRoute");
@@ -16,8 +16,8 @@ const nodemailer = require('nodemailer');
 const cors = require("cors")
 const cartRouter = require("./Routers/cartRoute");
 const notFoundURL = require("./Middlewares/notFoundURL");
-
 const app = express();
+
 app.use(
   cors({
     origin: "http://localhost:3000",
