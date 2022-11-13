@@ -27,6 +27,7 @@
   width: 1.5rem;
   height: 1.5rem;
   padding: .1rem;
+  cursor: pointer;
 }
 .sideNavbar{
   width: 15rem;
@@ -106,6 +107,13 @@
 .content::-webkit-scrollbar-thumb {
   background: rgb(209, 212, 219);
 }
+
+.edit_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 @media screen and (max-width:850px) {
   .sideNames{
