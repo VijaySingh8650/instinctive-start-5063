@@ -18,7 +18,14 @@
     margin-bottom: 30px;
     margin-top: 10px;
 }
-
+.text{
+   text-align: center;
+   padding-top: 60px;
+   padding-bottom: 20px;
+   color:green.300;
+   font-size: 34px;
+   font-weight: bold;
+}
 
 @media screen and (max-width:950px){
     
@@ -46,4 +53,12 @@
     .text2{
         font-size: x-small;
     }
+    .text{
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 20px;
+        color: green.200;
+        font-size: 18px;
+        font-weight: bold;
+     }
 }
