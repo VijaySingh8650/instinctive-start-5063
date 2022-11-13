@@ -92,13 +92,13 @@ const Cart = () => {
   return (
      <>
     <Box mt={"8%"} /*border="1px solid black"*/  mb="1%">
-      <Image width="100%" height="100px" src={adv} alt="image"  />
+      <Image width="100%" height="68px" src={adv} alt="image"  />
       <Box  /*border="1px solid green"*/ mt="1%" width="100%">
-        <Flex justifyContent={"space-between"}>
+        <Flex justifyContent={"space-between"} flexDir={["column","column","column","row"]}>
           {/* Cart box */}
 
        
-          <Box width="70%" /*border="1px solid red"*/ minH="550px" >
+          <Box width={["100%","100%","100%","70%"]} /*border="1px solid red"*/ minH="550px" >
 
           <Card cartItem={cartItem} />
           {/* <Card />
@@ -111,7 +111,7 @@ const Cart = () => {
              
           {/* Amount description box */}
 
-          <Flex flexDir={"column"} gap="12px" width="30%" position="sticky" top="70px" pl="1.5em" pt="1em" pr="1.5em" borderRadius={"10px"} mr="20px" columnGap="10px" height="500px" boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em" >
+          <Flex flexDir={"column"} gap="12px"width={["100%","100%","100%","30%"]} position="sticky" top="120px" pl="1.5em" pt="1em" pr="1.5em" borderRadius={"10px"} mr="20px" columnGap="10px" height="500px" boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em" >
           <Text fontSize={"20px"} fontWeight="600" mb="15px">Order Details</Text>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag total </Text><Text fontWeight={"600"}>₹1000.00/-</Text></Flex>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag discount </Text><Text fontWeight={"600"}>- ₹560/-</Text></Flex>
