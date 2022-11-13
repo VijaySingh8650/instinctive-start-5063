@@ -56,7 +56,7 @@ export const Wishlist = () => {
   }
 
   return (
-    <Box marginTop="30px">
+    <Box marginTop="130px">
       <Flex gap="60%" marginLeft="2rem">
         <Heading textAlign={"start"} fontWeight="bold">
           Your Wishlist:
