@@ -14,13 +14,12 @@ import Category from "../Components/category/Category";
 const AllRoutes = () => {
   return (
     <>
-    <Navbar />
-    {/* <Category /> */}
-    {/* <ProductPage /> */}
-    <SingleProduct />
-    {/* <Cart /> */}
-    <Footer/>
-    {/*   // need to work on single page responsiveness */}
+   <Routes>
+    //   <Route path="/" element={<><Navbar /><ProductPage /><Footer /></>} />
+    //   <Route path="/furniture" element={<><Navbar /><Category/><Footer /></>} />
+    //   <Route path="/furniture/:id" element={<><Navbar /><SingleProduct/><Footer /></>} />
+    //   <Route path="/cart" element={<><Navbar /><Cart/><Footer /></>}></Route>
+    // </Routes>
     </>
     // <Routes>
     //   <Route path="/signup" element={<SignUp />} />

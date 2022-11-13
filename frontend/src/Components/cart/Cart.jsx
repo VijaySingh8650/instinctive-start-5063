@@ -32,7 +32,7 @@ const Cart = () => {
 
   return (<>
     <Box mt="10%">
-    { data? <>
+    { data==[] ? <>
         <Box  width="96%" m="auto" >
         <Text fontWeight="400" fontSize="20px">Shopping Cart</Text>
         <Flex flexDir={  ["column","column","row"]}  mt="2%" justifyContent="space-between"  >

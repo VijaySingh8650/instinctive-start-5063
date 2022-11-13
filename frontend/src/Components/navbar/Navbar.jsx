@@ -15,6 +15,7 @@ import {
   MenuOptionGroup,
   MenuDivider
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -22,12 +23,12 @@ const Navbar = () => {
     <Box width="100%" boxShadow="rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" position="fixed" top={0} bgColor="white" zIndex={4}>
       {/* ///////////////// Nav 1 ////////////// */}
       <Flex p=".5rem" justifyContent="space-between" pl="3%" pr="3%">
-        <Flex align="center" gap="10px">
+      <Link to="/"><Flex align="center" gap="10px">
         <Image src={logo} alt="logo" width="38px"></Image>
         <Hide below="lg">
         <Text color="#bf9852" fontSize="20px" fontWeight={500}>HomeDecor</Text>
         </Hide>
-        </Flex>
+        </Flex></Link>
         <Flex alignItems="center" bgColor="#f5f5f6" width="60%" pl=".6rem" borderRadius="5px">
           <Box width="6%">
             <BiSearchAlt2 color="#717288" />
@@ -43,46 +44,46 @@ const Navbar = () => {
         </Flex>
         {/* ///////////// Account /////////////// */}
         <Flex width="auto" gap="20px" >
-        <Flex flexDir="column" align="center" cursor="pointer">
+        <Flex flexDir="column" align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
           <Box ><BsPerson size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Profile</Text>
         </Flex>
         <Hide below="lg">
-        <Flex flexDir="column"  align="center" cursor="pointer">
+        <Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
           <Box ><AiOutlineHeart size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Wishlist</Text>
         </Flex>
         </Hide>
-        <Flex flexDir="column"  align="center" cursor="pointer">
+        <Link to="/cart" _hover={{color:"#bf9852" }}><Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
           <Box ><BsCart3 size="20px" color="#717288"  /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Bag</Text>
-        </Flex>
+        </Flex></Link>
         </Flex>
 
       </Flex>
 
       {/* /////////////////// Nav 2 /////////// */}
 
-      <Flex p=".2rem" justifyContent="space-between" pl="2%" pr="2%" fontSize="14px">
+      <Flex  justifyContent="space-between" pl="2%" pr="2%" fontSize="14px">
         
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Furniture</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Rugs</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Decor</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Bedding</Button>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Furniture</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Rugs</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Decor</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Bedding</Button></Link>
         <Hide below="lg">
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Home Improvement</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Kitchen</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Outdoor</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Lighting</Button>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Home Improvement</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Kitchen</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Outdoor</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Lighting</Button></Link>
         </Hide>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Kids & Baby</Button>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">More</Button>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Kids & Baby</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>More</Button></Link>
         <Hide below="md">
-        <Button variant="unstyled" fontSize="13px" fontWeight="400" color='grey'>|</Button>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }} color='grey'>|</Button></Link>
        
-        <Button variant="unstyled" fontSize="13px" fontWeight="400">Ideas</Button>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Ideas</Button></Link>
         </Hide>
-        <Button variant="unstyled" fontSize="13px" fontWeight="400" color="red">Sales & Deals</Button>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" color="red">Sales & Deals</Button></Link>
 
         <Menu  >
             {/* //////////// Button ///////////// */}
