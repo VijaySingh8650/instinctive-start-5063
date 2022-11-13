@@ -9,15 +9,18 @@ import Cart from "../Components/cart/Cart";
 import SingleProduct from "../Components/singleProduct/SingleProduct";
 import ProductPage from "../Components/productpage/ProductPage";
 import Footer from "../Components/footer/Footer";
+import Category from "../Components/category/Category";
 
 const AllRoutes = () => {
   return (
     <>
     <Navbar />
-    <ProductPage />
+    {/* <Category /> */}
+    {/* <ProductPage /> */}
+    <SingleProduct />
     {/* <Cart /> */}
     <Footer/>
-    {/* <SingleProduct />  // need to work on single page responsiveness */}
+    {/*   // need to work on single page responsiveness */}
     </>
     // <Routes>
     //   <Route path="/signup" element={<SignUp />} />

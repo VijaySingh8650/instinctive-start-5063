@@ -111,7 +111,7 @@ const ProductPage = () => {
     <Flex gap="2%" width='98%' m="auto" height="auto" mb="140px">
       
           {/* ////////////// Filter By/////////////// */}
-          <Hide below="sm">
+          <Hide below="md">
         <Box  position={"sticky"} top={"120px"} width="20%" height="320px">
 
         <Flex flexDir={"column"} gap="10px" >
@@ -152,7 +152,7 @@ const ProductPage = () => {
 
     </Flex>
     
-    <Box border="2px solid red" height="300px">
+    {/* <Box border="2px solid red" height="300px">
 
             <Text>Other Content</Text>
             <br></br>
@@ -160,7 +160,7 @@ const ProductPage = () => {
             <Text>Footer</Text>
 
 
-    </Box>
+    </Box> */}
 
    </Box>
    </>

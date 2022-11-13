@@ -1,15 +1,11 @@
 import { Box, Button, Flex, Image, Select, SimpleGrid, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { AiFillStar  } from 'react-icons/ai';
-
-
-
-
 import { MdEmail  } from 'react-icons/md';
 import { BsFacebook  } from 'react-icons/bs';
 import { AiFillTwitterCircle  } from 'react-icons/ai';
 import { BsPinterest  } from 'react-icons/bs';
-
+import delivery from "./images/delivery.png"
 
 let data=[
     {
@@ -21,26 +17,31 @@ let data=[
 
 
 const SingleProduct = () => {
-  return (
+
+  const [size, setSize]=useState("");
+
+
+
+  return (<>
     <Box mt="8%" width="100%" align="left">
-        <Text p="1%" fontSize="14px" >Home Decor / Rugs / Area Rugs / Transitional Rugs</Text>
+        <Text width="94%" m="auto" pt="20px" pb='20px' fontSize="14px" >Home Decor / Rugs / Area Rugs / Transitional Rugs</Text>
 
         {/* ////////////////// Single product display card ///////////// */}
 
-        <Flex p="1%"  gap="26px">
+        <Flex width="94%" m="auto"  gap="26px">
         <Image width="34%" height="400px" src={data[0].image} objectFit="fill" />
         <Box>
             <Text  fontSize="18px" >{data[0].title}</Text>
             <Flex mt="4%" align="center" gap="5px"><AiFillStar color="#bf9852"/> <AiFillStar color="#bf9852"/><AiFillStar color="#bf9852"/> {data[0].rating} </Flex>
             <Text mt="4%" color="#c7202c" fontSize="18px" fontWeight="600">Sale Starts at INR{data[0].price}</Text>
             <Flex mt="14%"><Text mr='10px'>Size :</Text>
-            <Text  fontWeight={600}>Choose Size</Text></Flex>
-            <SimpleGrid columns={[3,3,4,5]} gap='10px' >
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}} > 2'2" X 9'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 11'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 4'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 5'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 7'</Button>
+            <Text  fontWeight={600}>{size==="" ? "Choose Size" : size}</Text></Flex>
+            <SimpleGrid columns={[3,3,4,5]} gap='10px' mt='20px' >
+                <Button onClick={()=>setSize("Small")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}} >2'2" X 9'</Button>
+                <Button onClick={()=>setSize("Medium")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 11'</Button>
+                <Button  onClick={()=>setSize("Large")}color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 4'</Button>
+                <Button  onClick={()=>setSize("Xtra-Large")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 5'</Button>
+                <Button onClick={()=>setSize("Small")}color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 7'</Button>
                 <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>3' X 5'</Button>
                 <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>3' X 3'</Button>
                 <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>4' X 4'</Button>
@@ -68,7 +69,7 @@ const SingleProduct = () => {
 
         </Flex>
             {/* /////////////////// add to cart tags///////////////// */}
-            <Flex p="1%">
+            <Flex width="94%" m="auto" mt="50px" >
                     <Flex align={"center"} gap="10px">
                     <Text fontStyle='italic' fontSize={"14px"} >Share This Product: </Text>
                     <MdEmail size='30px' />
@@ -81,11 +82,13 @@ const SingleProduct = () => {
                     
             </Flex>
 
-
+    <Flex mt="50px" mb="40px" >
+      <Image src={delivery} ml="30px" />
+    </Flex>
 
 
     </Box>
-  )
+    </>)
 }
 
 export default SingleProduct

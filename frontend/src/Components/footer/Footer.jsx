@@ -8,7 +8,7 @@ const Footer = () => {
                 {/* /////////// Footer main box////////// */}
     <Box bgColor="#545658" width="100%" pt="40px" pb="40px">
 
-        <SimpleGrid columns={[1,2,4,4]} color="white" width="65%" m="auto" justifyContent='space-between' rowGap="25px" >
+        <SimpleGrid columns={[1,2,4,4]} color="white" width="80%" m="auto" justifyContent='space-between' rowGap="25px" >
             <Flex flexDir="column" rowGap="15px">
                 <Text fontWeight={700} fontSize="12px" align={["center","center", "left", "left"]}>MY ACCOUNT</Text>
                <Hide below="md"><Text fontWeight={300} fontSize="12px">Orders & Returns</Text>
@@ -57,7 +57,7 @@ const Footer = () => {
             <Text fontWeight={300} fontSize="12px">Terms & Conditions</Text>
             <Text fontWeight={300} fontSize="12px">*Promotion Terms</Text>
             </Hide>
-            <Flex gap="10px"><Text fontWeight={300} fontSize="12px">Ship to:</Text><Image src={flags} width="20px" height="18px" /></Flex>
+            <Flex gap="10px"><Text fontWeight={300} fontSize="12px">Ship to:</Text><Image  src={flags} width="26px" height="18px" border="2px solid white"/></Flex>
             </Flex>
         </Flex>
 

@@ -43,17 +43,17 @@ const Navbar = () => {
         </Flex>
         {/* ///////////// Account /////////////// */}
         <Flex width="auto" gap="20px" >
-        <Flex flexDir="column" align="center">
+        <Flex flexDir="column" align="center" cursor="pointer">
           <Box ><BsPerson size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Profile</Text>
         </Flex>
         <Hide below="lg">
-        <Flex flexDir="column"  align="center">
+        <Flex flexDir="column"  align="center" cursor="pointer">
           <Box ><AiOutlineHeart size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Wishlist</Text>
         </Flex>
         </Hide>
-        <Flex flexDir="column"  align="center">
+        <Flex flexDir="column"  align="center" cursor="pointer">
           <Box ><BsCart3 size="20px" color="#717288"  /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Bag</Text>
         </Flex>
