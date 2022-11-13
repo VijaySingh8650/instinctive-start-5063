@@ -1,0 +1,25 @@
+.total_price_info{
+    width: 100%;
+    height: 250px;
+    background-color:rgb(242,242,242);
+    /* border: 1px solid black;     */
+}
+.total_price_info>div{
+    width: 80%;
+    padding-top: 15px;
+    margin:auto;
+    /* border: 1px solid black; */
+}
+.total_price{
+    width: 100%;
+    margin-top: 10px;
+    /* border: 1px solid black; */
+}
+.total_price{
+    display: flex;
+    justify-content: space-between;
+}
+.hellohover:hover{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+}
