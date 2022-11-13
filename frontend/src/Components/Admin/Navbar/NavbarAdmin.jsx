@@ -20,7 +20,7 @@ import { useEffect } from 'react';
 
 
 
-const Navbar = () => {
+const NavbarAdmin = () => {
   const navigate = useNavigate();
   useEffect(() => {
     window.document.title = "Welcome Admin";
@@ -92,4 +92,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavbarAdmin;
