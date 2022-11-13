@@ -1,125 +1,145 @@
-import React from "react";
-import { Box, Button, Flex, Image, Input, Text, SimpleGrid, Hide } from "@chakra-ui/react";
-import logo from "./images/logo.png";
-import { BiSearchAlt2 } from "react-icons/bi";
-import { BsPerson } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsCart3 } from "react-icons/bs";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider
-} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Box, Button, Flex, Image, Input, SimpleGrid, Text, Toast } from '@chakra-ui/react'
+import adv from "./images/adv.jpg"
+import Card from './Card'
+import { useToast } from '@chakra-ui/react'
+import axios from 'axios'
+import { useSelector } from 'react-redux'
+// import StripeCheckout from 'react-stripe-checkout';
 
 
-const Navbar = () => {
+const getCartItems=()=>{
+
+return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts`)
+
+
+}
+
+
+const Cart = () => {
+
+  // let auth = useSelector(store => store.auth);
+  // let [id, email, password] = auth.token.split(":"); 
+  // let [zartItem,setCartItem]=useState([])
+  // let [cartSum,setCartSum]=useState(0);
+
+  const cartItem=[{
+    image:"https://ak1.ostkcdn.com/images/products/is/images/direct/466343107cab3e7c879f53099991f03c082bcca1/Modern-Arched-Mirror-Full-length-Floor-Mirror-with-Standing.jpg?imwidth=480&impolicy=medium",
+    title:"Modern Arched Mirror Full-Length Floor Mirror with Stand",
+    price:"12250.54",
+    rating:"3.5"
+  },
+  {
+    image:"https://ak1.ostkcdn.com/images/products/is/images/direct/e88bf95837fc6bdf1671b9a05e1fdb22511a4f7a/Aluminum-Alloy-Thin-Frame-Full-Length-Floor-Mirror-Hanging-or-Leaning.jpg?imwidth=480&impolicy=medium",
+    title:"Modern Arched Mirror Full-Length Floor Mirror with Stand",
+    price:"12250.54",
+    rating:"3.5"
+  },
+  {
+    image:"https://ak1.ostkcdn.com/images/products/is/images/direct/06e14596ad69dd33017f0343e2cdaf0c366770cb/Rathburn-Metal-Venetian-Wall-Mounted-Mirror.jpg?imwidth=480&impolicy=medium",
+    title:"Modern Arched Mirror Full-Length Floor Mirror with Stand",
+    price:"12250.54",
+    rating:"3.5"
+  }
+]
+
+
+
+// const handleToken=async(token,addresses)=>{
+//   const res=await axios.post(`http://localhost:8000/checkout`,{cartItem,token});
+//   console.log(res.status);
+//   // Stripe.setPublishableKey()
+// }
+// useEffect(()=>{
+
+//   updateCartItems(id)
+
+// },[])
+
+// useEffect(()=>{
+
+//   setCartSum(cartItem.reduce((acc,cur)=>acc+(Number(cur.productsId.price))*(Number(cur.quantity)),0))
+//   console.log("1",cartSum)
+
+// },[cartItem])
+
+
+// const updateCartItems=()=>{
+
+//   getCartItems().then((res)=>{setCartItem(res.data)
+ 
+// })
+// }
+
+// const removePro = async (p_id) => {
+//   const res = await axios.delete(
+//     `https://asap-backend-server-deploy.herokuapp.com/carts`
+//   );
+//     updateCartItems(id);
+// };
+
+// const quantityChange = async (item,qty,userid=id) => {
+//   console.log(item.quantity)
+//   console.log("Quantity: ",qty)
+//   const res = await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/${userid}`,{productsId:item.productsId._id,quantity:qty});
+//     updateCartItems(userid);
+// };
+
+// console.log(cartItem)
+
+
+  const toast = useToast()
   return (
-    <Box width="100%" boxShadow="rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" position="fixed" top={0} bgColor="white" zIndex={4}>
-      {/* ///////////////// Nav 1 ////////////// */}
-      <Flex p=".5rem" justifyContent="space-between" pl="3%" pr="3%">
-      <Link to="/"><Flex align="center" gap="10px">
-        <Image src={logo} alt="logo" width="38px"></Image>
-        <Hide below="lg">
-        <Text color="#bf9852" fontSize="20px" fontWeight={500}>HomeDecor</Text>
-        </Hide>
-        </Flex></Link>
-        <Flex alignItems="center" bgColor="#f5f5f6" width="60%" pl=".6rem" borderRadius="5px">
-          <Box width="6%">
-            <BiSearchAlt2 color="#717288" />
-          </Box>
-          <Input
-            height="100%"
-            variant="unstyled"
-            bgColor="#f5f5f6"
-            fontSize={"14px"}
-            
-            placeholder="Search... everything you find ships for free"
-          />
-        </Flex>
-        {/* ///////////// Account /////////////// */}
-        <Flex width="auto" gap="20px" >
-        <Flex flexDir="column" align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
-          <Box ><BsPerson size="20px" color="#717288" /></Box>
-          <Text mt="-2px" fontSize="12px" fontWeight="bold">Profile</Text>
-        </Flex>
-        <Hide below="lg">
-        <Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
-          <Box ><AiOutlineHeart size="20px" color="#717288" /></Box>
-          <Text mt="-2px" fontSize="12px" fontWeight="bold">Wishlist</Text>
-        </Flex>
-        </Hide>
-        <Link to="/cart" _hover={{color:"#bf9852" }}><Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
-          <Box ><BsCart3 size="20px" color="#717288"  /></Box>
-          <Text mt="-2px" fontSize="12px" fontWeight="bold">Bag</Text>
-        </Flex></Link>
-        </Flex>
+     <>
+    <Box mt={"8%"} /*border="1px solid black"*/  mb="1%">
+      <Image width="100%" height="68px" src={adv} alt="image"  />
+      <Box  /*border="1px solid green"*/ mt="1%" width="100%">
+        <Flex justifyContent={"space-between"} flexDir={["column","column","column","row"]}>
+          {/* Cart box */}
 
-      </Flex>
-
-      {/* /////////////////// Nav 2 /////////// */}
-
-      <Flex  justifyContent="space-between" pl="2%" pr="2%" fontSize="14px">
-        
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Furniture</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Rugs</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Decor</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Bedding</Button></Link>
-        <Hide below="lg">
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Home Improvement</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Kitchen</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Outdoor</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Lighting</Button></Link>
-        </Hide>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Kids & Baby</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>More</Button></Link>
-        <Hide below="md">
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }} color='grey'>|</Button></Link>
        
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Ideas</Button></Link>
-        </Hide>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" color="red">Sales & Deals</Button></Link>
+          <Box width={["100%","100%","100%","70%"]} /*border="1px solid red"*/ minH="550px" >
 
-        <Menu  >
-            {/* //////////// Button ///////////// */}
-        {/* <MenuButton as={Button} _focusVisible={"none"}></MenuButton> */}
-        
-        <MenuList height="sm" width="xl" >
-          <SimpleGrid columns={[2, 2, 3, 4]}>
-          <Text>Olivia</Text>
-          <Text>Emma</Text>
-          <Text>Charlotte</Text>
-          <Text>Amelia</Text>
-          <Text>Ava</Text>
-          <Text>Sophia</Text>
-          <Text>Isabella</Text>
-          <Text>Mia</Text> 
+          <Card cartItem={cartItem} />
+          {/* <Card />
+          <Card />
+          <Card /> */}
 
-          <Text cursor={"pointer"}>Evelyn</Text>
-          <Text>Harper</Text>
-          <Text>Luna</Text>
-          <Text>Camila</Text>
-          <Text>Gianna</Text>
-          <Text>Elizabeth</Text>
-          <Text>Eleanor</Text>
-          <Text>Ella</Text>
-          <Text>Abigail</Text>
-          <Text>Sofia</Text>
-          <Text>Avery</Text>
-          <Text>Scarlett</Text>
-          </SimpleGrid>       
-                   
-        </MenuList>
-      </Menu>
-      </Flex>
 
+          </Box>
+
+             
+          {/* Amount description box */}
+
+          <Flex flexDir={"column"} gap="12px"width={["100%","100%","100%","30%"]} position="sticky" top="120px" pl="1.5em" pt="1em" pr="1.5em" borderRadius={"10px"} mr="20px" columnGap="10px" height="500px" boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em" >
+          <Text fontSize={"20px"} fontWeight="600" mb="15px">Order Details</Text>
+          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag total </Text><Text fontWeight={"600"}>₹1000.00/-</Text></Flex>
+          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag discount </Text><Text fontWeight={"600"}>- ₹560/-</Text></Flex>
+          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Convenience Fee : </Text ><Text fontWeight={"400"} color="#176c93" fontSize='14px'>What's this?</Text></Flex>
+          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹99/-</Text></Flex>
+          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹{560+99}.00</Text></Flex>
+          
+          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="20px" mt="15px" p="1.5em" _hover={{bgColor:"teal"}}  onClick={() =>
+        toast({
+          position: 'top-center',
+          title: 'Order Placed.',
+          description: "We've taken your last delivery address by default.",
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        })
+      } >PROCEED TO SHIPPING</Button>
+          <Text mt="18px" color="#176c93">Having Coupon ?</Text>
+          <Flex gap="10px" mt="12px"><Input p="1.3em" focusBorderColor='none' placeholder='Enter Coupon code here'></Input> <Button p="1.3em" width="100px" variant="outline">APPLY</Button></Flex>
+          </Flex>
+
+        </Flex>
+      </Box>
+ 
     </Box>
-  );
+    
+    </>
+  )
 };
 
-export default Navbar;
+export default Cart
