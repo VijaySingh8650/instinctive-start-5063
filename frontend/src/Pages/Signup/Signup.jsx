@@ -42,7 +42,7 @@ const SignUp = () => {
     setEmail(' ');
     setPassword(' ');
     setConfirm_password(' ');
-    navigate("/signin");
+     navigate("/signin");
   };
 
   const handleGuest = (e) => {
@@ -66,9 +66,11 @@ const SignUp = () => {
   };
 
   return (
+    <Box>
+     <Text align="center" color="green.300" pt="60px" pb="20px" fontSize="3xl" fontWeight="bold">SignUp to OverStock</Text>
     <Box className={styles.signup}>
       <Link to="/signin">
-        <Text textAlign="end" fontWeight="bold" color="black">
+        <Text className={styles.text1}>
           Already have an account? Log in
         </Text>{" "}
       </Link>
@@ -103,13 +105,14 @@ const SignUp = () => {
         <Text align="center" color="brown" fontWeight="bold">
           {error}
         </Text>
-        <Checkbox mb="10px" defaultChecked>
-          Sign up today for exclusive offers from Overstock.com delivered right
-          to your inbox**
+        <Checkbox className={styles.checkbox} defaultChecked>
+          <Text className={styles.text2} > Sign up today for exclusive offers from Overstock.com delivered right
+          to your inbox**</Text>
         </Checkbox>
         <Spacer />
-        <Stack direction="column" spacing={4} align="center">
+        <Stack direction="column" spacing={8} align="center">
           <Button
+          width="100%"
             display="block"
             alignItems="flex-center"
             color="white"
@@ -128,6 +131,7 @@ const SignUp = () => {
             Create Account
           </Button>
           <Button
+          width="100%"
             display="block"
             alignItems="flex-center"
             color="white"
@@ -146,6 +150,7 @@ const SignUp = () => {
           </Button>
         </Stack>
       </FormControl>
+    </Box>
     </Box>
   );
 };
