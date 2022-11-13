@@ -78,7 +78,7 @@ const SignIn = () => {
 
   return (
     <Box marginTop="120px">
-    <Text align="center" color="green.300" pt="60px" pb="20px" fontSize="3xl" fontWeight="bold">SignIn to OverStock</Text>
+    <Text className={styles.text}>SignIn to OverStock</Text>
     <Box className={styles.signin}>
       <Link to="/signup">
         <Text className={styles.text1} >
