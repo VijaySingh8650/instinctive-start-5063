@@ -83,7 +83,7 @@ const Navbar = () => {
        
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Ideas</Button></Link>
         </Hide>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" color="red">Sales & Deals</Button></Link>
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" color="#bf9852">Sales & Deals</Button></Link>
 
         <Menu  >
             {/* //////////// Button ///////////// */}

@@ -1,22 +1,26 @@
-import { Box, Button, Image, SimpleGrid, Text} from '@chakra-ui/react'
+import { Box, Button, Heading, Image, SimpleGrid, Text} from '@chakra-ui/react'
 import React from 'react'
 
 const Home = () => {
   return (
-    <div>
-        <h1>Homepage</h1>
+    <Box mt="5rem">
+       
 
-        <Box width="100%">
-           <Box backgroundImage="https://ak1.ostkcdn.com/img/mxc/030822-SBS-MidCenMod.jpg?imwidth=1920" width="100%"  backgroundRepeat= "no-repeat" backgroundSize="cover" backgroundPosition="center" >
-           <Image src='https://ak1.ostkcdn.com/img/mxc/10312022-A1-HP-INTL-1400x550_DSK-INTL.svg' alt='' />
+        <Box width="100%" >
+           <Box backgroundImage="https://ak1.ostkcdn.com/img/mxc/11102022-HP-A1-INTL-V2-1400x550_DSK-INTL.jpg" width="100%"  backgroundRepeat= "no-repeat" backgroundSize="cover" backgroundPosition="center">
+           <Image src='https://ak1.ostkcdn.com/img/mxc/11102022-HP-A1-INTL-V2-1400x550_DSK-INTL.svg' alt='image'/>
 
-    </Box>
-    </Box>
+          </Box>
+        </Box>
 
-    {/* discount images */}
-    <Text fontSize='40px' as='b'>Limited-Time Deals</Text>
+      {/* discount images */}
+      <Box w="100%" align="center" m="2rem 0">
 
-    <Box display="flex" height="100px" width="100%">
+         <Heading fontWeight="500">Limited-Time Deals</Heading>
+
+      </Box>
+
+    <Box display="flex" height="4rem" width="90%" margin="auto">
     
       <Box>
         <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_1.svg?imwidth=3840" alt="" />
@@ -46,7 +50,7 @@ const Home = () => {
 
     {/* small part images */}
 
-    <Box display="flex" gap="80px" padding="20px"marginTop="-5px"  height="200px" width="100%">
+    <Box display="flex" gap="2rem" padding="20px" marginTop="-5px"  height="20%" width="90%" margin="auto" mb="2rem">
       <Box>
       <Image height="130px" width="150px" src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139"/>
       <Text fontSize='md'>select rugs</Text>
@@ -74,9 +78,13 @@ const Home = () => {
 
     </Box>
     {/* Brand we love */}
-    <Text fontSize='40px' as='b'>Brands We Love</Text>
-    <Box height="100px" width="100%" display="flex" gap="10px">
-      <Box>
+    <Box w="100%" align="center" m="2rem 0">
+
+         <Heading fontWeight="500">Brands We Love</Heading>
+
+      </Box>
+    <Box height="3rem" width="80%" display="flex" gap="1rem" margin="auto">
+      <Box w="30%">
       <Image src="https://ak1.ostkcdn.com/img/mxc/110822-DysonLogo.svg?imwidth=1920" alt="" />
       </Box>
       <Box>
@@ -358,7 +366,7 @@ const Home = () => {
 
     
       
-        </div>
+        </Box>
   )
 }
 
