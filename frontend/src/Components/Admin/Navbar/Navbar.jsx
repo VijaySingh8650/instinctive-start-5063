@@ -64,15 +64,18 @@ const Navbar = () => {
                <MenuButton>
                 <Image src={logo} alt="homedecor" className={styles.sideImage}/>
               </MenuButton>
+              
               <MenuList mr="1.5rem" minW="0" w={'150px'}>
-              <MenuItem className={styles.edit_box}>
-                <FiSettings className={styles.reactIcons} />
-                <Text>Setting</Text>
-              </MenuItem>
-              <MenuItem  className={styles.edit_box} onClick={()=>navigate("/signin")}>
-                <FiUser className={styles.reactIcons} />
-                <Text>Sign Out</Text>
-              </MenuItem>
+                
+                <MenuItem  className={styles.edit_box} onClick={()=>navigate("/signin")}>
+                  <FiUser className={styles.reactIcons} />
+                  <Text>Sign Out</Text>
+                </MenuItem>
+                <MenuItem className={styles.edit_box}>
+                  <FiSettings className={styles.reactIcons} />
+                  <Text>Setting</Text>
+                </MenuItem>
+              
               </MenuList>
             </Menu>
           </Box>
