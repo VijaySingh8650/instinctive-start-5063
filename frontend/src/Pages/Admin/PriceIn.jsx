@@ -1,5 +1,8 @@
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Container, Flex, Input, Radio, Select, Text, RadioGroup } from '@chakra-ui/react'
+
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Container, Flex, Input, Radio, RadioGroup, Select, Text } from '@chakra-ui/react'
+
+
 import React from 'react'
 
 const PriceIn = () => {

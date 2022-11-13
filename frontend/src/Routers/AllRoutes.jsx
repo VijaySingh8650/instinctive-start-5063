@@ -6,6 +6,8 @@ import SignUp from "../Pages/Signup/Signup";
 import { Wishlist } from "../Pages/Wishlist/Wishlist";
 import Navbar from '../Components/Admin/Navbar/Navbar';
 import Cart from "../Components/cart/Cart";
+import {Payment} from "../Components/payment/Payment";
+import { CheckoutPage } from "../Components/checkout/CheckoutPage";
 
 
 const AllRoutes = () => {
@@ -15,8 +17,12 @@ const AllRoutes = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/forgot_password" element={<ForgotPassword />} />
+
+      <Route path="/checkout" element={<CheckoutPage/>} />
+
       <Route path="/admin/*" element={<Navbar />}></Route>
       <Route path="/cart" element={<Cart/>} />
+
       
     </Routes>
   );

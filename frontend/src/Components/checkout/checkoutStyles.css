@@ -1,0 +1,61 @@
+.check_bar{
+    width: 100%;
+    height: 46px;
+    background-color:rgb(43,162,228);
+}
+.check_bar .wrapper{
+    width: 80%;
+    height: 46px;
+    display: flex;
+    margin: auto;
+    align-items:center
+}
+.check_bar .co {
+    width: 20%;
+    color: white;
+    padding-top: 10px;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-right: 20%;
+    margin-bottom: 5px;
+}
+.opt{
+    width: fit-content;
+    height: 46px;
+    display: flex;
+    justify-content:space-between;
+}
+
+.opt .show Button>div {
+    width: 50%;height: 50%;
+    padding: 5px;
+    /* background-color:rgb(255,51,153); */
+    padding-top: 0px;
+    margin-right:5%;
+    border-radius:50%;
+    text-align:center;
+    color:white ;
+    /* border:1px solid rgb(255,51,153) */
+}
+.opt .show Button>span{
+    color: white;
+    font-size: 17px;
+}
+.show{
+    
+    width: 100%;
+    border-bottom: 4px solid rgb(255,51,153);
+   
+}
+.opt .hide Button>div {
+    /* background-color:rgba(0,0,0,.3); */
+    width: 38%;height: 50%;
+    padding: 5px;
+    padding-top: 0px;
+    margin-right:5%;
+    border-radius:50%;
+    text-align:center;
+    /* color:hsla(0,0%,100%,.3); */
+    /* border:1px solid rgba(0,0,0,.3); */
+}
