@@ -84,7 +84,7 @@ const ForgotPassword = () => {
         </Link>
       </FormControl>
     </Box>
-    <Box/>
+    </Box>
   );
 };
 
