@@ -52,28 +52,6 @@ app.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
-// app.get('/auth/google/callback',
-//   passport.authenticate('google', { failureRedirect: '/login',session:false }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     // console.log(req.user)
-//     // const name=req.user.name;
-//     // const email=req.user.email;
-//     // const profile=req.user.url;
-//     // const token=req.user.url;
-
-//     if (req.user) {
-//         console.log(req.user)
-// 		res.status(200).send({
-// 			error: false,
-// 			message: "Successfully Loged In",
-// 			user: req.user,
-// 		});
-// 	} else {
-// 		res.status(403).json({ error: true, message: "Not Authorized" });
-// 	}
-//   });
-
 app.get("/login/success", (req, res) => {
   console.log("User", req.user);
   if (req.user) {
@@ -95,6 +73,8 @@ app.get(
   })
 );
 
+
+
 //Forgot Password
 
 app.post("/forgot-password", async (req, res) => {
@@ -111,33 +91,6 @@ app.post("/forgot-password", async (req, res) => {
     });
     const link = `http://localhost:7000/reset-password/${oldUser._id}/${token}`;
     console.log(link);
-
-
-
-    //    var transporter = nodemailer.createTransport({
-    //       service: 'gmail',
-    //       auth: {
-	// 		user: "adarsh438tcsckandivali@gmail.com",
-	// 		pass: "rmdklolcsmswvyfw",
-    //       }
-    //     });
-
-    //     var mailOptions = {
-    //       from: 'youremail@gmail.com',
-    //       to: 'shabaz@gmail.com',
-    //       subject: 'Password Reset',
-    //       text: 'link'
-    //     };
-
-    //     transporter.sendMail(mailOptions, function(error, info){
-    //       if (error) {
-    //         console.log(error);
-    //       } else {
-    //         console.log('Email sent: ' + info.response);
-    //       }
-    //     });
-
-	
   } catch (err) {
     res.status(500).send(err.message);
   }
