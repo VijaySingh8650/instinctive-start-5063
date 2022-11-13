@@ -5,33 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script>
-      var status = '<%- JSON.stringify(status) %>';
-      if (JSON.parse(status) == "verified") {
-        if (confirm("Do u want to login?")) {
-          window.location.href = "http://localhost:3000/signin";
-        }
-      }
-    </script>
+    <style>
+   #form{
+      width: 30%;
+      height: 250px;
+      border:1px solid;
+      padding:30px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    #input{
+      width:100%;
+      height:30px;
+      border-radius: 5px;
+    }
+    #button{
+      display: block;
+      margin: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: rgb(0, 213, 255);
+      color: black;
+      font-size: medium;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    </style>
+   
   </head>
   <body>
-    <h1><%= email%></h1>
-    <form action="" method="post">
+   
+    <h1 style="text-align:center;color:rgb(0, 255, 4);"><%= email%></h1>
+    <div  style="display:flex;justify-content:center;height:100vh">
+    <form id="form" action="" method="post">
+      <h3 style="text-align:center">Reset Your Password</h3>
       <input
+      id="input"
         type="password"
         name="password"
         id="password"
-        placeholder="password"
+        placeholder="Password"
+        required
+        autofocus
       /><br />
       <br />
-      <input
+      <input id="input"
         type="password"
+        required
         name="confirm-password"
         id="confirm-password"
-        placeholder="confirm-password"
+        placeholder="Confirm Password"
       /><br />
       <br />
-      <input type="submit" value="submit" />
+      <input id="button" type="submit" value="Submit" />
     </form>
+  </div>
   </body>
 </html>
+<script>
+  var status = '<%- JSON.stringify(status) %>';
+  if (JSON.parse(status) == "verified") {
+    if (confirm("Do u want to login?")) {
+      window.location.href = "http://localhost:3000/signin";
+    }
+  }
+</script>
