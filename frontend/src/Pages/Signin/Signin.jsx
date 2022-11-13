@@ -100,7 +100,7 @@ const SignIn = () => {
             }}
             onClick={handleClick}
            >
-       Sign up with Google
+       Sign In with Google
      </Button>
      </Stack>
      <Stack align="center" mb="10px">
