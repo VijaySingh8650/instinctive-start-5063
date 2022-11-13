@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors")
 const connectDB = require("./ConnectDB/db")
-const port = 8080;
+const port = process.env.PORT || 8080;
 const userRouter = require("./Routers/userRoute");
 const furnitureRouter = require("./Routers/furnitureRoute");
 const furniturecolorRouter = require("./Routers/furnitureColorsRoute");
@@ -28,6 +28,6 @@ app.use("/api/cart",cartRouter);
 app.use(notFoundURL);
 
 app.listen(port,async()=>{
-    await connectDB();
+    await connectDB(process.env.MONGO_URL);
     console.log(`Server Running on http://localhost:${port}`)
 })
