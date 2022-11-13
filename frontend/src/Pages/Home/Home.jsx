@@ -1,5 +1,6 @@
 import { Box, Button, Heading, Image, SimpleGrid, Text} from '@chakra-ui/react'
 import React from 'react'
+import styles from "./Home.module.css";
 
 const Home = () => {
   return (
@@ -20,109 +21,139 @@ const Home = () => {
 
       </Box>
 
-    <Box display="flex" height="4rem" width="90%" margin="auto">
-    
-      <Box>
-        <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_1.svg?imwidth=3840" alt="" />
-        </Box>
-        {/* <Image width="15%" src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139"/> */}
-        {/* <Box>
-        <Text fontSize='md'>select rugs</Text>
-      </Box> */}
-  
-    
-      <Box>
-        <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" />
-      </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" />
-      </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" />
-      </Box> 
-      <Box>
-        <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" />
-      </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" />
-      </Box>
-    </Box>
 
     {/* small part images */}
 
-    <Box display="flex" gap="2rem" padding="20px" marginTop="-5px"  height="20%" width="90%" margin="auto" mb="2rem">
-      <Box>
-      <Image height="130px" width="150px" src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139"/>
-      <Text fontSize='md'>select rugs</Text>
+    <Box align="center" display="flex" flexWrap={"wrap"} gap="2rem" padding="1rem" justifyContent={"center"} >
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Rugs</Text>
+
+          </Box>
       </Box>
-      <Box>
-      <Image height="130px" width="150px" src="https://images.furnituredealer.net/img/collections/john_thomas/select_dining-dop-b1.jpg"/>
-      <Text fontSize='md'>select dining room</Text>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://images.furnituredealer.net/img/collections/john_thomas/select_dining-dop-b1.jpg" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Dining Room</Text>
+
+          </Box>
       </Box>
-      <Box>
-      <Image height="130px" width="150px" src="https://www.memory-improvement-tips.com/images/adjustable-sleep-number-bed.jpg"/>
-      <Text fontSize='md'>select bedding</Text>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://www.memory-improvement-tips.com/images/adjustable-sleep-number-bed.jpg" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Bedding</Text>
+
+          </Box>
       </Box>
-      <Box>
-      <Image height="130px" width="150px" src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/artificial.jpg?w=300&dpr=1.3"/>
-      <Text fontSize='md'>select home decor</Text>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/artificial.jpg?w=300&dpr=1.3" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Home Decor</Text>
+
+          </Box>
       </Box>
-      <Box>
-      <Image height="130px" width="150px" src="https://ak1.ostkcdn.com/images/products/is/images/direct/47ec2d990aea2dcec4541518a0da6a4d6305d3d4/Modern-Farmhouse-3-Pack-Black-Barn-Pendant-Lighting-Warehouse-Ceiling-Lighting.jpg"/>
-      <Text fontSize='md'>select lighting</Text>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://ak1.ostkcdn.com/images/products/is/images/direct/47ec2d990aea2dcec4541518a0da6a4d6305d3d4/Modern-Farmhouse-3-Pack-Black-Barn-Pendant-Lighting-Warehouse-Ceiling-Lighting.jpg" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Lighting</Text>
+
+          </Box>
       </Box>
-      <Box>
-      <Image height="130px" width="150px" src="https://tse1.mm.bing.net/th?id=OIP.BnSOX9TTI7AMooaiTUWsgQHaIP&pid=Api&P=0"/>
-      <Text fontSize='md'>select christmas tree</Text>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://tse1.mm.bing.net/th?id=OIP.BnSOX9TTI7AMooaiTUWsgQHaIP&pid=Api&P=0" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Christmas Tree</Text>
+
+          </Box>
       </Box>
+      
+      
+      
 
     </Box>
     {/* Brand we love */}
-    <Box w="100%" align="center" m="2rem 0">
+    <Box w="100%" align="center" m="2rem 0 1rem 0">
 
          <Heading fontWeight="500">Brands We Love</Heading>
 
+    </Box>
+    <Box height="2rem" width="80%" display="flex" justifyContent={"center"}  flexWrap="wrap"  gap="1rem" margin="auto">
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-DysonLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
-    <Box height="3rem" width="80%" display="flex" gap="1rem" margin="auto">
-      <Box w="30%">
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-DysonLogo.svg?imwidth=1920" alt="" />
-      </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-KeurigLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+        <Image src="https://ak1.ostkcdn.com/img/mxc/110822-KeurigLogo.svg?imwidth=1920" alt="" w="12rem"/>
 
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-SharkLogo.svg?imwidth=1920" alt="" />
+      <Box m ="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-SharkLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
 
     </Box>
     {/* 2nd row */}
-    <Box height="100px" width="100%" display="flex">
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" />
+    <Box height="2rem" width="80%" display="flex" flexWrap="wrap"  gap="1rem" margin="auto" >
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-NinjaLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-NinjaLogo.svg?imwidth=1920" alt="" w="12rem"/>
 
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CuisinartLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CuisinartLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
 
     </Box>
 
     {/* 3rd row */}
 
-    <Box height="100px" width="100%" display="flex">
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CalphalonLogo.svg?imwidth=1920" alt="" />
+    <Box height="2rem" width="80%" display="flex" justifyContent={"flex-end"}  flexWrap="wrap"  gap="1rem" margin="auto" >
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CalphalonLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-HamiltonBeachLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-HamiltonBeachLogo.svg?imwidth=1920" alt="" w="12rem"/>
 
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" w="12rem"/>
       
       </Box>
 
@@ -138,7 +169,7 @@ const Home = () => {
 
     {/* 2nd backgroung */}
 
-    <Box width="100%">
+    <Box width="100%" mt="6rem">
       <Box backgroundImage="https://ak1.ostkcdn.com/img/mxc/030822-SBS-Traditional.jpg?imwidth=1920" width="100%"  backgroundRepeat= "no-repeat" backgroundSize="cover" backgroundPosition="center">
       <Image src="https://ak1.ostkcdn.com/img/mxc/10312022-SB-HolidayDecor-1400x550_Promo1.svg?imwidth=1920" />
     </Box>
