@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
 import styles from "./navbar.module.css";
 import {FiDollarSign, FiTag, FiUser, FiGift, FiSettings} from 'react-icons/fi';
 import {TbDiscount} from 'react-icons/tb';
@@ -7,7 +7,7 @@ import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { AiOutlineQuestionCircle} from 'react-icons/ai';
 import { navlinks } from "./navlinks.js";
-import { NavLink} from 'react-router-dom';
+import { NavLink, useNavigate} from 'react-router-dom';
 import Router from '../../../Routers/Admin/AdminRouter';
 import logo from "../Images/logo.png";
 import { activeStyle } from './activeStyles';
@@ -21,7 +21,7 @@ import { useEffect } from 'react';
 
 
 const Navbar = () => {
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.document.title = "Welcome Admin";
   },[])
@@ -58,7 +58,26 @@ const Navbar = () => {
           
             <IoMdNotificationsOutline className={styles.icons}/>
             <AiOutlineQuestionCircle className={styles.icons}/>
-            <Image src={logo} alt="homedecor" className={styles.sideImage}/>
+            <Menu>
+              
+             
+               <MenuButton>
+                <Image src={logo} alt="homedecor" className={styles.sideImage}/>
+              </MenuButton>
+              
+              <MenuList mr="1.5rem" minW="0" w={'150px'}>
+                
+                <MenuItem  className={styles.edit_box} onClick={()=>navigate("/signin")}>
+                  <FiUser className={styles.reactIcons} />
+                  <Text>Sign Out</Text>
+                </MenuItem>
+                <MenuItem className={styles.edit_box}>
+                  <FiSettings className={styles.reactIcons} />
+                  <Text>Setting</Text>
+                </MenuItem>
+              
+              </MenuList>
+            </Menu>
           </Box>
           
           {/* All the routers  here */}

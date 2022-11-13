@@ -1,0 +1,92 @@
+.form_wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color:rgb(0,0,0,0.5);
+    position:fixed;
+    top: 0;
+    /* filter: blur(5px) */
+    backdrop-filter:blur(5px);
+  
+  }
+  .addForm{
+    width: 60%;
+    height:450px;
+    position: absolute;
+    left:25%;
+    top:20%;
+    /* border:1px solid red; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* display: none */
+    background : white;
+    z-index: 55;
+  }
+  .addForm h2{
+    text-align: center;
+  }
+  .grid{
+    margin-top: 6%;
+    display : grid;
+    grid-template-columns: repeat(8,70px);
+    grid-template-rows: repeat(4,50px);
+    grid-gap: 20px;
+    justify-content: center;
+    grid-template-areas:
+    "a a a a a a a a"
+    "b b b b b b b b"
+    "c c c c d d d d"
+    "e e e e f f f f"
+    ". . . g g . . .";
+   
+  }
+  .a{
+    grid-area: a;
+    background-color:lightgray;
+    border: none;
+    font-size: 17px;
+  }
+  .b{
+    grid-area: b;
+    background-color:lightgray;
+    border: none;
+    font-size: 17px;
+    
+  }
+  .c{
+    grid-area: c;
+    background-color:lightgray;
+    border: none;
+    font-size: 17px;
+    
+  }
+  .d{
+    grid-area: d;
+    background-color:lightgray;
+    border: none;
+    font-size: 17px;
+    
+  }
+  .e{
+    grid-area: e;
+    background-color:lightgray;
+    border: none;
+    font-size: 17px;
+    
+  }
+  .f{
+    grid-area: f;
+    background-color:lightgray;
+    border: none;
+    font-size: 17px;
+    
+  }
+  .g{
+    grid-area: g;
+    margin-top:38px;
+    border: none;
+  background-color:  rgb(255,51,153);
+  color:white;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px 20px;
+  
+  }

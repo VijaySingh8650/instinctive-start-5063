@@ -9,16 +9,19 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signinAPI } from "../../Store/Auth/auth.actions";
+import { googleAuthentication } from "../../Store/Google/google.actions";
 import styles from "./Signin.module.css";
 
 const SignIn = () => {
   const message = useSelector((store) => store.auth.msg);
   const error = useSelector((store) => store.auth.error);
   const toast = useToast();
+  const [googleAuthCheck, setGoogleAuthCheck] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -29,7 +32,8 @@ const SignIn = () => {
   const { email, password } = userData;
   const isInvalid = email === "" || password === "";
   const token = useSelector((store) => store.auth.accessToken);
-  //console.log(token);
+  //const token1 = useSelector((store) => store.google);
+  //console.log(token1);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,21 +53,60 @@ const SignIn = () => {
       duration: 1000,
       render: () => (
         <Box borderRadius={5} align="center" color="white" p={3} bg="blue.500">
-          Logged In Successfully
+          Log In Successfully
         </Box>
       ),
     });
     navigate("/");
   }
 
+  useEffect(() => {
+    if (googleAuthCheck) {
+      dispatch(googleAuthentication());
+    }
+  },[googleAuthCheck])
+
+
+  const handleClick = (e)=>{
+    e.preventDefault();
+
+  //  dispatch(googleAuthentication())
+   setGoogleAuthCheck(true);
+   window.open("http://localhost:7000/auth/google/", "_self");
+  }
+
+
   return (
+    <Box>
+    <Text align="center" color="green.300" pt="60px" pb="20px" fontSize="3xl" fontWeight="bold">SignIn to OverStock</Text>
     <Box className={styles.signin}>
       <Link to="/signup">
-        <Text textAlign="end" fontWeight="bold" color="black">
+        <Text className={styles.text1} >
           Don't have an account? Sign Up
         </Text>{" "}
       </Link>
-      <FormControl isRequired>
+      <Stack align="center" mt="20px">
+      <Button width="100%"  display="block"
+            alignItems="flex-center"
+            color="white"
+            backgroundColor="#27865F"
+            _hover={{
+              outline: "#FA5D00",
+              bgColor: "#3BA63E",
+            }}
+            _focus={{
+              outline: "#FA5D00",
+              bgColor: "#3BA63E",
+            }}
+            onClick={handleClick}
+           >
+       Sign In with Google
+     </Button>
+     </Stack>
+     <Stack align="center" mb="10px">
+     <Text marginTop="20px">or with your email below</Text>
+     </Stack>
+      <FormControl method="POST" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input
           type="email"
@@ -87,6 +130,7 @@ const SignIn = () => {
         </Text>
         <Stack mt="30px" align="center">
           <Button
+          width="100%"
             display="block"
             alignItems="flex-center"
             color="white"
@@ -111,6 +155,7 @@ const SignIn = () => {
           </Text>
         </Link>
       </FormControl>
+    </Box>
     </Box>
   );
 };
