@@ -37,7 +37,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <>
+    <Box marginTop='120px'>
     <Text color='white'>Here</Text>
     <Text color='white'>Here</Text>
     <Box className={styles.container}>
@@ -84,7 +84,7 @@ const ForgotPassword = () => {
         </Link>
       </FormControl>
     </Box>
-    </>
+    <Box/>
   );
 };
 
