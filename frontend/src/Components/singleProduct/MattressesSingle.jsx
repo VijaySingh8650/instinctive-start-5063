@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Select, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Image, Select, SimpleGrid, Text, Toast, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { AiFillStar  } from 'react-icons/ai';
 import { MdEmail  } from 'react-icons/md';
@@ -18,51 +18,52 @@ import axios from 'axios';
 //     }]
 
 
-const SingleProduct = () => {
+const MattressesSingle= () => {
 
   const [size, setSize]=useState("");
    const {id}=useParams();
-
+   const toast = useToast()
    console.log(id)
-   const [data, setData] = useState([]);
+   const [data, setData] = useState(false)
 
-   const getKids = async () => {
+   const getKids = async (id) => {
+    console.log("newd",id)
      let res = await axios.get(
-       `https://homedecoraserver.onrender.com/api/furniture/bedroom/${id}`
+       `https://homedecoraserver.onrender.com/api/furniture/mattresses/${id}`
      );
-     setData(res.data.bedroom);
+     setData(res.data.mattresses);
+     console.log(data)
    };
  
  
    useEffect(() => {
-     getKids();
+     getKids(id);
    },[id]);
 
-   
+   console.log(data)
+
   return (<>
     <Box mt="8%" width="100%" align="left">
-        <Text width="94%" m="auto" pt="20px" pb='20px' fontSize="14px" >Home Decor / Rugs / Area Rugs / Transitional Rugs</Text>
+        
 
         {/* ////////////////// Single product display card ///////////// */}
 
-        <Flex width="94%" m="auto"  gap="26px">
-        <Image width="34%" height="400px" src={data.images[0]} objectFit="fill" />
+        {data && <> 
+          <Text width="94%" m="auto" pt="20px" pb='20px' fontSize="14px" >Home Decor / {data[0].set} / {data[0].subSet}</Text>
+          <Flex width="94%" m="auto"  gap="26px">
+        <Image width="34%" height="400px" src={data[0].images[0]} objectFit="fill" />
         <Box>
-            <Text  fontSize="18px" >{data.heading}</Text>
-            <Flex mt="4%" align="center" gap="5px"><AiFillStar color="#bf9852"/> <AiFillStar color="#bf9852"/><AiFillStar color="#bf9852"/>MRP <s>{data.originalPrice}</s> </Flex>
-            <Text mt="4%" color="#c7202c" fontSize="18px" fontWeight="600">Sale Starts at INR {data.price}</Text>
-            <Flex mt="14%"><Text mr='10px'>Size :</Text>
+            <Text  fontSize="18px" >{data[0].heading}</Text>
+            <Flex mt="4%" align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP <s>{"99990/-"}</s> </Flex>
+            <Text mt="4%" color="#c7202c" fontSize="18px" fontWeight="600">Sale Starts at INR {data[0].price}</Text>
+            <Flex mt="8%"><Text mr='10px'>Size :</Text>
             <Text  fontWeight={600}>{size==="" ? "Choose Size" : size}</Text></Flex>
             <SimpleGrid columns={[3,3,4,5]} gap='10px' mt='20px' >
-                <Button onClick={()=>setSize("Small")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}} >2'2" X 9'</Button>
-                <Button onClick={()=>setSize("Medium")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 11'</Button>
-                <Button  onClick={()=>setSize("Large")}color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 4'</Button>
-                <Button  onClick={()=>setSize("Xtra-Large")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 5'</Button>
-                <Button onClick={()=>setSize("Small")}color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>2'2" X 7'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>3' X 5'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>3' X 3'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>4' X 4'</Button>
-                <Button color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>4' X 6'</Button>
+                <Button onClick={()=>setSize("Small")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}} >Small</Button>
+                <Button onClick={()=>setSize("Medium")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>Medium</Button>
+                <Button  onClick={()=>setSize("Large")}color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>Large</Button>
+                <Button  onClick={()=>setSize("Xtra-Large")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>Xtra-Large</Button>
+                
         </SimpleGrid>
         <Flex mt="10%" gap="20px">
                     <Select width="200px">
@@ -79,12 +80,24 @@ const SingleProduct = () => {
                         <option>Quantity: 11</option>
                         <option>Quantity: 12</option>
                     </Select>
-                    <Button width="200px" bg="teal" color={"white"}>Add to Cart</Button>
+                    <Button onClick={() =>
+        toast({
+          position: 'top-center',
+          title: 'Added to cart.',
+          description: "We've added the selected item to you cart.",
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        })
+      }  width="200px" bg="teal" color={"white"}>Add to Cart</Button>
                     </Flex>
 
         </Box>
 
         </Flex>
+        
+        
+        </>}
             {/* /////////////////// add to cart tags///////////////// */}
             <Flex width="94%" m="auto" mt="50px" >
                     <Flex align={"center"} gap="10px">
@@ -108,4 +121,4 @@ const SingleProduct = () => {
     </>)
 }
 
-export default SingleProduct
+export default MattressesSingle

@@ -6,8 +6,8 @@ import SignUp from "../Pages/Signup/Signup";
 
 import Navbar from "../Components/navbar/Navbar";
 import Cart from "../Components/cart/Cart";
-import SingleProduct from "../Components/singleProduct/SingleProduct";
-import ProductPage from "../Components/productpage/Mattresses";
+import BedroomSingle from "../Components/singleProduct/BedroomSingle";
+// import ProductPage from "../Components/productpage/Mattresses";
 import Footer from "../Components/footer/Footer";
 import Category from "../Components/category/Category";
 import NavbarAdmin from "../Components/Admin/Navbar/NavbarAdmin";
@@ -15,10 +15,9 @@ import Home from "../Pages/Home/Home"
 import LivingRoom from "../Components/productpage/LivingRoom";
 import Bedroom from "../Components/productpage/Bedroom";
 import Mattresses from "../Components/productpage/Mattresses";
-import jwt from "jwt-decode";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import MattressesSingle from "../Components/singleProduct/MattressesSingle";
+import LivingRoomSingle from "../Components/singleProduct/LivingRoomSingle";
+import { Wishlist } from "../Pages/Wishlist/Wishlist";
 
 const AllRoutes = () => {
   const { accessToken } = useSelector(store => store.auth);
@@ -32,17 +31,20 @@ const AllRoutes = () => {
   
   return (
     <Routes>
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/forgot_password" element={<ForgotPassword />} />
-      <Route path="/admin/*" element={isAdminTrue ? <NavbarAdmin /> :<Navigate to="/signin"/>}></Route>
+      <Route path="/signup" element={<><Navbar /><SignUp /><Footer /></>} />
+      <Route path="/signin" element={<><Navbar /><SignIn /><Footer /></>} />
+      <Route path="/forgot_password" element={<><Navbar /><ForgotPassword /><Footer /></>} />
+      <Route path="/admin/*" element={<NavbarAdmin />}></Route>
       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
       <Route path="/bedroom" element={<><Navbar/><Bedroom /><Footer /></>} />
       <Route path="/mattresses" element={<><Navbar /><Mattresses /><Footer /></>} />
       <Route path="/living" element={<><Navbar /><LivingRoom /><Footer /></>} />
       <Route path="/furniture" element={<><Navbar /><Category/><Footer /></>} />
-       <Route path="/furniture/:id" element={<><Navbar /><SingleProduct/><Footer /></>} />
+       <Route path="/furniture/bedroom/:id" element={<><Navbar /><BedroomSingle /><Footer /></>} />
+       <Route path="/furniture/mattresses/:id" element={<><Navbar /><MattressesSingle/><Footer /></>} />
+       <Route path="/furniture/living/:id" element={<><Navbar /><LivingRoomSingle/><Footer /></>} />
        <Route path="/cart" element={<><Navbar /><Cart/><Footer /></>}></Route>
+       <Route path="/wishlist" element={<><Navbar /><Wishlist/><Footer /></>}></Route>
 
     </Routes>
   );

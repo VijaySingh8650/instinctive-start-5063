@@ -98,7 +98,7 @@ import axios from 'axios';
 
 
 const Mattresses = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(false);
   const getKids = async () => {
     let res = await axios.get(
       `https://homedecoraserver.onrender.com/api/furniture/mattresses`
@@ -117,8 +117,8 @@ console.log("from beackend",data)
    <>
    <Box  width="100%" mt="100px" >
     <Box width="96%" m="auto" textAlign="left" pt="1.5%"  mb="2%">
-      <Text>Home Decor/Decorative Accessories/Mirrors</Text>
-      <Text fontWeight="600" fontSize="36px">Floor Mirror</Text>
+    { data && <><Text>Home Decor/ {data[0].set} / {data[0].subSet}</Text>
+      <Text fontWeight="600" fontSize="36px">{data[0].subSet}</Text></>}
     </Box>
     <Flex gap="2%" width="96%" m="auto" height="auto" mb="140px">
       
@@ -146,9 +146,9 @@ console.log("from beackend",data)
           {data && data.map((el)=>{
 
         return(<Box align="left" boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px" width="95%">
-        <Link to="/furniture/:id" ><Image  src={el.images[0]} alt="productImages"></Image></Link>
+        <Link to={`/furniture/mattresses/${el._id}`} ><Image  src={el.images[0]} alt="productImages"></Image></Link>
         <Button p="0" position="absolute" mt={["-69%", "-34%", "-23%", "-23%"]} ml={["58%", "28%", "18.5%", "20%"]} borderRadius="50%" bgColor="hsl(0deg 0% 100% / 80%)" color='hsl(0deg 0% 55%)' _hover={{color:'#c7202c'}} ><BiHeartCircle  size='25px' /></Button>
-        <Link to="/furniture/:id" ><Box p="2%">
+        <Link to={`/furniture/mattresses/${el._id}`} ><Box p="2%">
         <Text color="#c7202c" fontSize="18px" fontWeight="600">Price ₹ {el.price}</Text>
         <Flex align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP<s >₹ {el.originalPrice}</s>  </Flex>
         <Text fontSize="14px">{el.heading}</Text>

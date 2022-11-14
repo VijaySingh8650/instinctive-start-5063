@@ -117,18 +117,9 @@ const Cart = () => {
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag discount </Text><Text fontWeight={"600"}>- ₹560/-</Text></Flex>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Convenience Fee : </Text ><Text fontWeight={"400"} color="#176c93" fontSize='14px'>What's this?</Text></Flex>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹99/-</Text></Flex>
-          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹{560+99}.00</Text></Flex>
+          <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹{59860+99}.00</Text></Flex>
           
-          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="20px" mt="15px" p="1.5em" _hover={{bgColor:"teal"}}  onClick={() =>
-        toast({
-          position: 'top-center',
-          title: 'Order Placed.',
-          description: "We've taken your last delivery address by default.",
-          status: 'success',
-          duration: 2000,
-          isClosable: true,
-        })
-      } >PROCEED TO SHIPPING</Button>
+          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="20px" mt="15px" p="1.5em" _hover={{bgColor:"teal"}}  >PROCEED TO SHIPPING</Button>
           <Text mt="18px" color="#176c93">Having Coupon ?</Text>
           <Flex gap="10px" mt="12px"><Input p="1.3em" focusBorderColor='none' placeholder='Enter Coupon code here'></Input> <Button p="1.3em" width="100px" variant="outline">APPLY</Button></Flex>
           </Flex>

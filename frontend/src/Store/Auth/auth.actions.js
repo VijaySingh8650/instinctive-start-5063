@@ -12,6 +12,7 @@ import {
 
 export const signupAPI = (userData) => async (dispatch) => {
     dispatch({ type: AUTH_SIGNUP_LOADING });
+    
     try {
       let response = await axios.post(
         "https://homedecoraserver.onrender.com/signup",

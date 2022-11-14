@@ -57,7 +57,8 @@ export const Wishlist = () => {
 
   return (
     <Box marginTop="130px">
-      <Flex gap="75%" marginLeft="2rem">
+
+      <Flex align='center' gap="75%" marginLeft="2rem">
         <Heading textAlign={"start"} fontWeight="bold">
           Your Wishlist:
         </Heading>
@@ -166,6 +167,6 @@ export const Wishlist = () => {
       <br /> 
       <br />
         <WishlistSuggestion />
-    </Box>
-  );
+    </Box>
+  );
 };
