@@ -54,18 +54,21 @@ const { accessToken } = useSelector(store => store.auth);
         <Text color="#bf9852" fontSize="20px" fontWeight={500}>HomeDecor</Text>
         </Hide>
         </Flex></Link>
-        <Flex alignItems="center" bgColor="#f5f5f6" width="60%" pl=".6rem" borderRadius="5px">
-          <Box width="6%">
+        <Flex alignItems="center" bgColor="#f5f5f6" width="40%" pl=".6rem" borderRadius="5px">
+          <Box width="10%">
             <BiSearchAlt2 color="#717288" />
           </Box>
-          <Input
-            height="100%"
-            variant="unstyled"
-            bgColor="#f5f5f6"
-            fontSize={"14px"}
-            
-            placeholder="Search... everything you find ships for free"
-          />
+          
+
+            <Input
+              height="60%"
+              variant="unstyled"
+              bgColor="#f5f5f6"
+              fontSize={"14px"}
+              
+              placeholder="Search... which suits your home"
+            />
+          
         </Flex>
         {/* ///////////// Account /////////////// */}
         <Flex width="auto" gap="20px" >
@@ -161,12 +164,12 @@ const { accessToken } = useSelector(store => store.auth);
           </Flex>
 )}
         {/* </Flex> */}
-        <Hide below="lg">
+        
         <Link to="/wishlist" ><Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
           <Box ><AiOutlineHeart size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Wishlist</Text>
         </Flex></Link>
-        </Hide>
+       
         <Link to="/cart" _hover={{color:"#bf9852" }}><Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
           <Box ><BsCart3 size="20px" color="#717288"  /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Bag</Text>

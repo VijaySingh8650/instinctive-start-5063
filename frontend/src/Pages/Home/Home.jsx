@@ -172,53 +172,53 @@ const Home = () => {
 
 <SimpleGrid  width="90%" m='auto'  mt="20px"  columns={[2,2,3,4]} pt=".5rem" gap='30px' alignContent={"center"}>
       
-      <Box >
-        <Image  src='https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Furniture.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Furniter</Text>
+      <Box align="center">
+        <Image  w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Furniture.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Furniture</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-AreaRugs.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Area Rugs</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-AreaRugs.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Area Rugs</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-BedBath.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Bedding</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-BedBath.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Bedding</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Decor.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Home Decor</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Decor.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Home Decor</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/CatSilo-Window-040721.jpg?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Window Treatments</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/CatSilo-Window-040721.jpg?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Window Treatments</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Kitchen.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Kitchen</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Kitchen.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Kitchen</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Outdoor.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Outdoor</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem"  src='https://ak1.ostkcdn.com/img/mxc/11192021-CatSilo-Outdoor.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Outdoor</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/01112021-CatSilo-HomeImp.jpg?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Home Improvement</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/01112021-CatSilo-HomeImp.jpg?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Home Improvement</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Storage.png?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Storage</Text>
+      <Box align="center">
+        <Image  w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Storage.png?imwidth=1920'/>
+        <Text textAlign={"center"} fontSize='md' fontWeight={"600"}>Storage</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/01112021-CatSilo-Mattresses.jpg?imwidth=1920'/>
-        <Text textAlign={"center"} fontSize='md'>Mattresses</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/01112021-CatSilo-Mattresses.jpg?imwidth=1920'/>
+        <Text  textAlign={"center"} fontSize='md' fontWeight={"600"}>Mattresses</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Lighting.png?imwidth=1920'/>
-        <Text textAlign={"center"}  fontSize='md'>Lighting</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/11152021-CatSilo-Lighting.png?imwidth=1920'/>
+        <Text textAlign={"center"}  fontSize='md' fontWeight={"600"}>Lighting</Text>
       </Box>
-      <Box >
-        <Image src='https://ak1.ostkcdn.com/img/mxc/CatSilo-AllDeals-040721.jpg?imwidth=1920'/>
-        <Text textAlign={"center"}  fontSize='md'>Shop All Deals</Text>
+      <Box align="center">
+        <Image w="10rem" h="10rem" src='https://ak1.ostkcdn.com/img/mxc/CatSilo-AllDeals-040721.jpg?imwidth=1920'/>
+        <Text textAlign={"center"}  fontSize='md' fontWeight={"600"}>Shop All Deals</Text>
       </Box>
     </SimpleGrid>
 
@@ -237,7 +237,7 @@ const Home = () => {
      
     <Box w="100%" align="center" m="2rem 0">
 
-         <Heading fontWeight="500">Trending Serches</Heading>
+         <Heading fontWeight="500">Trending Searches</Heading>
 
       </Box>
 
