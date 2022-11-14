@@ -13,7 +13,8 @@ import logo from "../Images/logo.png";
 import { activeStyle } from './activeStyles';
 import { noActiveStyle } from './activeStyles';
 import { useEffect } from 'react';
-
+import { useDispatch } from 'react-redux';
+import {logoutAPI} from "../../../Store/Auth/auth.actions"
 
 
 
@@ -22,6 +23,7 @@ import { useEffect } from 'react';
 
 const NavbarAdmin = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   useEffect(() => {
     window.document.title = "Welcome Admin";
   },[])
@@ -67,11 +69,14 @@ const NavbarAdmin = () => {
               
               <MenuList mr="1.5rem" minW="0" w={'150px'}>
                 
-                <MenuItem  className={styles.edit_box} onClick={()=>navigate("/signin")}>
+              <MenuItem className={styles.edit_box} onClick={() => {
+                dispatch(logoutAPI());
+                navigate("/signin")
+              }}>
                   <FiUser className={styles.reactIcons} />
                   <Text>Sign Out</Text>
                 </MenuItem>
-                <MenuItem className={styles.edit_box}>
+                <MenuItem onClick={()=>navigate("/admin/setting")} className={styles.edit_box}>
                   <FiSettings className={styles.reactIcons} />
                   <Text>Setting</Text>
                 </MenuItem>

@@ -15,14 +15,27 @@ import Home from "../Pages/Home/Home"
 import LivingRoom from "../Components/productpage/LivingRoom";
 import Bedroom from "../Components/productpage/Bedroom";
 import Mattresses from "../Components/productpage/Mattresses";
+import jwt from "jwt-decode";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 const AllRoutes = () => {
+  const { accessToken } = useSelector(store => store.auth);
+  let isAdminTrue; 
+  
+  if (accessToken) {
+    const decode = jwt(accessToken);
+    const { isAdmin } = decode;
+    isAdminTrue = isAdmin;
+  }
+  
   return (
     <Routes>
       <Route path="/signup" element={<SignUp />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/forgot_password" element={<ForgotPassword />} />
-      <Route path="/admin/*" element={<NavbarAdmin />}></Route>
+      <Route path="/admin/*" element={isAdminTrue ? <NavbarAdmin /> :<Navigate to="/signin"/>}></Route>
       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
       <Route path="/bedroom" element={<><Navbar/><Bedroom /><Footer /></>} />
       <Route path="/mattresses" element={<><Navbar /><Mattresses /><Footer /></>} />

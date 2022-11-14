@@ -29,7 +29,7 @@ const Home = () => {
           <Box className={styles.overFlow}>
 
             <Image className={styles.overFlow_image} src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139" />
-            <Text className={styles.off}><b>20</b>% off*</Text>
+            <Text className={styles.off}><b>10</b>% off*</Text>
 
           </Box>
           <Box align="center">
@@ -68,7 +68,7 @@ const Home = () => {
           <Box className={styles.overFlow}>
 
             <Image className={styles.overFlow_image} src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/artificial.jpg?w=300&dpr=1.3" />
-            <Text className={styles.off}><b>20</b>% off*</Text>
+            <Text className={styles.off}><b>30</b>% off*</Text>
 
           </Box>
           <Box align="center">
@@ -94,7 +94,7 @@ const Home = () => {
           <Box className={styles.overFlow}>
 
             <Image className={styles.overFlow_image} src="https://tse1.mm.bing.net/th?id=OIP.BnSOX9TTI7AMooaiTUWsgQHaIP&pid=Api&P=0" />
-            <Text className={styles.off}><b>20</b>% off*</Text>
+            <Text className={styles.off}><b>15</b>% off*</Text>
 
           </Box>
           <Box align="center">
