@@ -31,7 +31,7 @@ import { AddForm } from "../AddressForm/AddForm";
 // import { Button } from "../checkoutpage/Button";
 export const Payment = () => {
   const [cart, setCart] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [cartTotal, setCartTotal] = useState(20000);
   const [showForm, setShowForm] = useState(false);
   //for pay on delivery
   const [show1, setShow1] = useState(false);
@@ -58,10 +58,10 @@ export const Payment = () => {
                 setPaymode("PayOnDelivery")
   }
   // parsing local storage for cartItems
+  let total = 40000;
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("srk"))||[];
     setCart(cartItems);
-    let total = 0;
     cartItems.forEach((ele) => {
       total += ele.price;
     });
@@ -69,13 +69,13 @@ export const Payment = () => {
   }, []);
   // for address from pop-up
   useEffect(() => {
-    const add = JSON.parse(localStorage.getItem("sephoraAddress"))||[];
+    const add = JSON.parse(localStorage.getItem("homedecorAddress"))||[];
     if (add) setShowForm(false);
     else setShowForm(true);
   }, []);
 
  
-    const z = JSON.parse(localStorage.getItem("sephoraAddress"))||[];
+    const z = JSON.parse(localStorage.getItem("homedecorAddress"))||[];
     useEffect(()=>{
      setLength(z)
     },[z,length])
@@ -83,18 +83,20 @@ export const Payment = () => {
   const handleAlert = () => {
    
     const cartItems = JSON.parse(localStorage.getItem("srk"))||[]
-     if(cartItems.length==0){
-      alert("your cart is empty please add products in cart");
-      navigate('/home')
+     if(total>0){
+      alert("Order Placed thankyou for shopping from Homedecor");
+      navigate('/')
       return
      }
      if(paymode==""){
       alert("Please Select payment mode");
       return
     }
-    alert("Order Placed thankyou for shopping from sephora");
+    alert("Order Placed thankyou for shopping from Homedecor");
     localStorage.removeItem("srk")
-    navigate('/home')
+    // localStorage.removeItem("homedecorAddress")
+
+    navigate('/')
     return
   };
 

@@ -1,4 +1,5 @@
-export const PricingTable = ({total})=>{
+export const PricingTable = ()=>{
+    let total=40000
     return (
                
         <div className="total_price_info">

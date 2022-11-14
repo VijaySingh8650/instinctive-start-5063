@@ -17,7 +17,10 @@ import Bedroom from "../Components/productpage/Bedroom";
 import Mattresses from "../Components/productpage/Mattresses";
 import MattressesSingle from "../Components/singleProduct/MattressesSingle";
 import LivingRoomSingle from "../Components/singleProduct/LivingRoomSingle";
+import {CheckoutPage} from "../Components/checkout/CheckoutPage"
 import { Wishlist } from "../Pages/Wishlist/Wishlist";
+import { useSelector } from "react-redux";
+import jwt from "jwt-decode"
 
 const AllRoutes = () => {
   const { accessToken } = useSelector(store => store.auth);
@@ -45,6 +48,8 @@ const AllRoutes = () => {
        <Route path="/furniture/living/:id" element={<><Navbar /><LivingRoomSingle/><Footer /></>} />
        <Route path="/cart" element={<><Navbar /><Cart/><Footer /></>}></Route>
        <Route path="/wishlist" element={<><Navbar /><Wishlist/><Footer /></>}></Route>
+       <Route path="/checkout" element={<><Navbar /><CheckoutPage/></>}></Route>
+
 
     </Routes>
   );
