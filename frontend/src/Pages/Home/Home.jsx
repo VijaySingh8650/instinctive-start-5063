@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/react';
 import { Box, Button, Hide, Image, Show, SimpleGrid, Text} from '@chakra-ui/react'
 import React from 'react'
 import styles from "./Home.module.css";
@@ -13,50 +14,107 @@ const Home = () => {
            <Show below='md'><Image objectFit={"cover"} src="https://ak1.ostkcdn.com/img/mxc/11102022-HP-A1-INTL-V2-767x800_MBL-INTL.jpg"  />
            <Image width='100%' src='https://ak1.ostkcdn.com/img/mxc/11102022-HP-A1-INTL-V2-767x800_MBL-INTL.svg' position="absolute" mt={["-100%", "-100%", "-36%", "-36%"]} />
            </Show>
-        </Box>
+    </Box>
+    
+     <Box w="100%" align="center" m="2rem 0">
+
+         <Heading fontWeight="500">Limited-Time Deals</Heading>
+
+      </Box>
 
  {/* discount images */}
- <Text textAlign={"center"} fontSize='32px' mt="20px" fontWeight={500} >Limited-Time Deals</Text>
+    <Box align="center" display="flex" flexWrap={"wrap"} gap="2rem" padding="1rem" justifyContent={"center"} >
+        <Box>
+          <Box className={styles.overFlow}>
 
-<SimpleGrid  width="96%" m='auto'  mt="20px"  columns={[2,3,4,6]} pt="1rem" pl=".5rem" pb="1rem" bgColor={"#f8f8f8"} >
+            <Image className={styles.overFlow_image} src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139" />
+            <Text className={styles.off}><b>10</b>% off*</Text>
 
-  <Box   >
-    {/* <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_1.svg?imwidth=3840" alt="" /> */}
-    <Image  width="96%"  height='100px' src="https://media.istockphoto.com/photos/persian-rug-carpet-picture-id135093139"/>
-      <Text textAlign={"center"} fontSize='md'>Rugs</Text>
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Rugs</Text>
+
+          </Box>
+      </Box>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://images.furnituredealer.net/img/collections/john_thomas/select_dining-dop-b1.jpg" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Dining Room</Text>
+
+          </Box>
+      </Box>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://www.memory-improvement-tips.com/images/adjustable-sleep-number-bed.jpg" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Bedding</Text>
+
+          </Box>
+      </Box>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/artificial.jpg?w=300&dpr=1.3" />
+            <Text className={styles.off}><b>30</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Home Decor</Text>
+
+          </Box>
+      </Box>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://ak1.ostkcdn.com/images/products/is/images/direct/47ec2d990aea2dcec4541518a0da6a4d6305d3d4/Modern-Farmhouse-3-Pack-Black-Barn-Pendant-Lighting-Warehouse-Ceiling-Lighting.jpg" />
+            <Text className={styles.off}><b>20</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Lighting</Text>
+
+          </Box>
+      </Box>
+        <Box>
+          <Box className={styles.overFlow}>
+
+            <Image className={styles.overFlow_image} src="https://tse1.mm.bing.net/th?id=OIP.BnSOX9TTI7AMooaiTUWsgQHaIP&pid=Api&P=0" />
+            <Text className={styles.off}><b>15</b>% off*</Text>
+
+          </Box>
+          <Box align="center">
+
+            <Text fontSize='md' fontWeight={"500"}>Select Christmas Tree</Text>
+
+          </Box>
+      </Box>
+      
+      
+      
+
     </Box>
-
-  <Box   >
-    {/* <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" /> */}
-    <Image  width="96%"  height='100px' src="https://images.furnituredealer.net/img/collections/john_thomas/select_dining-dop-b1.jpg"/>
-      <Text textAlign={"center"} fontSize='md'>Dining Room</Text>
-  </Box>
-  <Box   >
-  {/* <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" /> */}
-  <Image  width="96%"  height='100px' src="https://www.memory-improvement-tips.com/images/adjustable-sleep-number-bed.jpg"/>
-      <Text textAlign={"center"} fontSize='md'>Bedding</Text>
-  </Box>
-  <Box   >
-  {/* <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" /> */}
-  <Image  width="96%"  height='100px' src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/artificial.jpg?w=300&dpr=1.3"/>
-      <Text textAlign={"center"} fontSize='md'>Home decor</Text>
-  </Box> 
-  <Box   >
-    {/* <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" /> */}
-    <Image  width="96%"  height='100px' src="https://ak1.ostkcdn.com/images/products/is/images/direct/47ec2d990aea2dcec4541518a0da6a4d6305d3d4/Modern-Farmhouse-3-Pack-Black-Barn-Pendant-Lighting-Warehouse-Ceiling-Lighting.jpg"/>
-      <Text textAlign={"center"} fontSize='md'>Lighting</Text>
-  </Box>
-  <Box   >
-  {/* <Image src="https://ak1.ostkcdn.com/img/mxc/10312022_HB_INTL-CAN_2.svg?imwidth=1080" alt="" /> */}
-  <Image  width="96%"  height='100px' src="https://tse1.mm.bing.net/th?id=OIP.BnSOX9TTI7AMooaiTUWsgQHaIP&pid=Api&P=0"/>
-      <Text textAlign={"center"} fontSize='md'>Christmas tree</Text>
-  </Box>
-</SimpleGrid>
-
-    {/* ////////////////////  */}
   
 {/* Brand we love */}
-<Text textAlign={"center"} fontSize='32px' mt="20px" fontWeight={500}>Brands We Love</Text>
+<Box w="100%" align="center" m="2rem 0">
+
+         <Heading fontWeight="500">Brands We Love</Heading>
+
+      </Box>
+
 <SimpleGrid  width="96%" m='auto'  mt="20px"  columns={[2,2,3,3]} pt=".5rem" gap='30px'>
       <Box>
       <Image src="https://ak1.ostkcdn.com/img/mxc/110822-DysonLogo.svg?imwidth=1920" alt="" />
@@ -104,7 +162,13 @@ const Home = () => {
 
 {/* Fresh Finds In Each Category */}
 
-<Text textAlign={"center"} fontSize='32px' mt="20px" fontWeight={500}>Fresh Finds In Each Category</Text>
+   
+    <Box w="100%" align="center" m="2rem 0">
+
+         <Heading fontWeight="500">Fresh Finds In Each Category</Heading>
+
+      </Box>
+
 
 <SimpleGrid  width="90%" m='auto'  mt="20px"  columns={[2,2,3,4]} pt=".5rem" gap='30px' alignContent={"center"}>
       
@@ -169,12 +233,18 @@ const Home = () => {
 
 {/* Trending Searches */}
 
-<Text  textAlign={"center"} fontSize='32px' mt="20px" fontWeight={700}>Trending Serches</Text>
+   
+     
+    <Box w="100%" align="center" m="2rem 0">
+
+         <Heading fontWeight="500">Trending Serches</Heading>
+
+      </Box>
 
 <Box mt="20px">
   
 <SimpleGrid
-bg='gray.50'
+bg='#f9fafb'
 columns={["2","2","3","3"]}
 spacing='8'
 p='10'
@@ -182,40 +252,40 @@ textAlign='center'
 rounded='lg'
 color='black'
 >
-<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Mugs
 </Box>
-<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Blanckets
 </Box>
-<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Cookie Cutters
 </Box>
-<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Air Fryers
 </Box>
-<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Kitchen Mixers
 </Box>
-<Box  p='6'as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6'as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Lamps
 </Box>
-<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b' fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Towels
 </Box>
-<Box  p='6'as='b'  fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6'as='b'  fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Tree Skirts
 </Box>
-<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Garland
 </Box>
-<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Fall Wreaths
 </Box>
-<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Christmas Trees
 </Box>
-<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white'>
+<Box  p='6' as='b'fontSize={["16px","16px","20px","20px"]} rounded='md' bg='white' border={"1px solid rgba(27, 31, 35, 0.15)"}>
 Fireplaces
 </Box>
 </SimpleGrid>
