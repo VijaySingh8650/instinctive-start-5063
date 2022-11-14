@@ -31,7 +31,7 @@ const NavbarAdmin = () => {
     <Box className={styles.container}>
         {/* side navbar */}
         <Box className={styles.sideNavbar}>
-            <Box className={styles.box}>
+            <Box className={styles.box} onClick={()=>navigate("/")}>
                   <Image src={logo} className={styles.navbarImg} />
                   <Text className={styles.name}>HomeDecor</Text> 
             </Box>

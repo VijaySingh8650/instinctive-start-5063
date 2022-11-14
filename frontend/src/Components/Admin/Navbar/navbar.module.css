@@ -16,8 +16,8 @@
 .box{
   display: flex;
   padding: 0 1rem;
-   align-items: center;
-  
+  align-items: center;
+  cursor: pointer;
 
 }
 .sideImage{
