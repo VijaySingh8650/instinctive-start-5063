@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import ForgotPassword from "../Pages/Forgot_Password/ForgotPassword";
 import SignIn from "../Pages/Signin/Signin";
 import SignUp from "../Pages/Signup/Signup";
-
+import jwt from "jwt-decode";
 import Navbar from "../Components/navbar/Navbar";
 import Cart from "../Components/cart/Cart";
 import BedroomSingle from "../Components/singleProduct/BedroomSingle";
@@ -18,6 +18,8 @@ import Mattresses from "../Components/productpage/Mattresses";
 import MattressesSingle from "../Components/singleProduct/MattressesSingle";
 import LivingRoomSingle from "../Components/singleProduct/LivingRoomSingle";
 import { Wishlist } from "../Pages/Wishlist/Wishlist";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const AllRoutes = () => {
   const { accessToken } = useSelector(store => store.auth);
@@ -34,7 +36,7 @@ const AllRoutes = () => {
       <Route path="/signup" element={<><Navbar /><SignUp /><Footer /></>} />
       <Route path="/signin" element={<><Navbar /><SignIn /><Footer /></>} />
       <Route path="/forgot_password" element={<><Navbar /><ForgotPassword /><Footer /></>} />
-      <Route path="/admin/*" element={<NavbarAdmin />}></Route>
+      <Route path="/admin/*" element={isAdminTrue ? <NavbarAdmin /> :<Navigate to="/signin"/>}></Route>
       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
       <Route path="/bedroom" element={<><Navbar/><Bedroom /><Footer /></>} />
       <Route path="/mattresses" element={<><Navbar /><Mattresses /><Footer /></>} />
