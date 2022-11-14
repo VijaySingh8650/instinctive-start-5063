@@ -34,7 +34,7 @@ const NavbarAdmin = () => {
     <Box className={styles.container}>
         {/* side navbar */}
         <Box className={styles.sideNavbar}>
-            <Box className={styles.box}>
+            <Box className={styles.box} onClick={()=>navigate("/")}>
                   <Image src={logo} className={styles.navbarImg} />
                   <Text className={styles.name}>HomeDecor</Text> 
             </Box>
@@ -77,7 +77,7 @@ const NavbarAdmin = () => {
                   <FiUser className={styles.reactIcons} />
                   <Text>Sign Out</Text>
                 </MenuItem>
-                <MenuItem className={styles.edit_box}>
+                <MenuItem onClick={()=>navigate("/admin/setting")} className={styles.edit_box}>
                   <FiSettings className={styles.reactIcons} />
                   <Text>Setting</Text>
                 </MenuItem>

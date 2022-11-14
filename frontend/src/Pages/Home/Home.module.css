@@ -1,0 +1,19 @@
+.overFlow{
+   position: relative;
+   height: 10rem;
+   width: 10rem;
+}
+.overFlow_image{
+    
+    height: 100%;
+    width: 100%;
+}
+.off{
+   position: absolute;
+    top: -1.8rem;
+    right: 0;
+    color: #bf9852;
+    font-size: 1.5rem;
+    font-weight: 900;
+   
+}

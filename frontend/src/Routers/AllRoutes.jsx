@@ -11,7 +11,7 @@ import BedroomSingle from "../Components/singleProduct/BedroomSingle";
 import Footer from "../Components/footer/Footer";
 import Category from "../Components/category/Category";
 import NavbarAdmin from "../Components/Admin/Navbar/NavbarAdmin";
-import Home from "../Pages/Home";
+import Home from "../Pages/Home/Home"
 import LivingRoom from "../Components/productpage/LivingRoom";
 import Bedroom from "../Components/productpage/Bedroom";
 import Mattresses from "../Components/productpage/Mattresses";
@@ -20,6 +20,15 @@ import LivingRoomSingle from "../Components/singleProduct/LivingRoomSingle";
 import { Wishlist } from "../Pages/Wishlist/Wishlist";
 
 const AllRoutes = () => {
+  const { accessToken } = useSelector(store => store.auth);
+  let isAdminTrue; 
+  
+  if (accessToken) {
+    const decode = jwt(accessToken);
+    const { isAdmin } = decode;
+    isAdminTrue = isAdmin;
+  }
+  
   return (
     <Routes>
       <Route path="/signup" element={<><Navbar /><SignUp /><Footer /></>} />

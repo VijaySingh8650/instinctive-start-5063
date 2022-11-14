@@ -1,5 +1,6 @@
 import { Box, Button, Hide, Image, Show, SimpleGrid, Text} from '@chakra-ui/react'
 import React from 'react'
+import styles from "./Home.module.css";
 
 const Home = () => {
   return ( <>
@@ -60,32 +61,32 @@ const Home = () => {
       <Box>
       <Image src="https://ak1.ostkcdn.com/img/mxc/110822-DysonLogo.svg?imwidth=1920" alt="" />
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-KeurigLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+        <Image src="https://ak1.ostkcdn.com/img/mxc/110822-KeurigLogo.svg?imwidth=1920" alt="" w="12rem"/>
 
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-SharkLogo.svg?imwidth=1920" alt="" />
+      <Box m ="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-SharkLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
       <Box>
       <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" />
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-NinjaLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-NinjaLogo.svg?imwidth=1920" alt="" w="12rem"/>
 
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CuisinartLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CuisinartLogo.svg?imwidth=1920" alt="" w="12rem"/>
       </Box>
       <Box>
       <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CalphalonLogo.svg?imwidth=1920" alt="" />
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-HamiltonBeachLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-HamiltonBeachLogo.svg?imwidth=1920" alt="" w="12rem"/>
 
       </Box>
-      <Box>
-      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" />
+      <Box m="2rem">
+      <Image src="https://ak1.ostkcdn.com/img/mxc/110822-CasperLogo.svg?imwidth=1920" alt="" w="12rem"/>
       
       </Box>
 

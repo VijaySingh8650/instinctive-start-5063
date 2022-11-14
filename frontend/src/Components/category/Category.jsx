@@ -27,7 +27,7 @@ const Category = () => {
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/09292022_furniture_PopCat_5.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Mattresses</Text>
             </Box></Link>
-            <Link to="/" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/kitchen" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/09292022_furniture_PopCat_8.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Kitchen Furniture</Text>
             </Box></Link>
@@ -39,7 +39,7 @@ const Category = () => {
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_8.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Bathroom Furniture</Text>
             </Box></Link>
-            <Link to="/" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/kid" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_missing_1.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Kids & Toddler Room Furniture</Text>
             </Box></Link>

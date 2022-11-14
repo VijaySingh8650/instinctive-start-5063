@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
   password: { type: String, required: true, min: 8, max: 16 },
+  isAdmin:{type:Boolean,default:false},
 },{timestamps:true});
 
 const User = mongoose.model("user", userSchema);

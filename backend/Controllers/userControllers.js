@@ -37,7 +37,7 @@ const SignIn = async(req,res)=>{
          return res.status(400).send({ message: "Invalid Password" });
         
       }
-      const accessToken = jwt.sign({id:user._id},access_key,{expiresIn:"25m"});
+      const accessToken = jwt.sign({id:user._id,isAdmin:user.isAdmin},access_key,{expiresIn:"3d"});
       const refreshToken = jwt.sign({id:user._id},refresh_key,{expiresIn:"7d"});
       return res.status(200).send({message:"Log In Successfully",accessToken,refreshToken,email})
     }catch(err){
