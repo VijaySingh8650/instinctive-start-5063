@@ -37,7 +37,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <>
+    <Box>
     <Text color='white'>Here</Text>
     <Text color='white'>Here</Text>
     <Box className={styles.container}>
@@ -84,8 +84,8 @@ const ForgotPassword = () => {
         </Link>
       </FormControl>
     </Box>
-    </>
+    </Box>
   );
 };
 
-export default ForgotPassword;
+export default ForgotPassword;

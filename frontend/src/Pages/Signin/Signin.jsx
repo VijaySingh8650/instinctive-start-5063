@@ -77,8 +77,8 @@ const SignIn = () => {
 
 
   return (
-    <Box>
-    <Text align="center" color="green.300" pt="60px" pb="20px" fontSize="3xl" fontWeight="bold">SignIn to OverStock</Text>
+    <Box marginTop='80px'>
+    <Text className={styles.text} color="#bf9850">SignIn to HomeDecor</Text>
     <Box className={styles.signin}>
       <Link to="/signup">
         <Text className={styles.text1} >
@@ -160,4 +160,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignIn;

@@ -1,7 +1,7 @@
 .signin{
     width:40%;
     margin-top: px;
-    background: #fffaf7;
+    background: #ffffff;
     margin: auto;
    border-radius: 10px;
     padding: 30px;
@@ -11,6 +11,15 @@
     color: black;
     font-weight: bold;
     text-align: end;
+}
+
+.text{
+   text-align: center;
+   padding-top: 60px;
+   padding-bottom: 20px;
+   color:green.300;
+   font-size: 34px;
+   font-weight: bold;
 }
 
 
@@ -29,4 +38,12 @@
         font-size: x-small;
 
     }
+    /* .text4{
+        text-align: center;
+       
+        padding-bottom: 20px;
+        color: green.200;
+        font-size: 18px;
+        font-weight: bold;
+     } */
 }

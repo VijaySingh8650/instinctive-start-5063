@@ -56,14 +56,15 @@ export const Wishlist = () => {
   }
 
   return (
-    <Box marginTop="30px">
-      <Flex gap="60%" marginLeft="2rem">
+    <Box marginTop="130px">
+
+      <Flex align='center' gap="75%" marginLeft="2rem">
         <Heading textAlign={"start"} fontWeight="bold">
           Your Wishlist:
         </Heading>
-        <Link to="/">
+        <Link to="/signin">
           <Button  
-          backgroundColor="#3BA63E"
+          backgroundColor="black"
           color="white"
             _hover={{
               outline: "#FA5D00",
@@ -75,7 +76,7 @@ export const Wishlist = () => {
               outline: "#FA5D00",
               bgColor: "#3BA63E",
             }} w={["100%", "100%", "100%", "100%"]}>
-            Continue Shopping
+            SignIn
           </Button>
         </Link>
       
@@ -166,6 +167,6 @@ export const Wishlist = () => {
       <br /> 
       <br />
         <WishlistSuggestion />
-    </Box>
-  );
+    </Box>
+  );
 };

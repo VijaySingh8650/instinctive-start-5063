@@ -11,19 +11,19 @@ const Category = () => {
         <Text textAlign={"center"} fontSize="24px" fontWeight={500} mt="10px">Popular Furniture Categories</Text>
         </Box>
         <SimpleGrid columns={[1,2,3,4]} width="95%" m="auto" gap="20px" mt="30px">
-            <Link to="/" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/living" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_1.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Living Room Furniture</Text>
             </Box></Link>
-            <Link to="/" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/living" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_2.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Dining Room Furniture</Text>
             </Box></Link>
-            <Link to="/" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/bedroom" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_3.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Bedroom Furniture</Text>
             </Box></Link>
-            <Link to="/" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/mattresses" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/09292022_furniture_PopCat_5.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Mattresses</Text>
             </Box></Link>

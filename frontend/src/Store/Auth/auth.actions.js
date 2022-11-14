@@ -12,9 +12,10 @@ import {
 
 export const signupAPI = (userData) => async (dispatch) => {
     dispatch({ type: AUTH_SIGNUP_LOADING });
+    
     try {
       let response = await axios.post(
-        "http://localhost:7000/signup",
+        "https://homedecoraserver.onrender.com/signup",
         userData
       );
       dispatch({ type: AUTH_SIGNUP_SUCCESS, payload: response.data });
@@ -31,7 +32,7 @@ export const signinAPI = (userData) => async (dispatch) => {
   dispatch({ type: AUTH_SIGNIN_LOADING });
   try {
     let response = await axios.post(
-      "http://localhost:7000/login",
+      "https://homedecoraserver.onrender.com/login",
       userData
     );
     dispatch({ type: AUTH_SIGNIN_SUCCESS, payload: response.data });
