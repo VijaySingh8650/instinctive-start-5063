@@ -22,12 +22,12 @@ export const AddForm = ({setShowForm}) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();  
-      localStorage.setItem("sephoraAddress", JSON.stringify(formData));
+      localStorage.setItem("homedecorAddress", JSON.stringify(formData));
       setShowForm(false)
     };
     
     useEffect(()=>{
-        let add = JSON.parse(localStorage.getItem("sephoraAddress"))
+        let add = JSON.parse(localStorage.getItem("homedecorAddress"))
         setAddress(add)
 
     },[])
