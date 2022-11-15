@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (<>
                 {/* /////////// Footer main box////////// */}
-    <Box bgColor="#545658" width="100%" pt="40px" pb="40px" mt="50px">
+    <Box bgColor="#535455" width="100%" pt="40px" pb="40px" mt="50px">
 
         <SimpleGrid columns={[1,2,4,4]} color="white" width="80%" m="auto" justifyContent='space-between' rowGap="25px" >
             <Flex flexDir="column" rowGap="15px">

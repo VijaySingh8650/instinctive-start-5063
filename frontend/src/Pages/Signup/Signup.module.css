@@ -1,33 +1,33 @@
 .signup{
-    width:40%;
-    height: 550px;
-    background: #ffffff;
-    margin: auto;
-   border-radius: 10px;
-    padding: 30px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-bottom: 60px;
+    width: 30%;
+    
+        background: #ffffff;
+        margin: auto;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 .text1{
     color: black;
-    font-weight: bold;
+    text-decoration: underline;
     text-align: end;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
 }
 .checkbox{
-    margin-bottom: 30px;
-    margin-top: 10px;
+    margin: 1rem 0;
 }
 
 .text{
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 20px;
-    color:green.300;
-    font-size: 34px;
-    font-weight: bold;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+   
+    font-size: 2rem;
+    font-weight: 600;
  }
- 
+ .text2{
+   font-size: 1rem;
+ }
 
 
 @media screen and (max-width:950px){

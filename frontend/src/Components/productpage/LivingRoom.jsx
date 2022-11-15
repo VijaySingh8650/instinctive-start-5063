@@ -25,7 +25,7 @@ const LivingRoom = () => {
   },[]);
 
  
-console.log("from beackend",data)
+
   return (
    <>
    <Box  width="100%" mt="100px" >
@@ -60,10 +60,10 @@ console.log("from beackend",data)
 
         return(<Box align="left" boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px" width="95%">
         <Link to={`/furniture/living/${el._id}`} ><Image  src={el.images[0]} alt="productImages"></Image></Link>
-        <Button p="0" position="absolute" mt={["-69%", "-34%", "-23%", "-23%"]} ml={["58%", "28%", "18.5%", "20%"]} borderRadius="50%" bgColor="hsl(0deg 0% 100% / 80%)" color='hsl(0deg 0% 55%)' _hover={{color:'#c7202c'}} ><BiHeartCircle  size='25px' /></Button>
+        <Button p="0" position="absolute" mt={["-69%", "-34%", "-23%", "-23%"]} ml={["58%", "28%", "18.5%", "20%"]} borderRadius="50%" bgColor="hsl(0deg 0% 100% / 80%)" color='hsl(0deg 0% 55%)' _hover={{color:'#bf9850'}} ><BiHeartCircle  size='25px' /></Button>
         <Link to={`/furniture/living/${el._id}`} ><Box p="2%">
-        <Text color="#c7202c" fontSize="18px" fontWeight="600">Price ₹ {el.price}</Text>
-        <Flex align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP<s >₹ {el.originalPrice}</s>  </Flex>
+        <Text color="#bf9850" fontSize="18px" fontWeight="600">Price ₹ {el.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
+        <Flex align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP<s >₹ {el.originalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</s>  </Flex>
         <Text fontSize="14px">{el.heading}</Text>
         </Box></Link>
         </Box>

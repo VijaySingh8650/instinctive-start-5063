@@ -39,7 +39,7 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/signup" element={<><Navbar /><SignUp /><Footer /></>} />
-      <Route path="/signin" element={<><Navbar /><SignIn /><Footer /></>} />
+      <Route path="/signin" element={<><Navbar /><SignIn/><Footer /></>} />
       <Route path="/forgot_password" element={<><Navbar /><ForgotPassword /><Footer /></>} />
       <Route path="/admin/*" element={isAdminTrue ? <NavbarAdmin /> :<Navigate to="/signin"/>}></Route>
       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />

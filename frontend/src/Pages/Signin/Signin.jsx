@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Container,
   FormControl,
   FormLabel,
   Input,
@@ -77,8 +78,8 @@ const SignIn = () => {
 
 
   return (
-    <Box marginTop='80px'>
-    <Text className={styles.text} color="#bf9850">SignIn to HomeDecor</Text>
+    <Box mt="80px">
+    <Text className={styles.text} color="#bf9850">Welcome to the HomeDecor</Text>
     <Box className={styles.signin}>
       <Link to="/signup">
         <Text className={styles.text1} >
@@ -89,14 +90,14 @@ const SignIn = () => {
       <Button width="100%"  display="block"
             alignItems="flex-center"
             color="white"
-            backgroundColor="#27865F"
+            backgroundColor="#bf9850"
             _hover={{
               outline: "#FA5D00",
-              bgColor: "#3BA63E",
+              bgColor: "#b5955e",
             }}
             _focus={{
               outline: "#FA5D00",
-              bgColor: "#3BA63E",
+              bgColor: "#b5955e",
             }}
             onClick={handleClick}
            >
@@ -104,7 +105,7 @@ const SignIn = () => {
      </Button>
      </Stack>
      <Stack align="center" mb="10px">
-     <Text marginTop="20px">or with your email below</Text>
+     <Text mt="1rem">or</Text>
      </Stack>
       <FormControl method="POST" isRequired>
         <FormLabel>Email Address</FormLabel>
@@ -128,21 +129,13 @@ const SignIn = () => {
         <Text color="brown" align="center" fontWeight="bold">
           {error ? message : " "}
         </Text>
-        <Stack mt="30px" align="center">
+        <Stack mt="1rem" align="center">
           <Button
           width="100%"
             display="block"
             alignItems="flex-center"
             color="white"
-            backgroundColor="#27865F"
-            _hover={{
-              outline: "#FA5D00",
-              bgColor: "#3BA63E",
-            }}
-            _focus={{
-              outline: "#FA5D00",
-              bgColor: "#3BA63E",
-            }}
+            backgroundColor="#bf9850"
             onClick={handleSubmit}
             disabled={isInvalid}
           >
@@ -150,8 +143,8 @@ const SignIn = () => {
           </Button>
         </Stack>
         <Link to="/forgot_password">
-          <Text mt="10px" fontWeight="bold" color="blue" align="center">
-            Forgot Password
+          <Text   align="left" textDecoration={"underline"}>
+            Forgot Password?
           </Text>
         </Link>
       </FormControl>

@@ -1,24 +1,25 @@
 .signin{
-    width:40%;
-    margin-top: px;
+    width:30%;
+    
     background: #ffffff;
     margin: auto;
    border-radius: 10px;
-    padding: 30px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 .text1{
     color: black;
-    font-weight: bold;
+    text-decoration: underline;
     text-align: end;
+    
 }
 .text{
    text-align: center;
-   padding-top: 60px;
-   padding-bottom: 20px;
-   color:green.300;
-   font-size: 34px;
-   font-weight: bold;
+   padding-top: 3rem;
+   padding-bottom: 1rem;
+   color:#bf9850;
+   font-size: 2rem;
+   font-weight: 600;
 }
 
 @media screen and (max-width:950px){

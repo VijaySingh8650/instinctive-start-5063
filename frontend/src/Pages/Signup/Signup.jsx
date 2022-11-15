@@ -45,10 +45,7 @@ const SignUp = () => {
      navigate("/signin");
   };
 
-  const handleGuest = (e) => {
-    e.preventDefault();
-    navigate("/cart");
-  };
+  
 
   let isInvalid =
     email === "" ||
@@ -66,8 +63,8 @@ const SignUp = () => {
   };
 
   return (
-    <Box marginTop='80px'>
-     <Text className={styles.text} color="#bf9850">SignUp to Home Decor</Text>
+    <Box mt="80px">
+     <Text className={styles.text} color="#bf9850">Let's Decor Your Home</Text>
     <Box className={styles.signup}>
       <Link to="/signin">
         <Text className={styles.text1}>
@@ -106,7 +103,7 @@ const SignUp = () => {
           {error}
         </Text>
         <Checkbox className={styles.checkbox} defaultChecked>
-          <Text className={styles.text2} > Sign up today for exclusive offers from Overstock.com delivered right
+          <Text className={styles.text2} > Sign up today for exclusive offers from HomeDecor delivered right
           to your inbox**</Text>
         </Checkbox>
         <Spacer />
@@ -116,7 +113,7 @@ const SignUp = () => {
             display="block"
             alignItems="flex-center"
             color="white"
-            backgroundColor="#0272A2"
+            backgroundColor="#bf9850"
             _hover={{
               outline: "#FA5D00",
               bgColor: "#3BA63E",
@@ -130,24 +127,7 @@ const SignUp = () => {
           >
             Create Account
           </Button>
-          <Button
-          width="100%"
-            display="block"
-            alignItems="flex-center"
-            color="white"
-            backgroundColor="green"
-            _hover={{
-              outline: "#FA5D00",
-              bgColor: "#3BA63E",
-            }}
-            _focus={{
-              outline: "#FA5D00",
-              bgColor: "#3BA63E",
-            }}
-            onClick={handleGuest}
-          >
-            Continue as Guest
-          </Button>
+          
         </Stack>
       </FormControl>
     </Box>
