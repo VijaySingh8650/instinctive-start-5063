@@ -15,7 +15,7 @@ export const signupAPI = (userData) => async (dispatch) => {
     
     try {
       let response = await axios.post(
-        "https://homedecoraserver.onrender.com/signup",
+        `${process.env.REACT_APP_URL}/signup`,
         userData
       );
       dispatch({ type: AUTH_SIGNUP_SUCCESS, payload: response.data });
@@ -32,7 +32,7 @@ export const signinAPI = (userData) => async (dispatch) => {
   dispatch({ type: AUTH_SIGNIN_LOADING });
   try {
     let response = await axios.post(
-      "https://homedecoraserver.onrender.com/login",
+      `${process.env.REACT_APP_URL}/login`,
       userData
     );
     dispatch({ type: AUTH_SIGNIN_SUCCESS, payload: response.data });
