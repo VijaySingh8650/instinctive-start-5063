@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 import { Box, Button, Flex, Image, Input, SimpleGrid, Text, Toast } from '@chakra-ui/react'
-import adv from "./images/adv.jpg"
-import Card from './Card'
+
+
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
+import CartDetails from './CartDetails'
+
 // import StripeCheckout from 'react-stripe-checkout';
 
 
-const getCartItems=()=>{
+// const getCartItems=()=>{
 
-return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts`)
+// return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts`)
 
 
-}
+// }
 
 
 const Cart = () => {
@@ -45,54 +46,11 @@ const Cart = () => {
 
 
 
-// const handleToken=async(token,addresses)=>{
-//   const res=await axios.post(`http://localhost:8000/checkout`,{cartItem,token});
-//   console.log(res.status);
-//   // Stripe.setPublishableKey()
-// }
-// useEffect(()=>{
-
-//   updateCartItems(id)
-
-// },[])
-
-// useEffect(()=>{
-
-//   setCartSum(cartItem.reduce((acc,cur)=>acc+(Number(cur.productsId.price))*(Number(cur.quantity)),0))
-//   console.log("1",cartSum)
-
-// },[cartItem])
-
-
-// const updateCartItems=()=>{
-
-//   getCartItems().then((res)=>{setCartItem(res.data)
- 
-// })
-// }
-
-// const removePro = async (p_id) => {
-//   const res = await axios.delete(
-//     `https://asap-backend-server-deploy.herokuapp.com/carts`
-//   );
-//     updateCartItems(id);
-// };
-
-// const quantityChange = async (item,qty,userid=id) => {
-//   console.log(item.quantity)
-//   console.log("Quantity: ",qty)
-//   const res = await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/${userid}`,{productsId:item.productsId._id,quantity:qty});
-//     updateCartItems(userid);
-// };
-
-// console.log(cartItem)
-
-
   const toast = useToast()
   return (
      <>
-    <Box mt={"8%"} /*border="1px solid black"*/  mb="1%">
-      <Image width="100%" height="68px" src={adv} alt="image"  />
+    <Box mt={"7rem"} /*border="1px solid black"*/  mb="1%">
+      {/* <Image width="100%" height="68px" src={adv} alt="image"  /> */}
       <Box  /*border="1px solid green"*/ mt="1%" width="100%">
         <Flex justifyContent={"space-between"} flexDir={["column","column","column","row"]}>
           {/* Cart box */}
@@ -100,7 +58,7 @@ const Cart = () => {
        
           <Box width={["100%","100%","100%","70%"]} /*border="1px solid red"*/ minH="550px" >
 
-          <Card cartItem={cartItem} />
+          <CartDetails cartItem={cartItem} />
           {/* <Card />
           <Card />
           <Card /> */}
@@ -111,7 +69,9 @@ const Cart = () => {
              
           {/* Amount description box */}
 
-          <Flex flexDir={"column"} gap="12px"width={["100%","100%","100%","30%"]} position="sticky" top="120px" pl="1.5em" pt="1em" pr="1.5em" borderRadius={"10px"} mr="20px" columnGap="10px" height="500px" boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em" >
+          <Flex flexDir={"column"} gap="12px" width={["100%","100%","100%","30%"]} position="sticky" top="120px" pl="1.5em" pt="1em" pr="1.5em" borderRadius={"10px"} mr="20px" columnGap="10px" height="500px" boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em" >
+          <Text color="#bf9850">Having A Coupon?</Text>
+          <Flex gap="10px"><Input p="1.3em" focusBorderColor='none' placeholder='Enter Coupon code here'></Input> <Button p="1rem"  border={"1px solid #bf9850"} bg="none" color="#bf9850">APPLY</Button></Flex>
           <Text fontSize={"20px"} fontWeight="600" mb="15px">Order Details</Text>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag total </Text><Text fontWeight={"600"}>₹1000.00/-</Text></Flex>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag discount </Text><Text fontWeight={"600"}>- ₹560/-</Text></Flex>
@@ -119,9 +79,8 @@ const Cart = () => {
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹99/-</Text></Flex>
           <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹{59860+99}.00</Text></Flex>
           
-          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="20px" mt="15px" p="1.5em" _hover={{bgColor:"teal"}}  >PROCEED TO SHIPPING</Button>
-          <Text mt="18px" color="#176c93">Having Coupon ?</Text>
-          <Flex gap="10px" mt="12px"><Input p="1.3em" focusBorderColor='none' placeholder='Enter Coupon code here'></Input> <Button p="1.3em" width="100px" variant="outline">APPLY</Button></Flex>
+          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="1rem" mt="15px" p="1.5em" _hover={{bgColor:"teal"}}  >PROCEED TO SHIPPING</Button>
+          
           </Flex>
 
         </Flex>

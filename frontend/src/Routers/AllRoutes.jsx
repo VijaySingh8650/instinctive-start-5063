@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import ForgotPassword from "../Pages/Forgot_Password/ForgotPassword";
 import SignIn from "../Pages/Signin/Signin";
 import SignUp from "../Pages/Signup/Signup";
@@ -19,21 +19,34 @@ import MattressesSingle from "../Components/singleProduct/MattressesSingle";
 import LivingRoomSingle from "../Components/singleProduct/LivingRoomSingle";
 import {CheckoutPage} from "../Components/checkout/CheckoutPage"
 import { Wishlist } from "../Pages/Wishlist/Wishlist";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Navigate } from "react-router-dom";
 
 import jwt from "jwt-decode"
+import { logoutAPI } from "../Store/Auth/auth.actions";
+import Dining from "../Components/productpage/Dining";
 
 
 const AllRoutes = () => {
   const { accessToken } = useSelector(store => store.auth);
   let isAdminTrue; 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   
   if (accessToken) {
+
     const decode = jwt(accessToken);
-    const { isAdmin } = decode;
+    const { isAdmin, exp } = decode;
+    let date = new Date().getTime();
+    if ((exp * 1000) < date) {
+      dispatch(logoutAPI());
+      navigate("/signin");
+    }
+
     isAdminTrue = isAdmin;
+    console.log(exp*1000);
+    console.log(date, "date");
   }
   
   return (
@@ -46,6 +59,7 @@ const AllRoutes = () => {
       <Route path="/bedroom" element={<><Navbar/><Bedroom /><Footer /></>} />
       <Route path="/mattresses" element={<><Navbar /><Mattresses /><Footer /></>} />
       <Route path="/living" element={<><Navbar /><LivingRoom /><Footer /></>} />
+      <Route path="/dining" element={<><Navbar /><Dining /><Footer /></>} />
       <Route path="/furniture" element={<><Navbar /><Category/><Footer /></>} />
        <Route path="/furniture/bedroom/:id" element={<><Navbar /><BedroomSingle /><Footer /></>} />
        <Route path="/furniture/mattresses/:id" element={<><Navbar /><MattressesSingle/><Footer /></>} />

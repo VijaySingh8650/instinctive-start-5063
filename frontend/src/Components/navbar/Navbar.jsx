@@ -30,7 +30,7 @@ const navigate = useNavigate()
 
   const handleSignOut = ()=>{
       dispatch(logoutAPI());
-       navigate('/');
+       navigate('/signin');
   }
 
 const { accessToken } = useSelector(store => store.auth);

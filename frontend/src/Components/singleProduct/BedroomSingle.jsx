@@ -1,27 +1,26 @@
 import { Box, Button, Flex, Image, Select, SimpleGrid, Text, Toast, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { AiFillStar  } from 'react-icons/ai';
-import { MdEmail  } from 'react-icons/md';
-import { BsFacebook  } from 'react-icons/bs';
-import { AiFillTwitterCircle  } from 'react-icons/ai';
-import { BsPinterest  } from 'react-icons/bs';
-import delivery from "./images/delivery.png"
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import styles from "./bedroom.module.css";
+import { Link } from 'react-router-dom';
 
 const BedroomSingle = () => {
 
-  const [size, setSize]=useState("");
+  const [sizeOf, setSize] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
    const {id}=useParams();
    const toast = useToast()
   
-   const [data, setData] = useState(false)
+  const [data, setData] = useState({});
 
    const getData = async () => {
-    console.log("newd",id)
+   
      let res = await axios.get(`https://homedecoraserver.onrender.com/api/furniture/bedroom/${id}`);
-     setData(res.data.bedroom);
+     console.log(res.data);
+     setData(res.data);
     
    };
  
@@ -32,46 +31,74 @@ const BedroomSingle = () => {
        
    },[id]);
 
-  console.log("receved", data)
 
   return (<>
     <Box mt="8%" width="100%" align="left">
         
 
         {/* ////////////////// Single product display card ///////////// */}
-        {data && <> 
-          <Text width="94%" m="auto" pt="20px" pb='20px' fontSize="14px" >Home Decor / {data[0].set} / {data[0].subSet}</Text>
-          <Flex width="94%" m="auto"  gap="26px">
-        <Image width="34%" height="400px" src={data[0].images[0]} objectFit="fill" />
+        {data.bedroom && <> 
+        <Text width="94%" m="auto" pt="20px" pb='20px' fontSize="14px" >
+         <Link to="/">Home Decor</Link>  / <Link to="/furniture">{data.bedroom.set}</Link> / <Link to="/bedroom">{data.bedroom.subSet}</Link></Text>
+        <Flex width="94%" m="auto" gap="26px">
+          
+
+          <Box w={[200,250,350]} h={[200,250,350]} className={styles.slider}>
+            
+            <Image className={styles.imageSlider}   src={data.bedroom.images[image]} objectFit="fill" />
+            
+          </Box>
+
         <Box>
-            <Text  fontSize="18px" >{data[0].heading}</Text>
-            <Flex mt="4%" align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP <s>{"99990/-"}</s> </Flex>
-            <Text mt="4%" color="#c7202c" fontSize="18px" fontWeight="600">Sale Starts at INR {data[0].price}</Text>
-            <Flex mt="8%"><Text mr='10px'>Size :</Text>
-            <Text  fontWeight={600}>{size==="" ? "Choose Size" : size}</Text></Flex>
-            <SimpleGrid columns={[3,3,4,5]} gap='10px' mt='20px' >
-                <Button onClick={()=>setSize("Small")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}} >Small</Button>
-                <Button onClick={()=>setSize("Medium")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>Medium</Button>
-                <Button  onClick={()=>setSize("Large")}color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>Large</Button>
-                <Button  onClick={()=>setSize("Xtra-Large")} color={"#626669"} fontSize='12px' fontWeight={400} variant={"outline"} _hover={{border:"1px solid black"}}>Xtra-Large</Button>
+            <Text fontSize="18px" >{data.bedroom.heading}</Text>
+            <Flex gap = "1rem" m="1rem 0">
+
+              <Text  color="#bf9850"  fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.bedroom.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
+              <Text gap="5px">MRP ₹ {data.bedroom.originalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} </Text>
+              
+            </Flex>
+            {
+              data.ColorAndSize[0].size && <Flex mt="1rem">
+              <Text fontWeight={500}>Size : {sizeOf === "" ? "Choose Size" : sizeOf}</Text>
+            </Flex>
+            }
+            
+            <Flex gap="1rem" mt="1rem">
+
+              {
+                data.ColorAndSize[0].size && data.ColorAndSize?.map((sizeOfProduct, index) => {
+                  const { price, size } = sizeOfProduct;
+                    return <Button variant="outline" key={index} onClick={() => {
+                      setSize(size);
+                      setPrice(price);
+                      console.log(price);
+                    }}>{size}</Button>
+                  })
+
+                }
+            </Flex>
+            <Flex m="1rem 0" gap="1rem" alignItems={"center"}>
+                   <Flex>
+                    
+                      <Text fontWeight={500}>Quantity: {quantity === "" ? "Select Quantity" : quantity}</Text>
                 
-        </SimpleGrid>
-        <Flex mt="10%" gap="20px">
-                    <Select width="200px">
-                        <option>Quantity: 1</option>
-                        <option>Quantity: 2</option>
-                        <option>Quantity: 3</option>
-                        <option>Quantity: 4</option>
-                        <option>Quantity: 5</option>
-                        <option>Quantity: 6</option>
-                        <option>Quantity: 7</option>
-                        <option>Quantity: 8</option>
-                        <option>Quantity: 9</option>
-                        <option>Quantity: 10</option>
-                        <option>Quantity: 11</option>
-                        <option>Quantity: 12</option>
+                   </Flex>
+                    <Select width="4rem" onChange={(e)=>setQuantity(e.target.value)}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </Select>
-                    <Button onClick={() =>
+                    
+            </Flex>
+            <Flex m="1rem 0" gap="1rem">
+
+              {
+              data.bedroom.images.map((image, index) => {
+                return <Image cursor="pointer"  w={[20,30,50]} h={[20,30,50]} key={index} src={image} alt="bedroom"  onClick={()=>setImage(index)}/>
+              })
+            }
+            </Flex>
+            <Button onClick={() =>
         toast({
           position: 'top-center',
           title: 'Added to cart.',
@@ -80,34 +107,45 @@ const BedroomSingle = () => {
           duration: 2000,
           isClosable: true,
         })
-      }  width="200px" bg="teal" color={"white"}>Add to Cart</Button>
-                    </Flex>
+      }  width="200px" bg="#bf9850" color={"white"}>Add to Cart</Button>
 
-        </Box>
+          </Box>
+          
 
         </Flex>
+
+        <Box m="1rem 2rem">
+        <hr/>
+          <Text fontWeight={"500"}>DETAILS: </Text>
+          {data.bedroom.details}
+        </Box>
+
+        {/* features */}
+        <Box m="1rem 2rem">
+        <hr/>
+          <Text fontWeight={"500"}>FEATURES: </Text>
+          {
+            data.bedroom.features?.map((feature, index) => {
+              return <Text key={index}>{index+1}. {feature}</Text>
+           }) 
+         }
+        </Box>
+
+        {/* dimensions */}
+        <Box m="1rem 2rem">
+        <hr/>
+          <Text fontWeight={"500"}>DIMENSIONS: </Text>
+          {
+            data.bedroom.dimensions?.map((dimension, index) => {
+              return <Text key={index}>{index+1}. {dimension}</Text>
+           }) 
+         }
+        </Box>
         
         
         </>}
         
-            {/* /////////////////// add to cart tags///////////////// */}
-            <Flex width="94%" m="auto" mt="50px" >
-                    <Flex align={"center"} gap="10px">
-                    <Text fontStyle='italic' fontSize={"14px"} >Share This Product: </Text>
-                    <MdEmail size='30px' />
-                    <BsFacebook size='30px' />
-                    <AiFillTwitterCircle size='32px' />
-                    <BsPinterest size='30px' />
-                    </Flex>
-                    
-                    {/* /////// Quantity ////////// */}
-                    
-            </Flex>
-
-    <Flex mt="50px" mb="40px" >
-      <Image src={delivery} ml="30px" />
-    </Flex>
-
+            
 
     </Box>
     </>)

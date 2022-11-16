@@ -53,7 +53,7 @@ const Products = () => {
       limit: limit
     })
   }, [page, limit]);
-
+  console.log(process.env.NAME);
   const redirect = () => {
     navigate("/admin/products/newproducts");
   }

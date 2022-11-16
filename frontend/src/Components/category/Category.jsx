@@ -15,7 +15,7 @@ const Category = () => {
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_1.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Living Room Furniture</Text>
             </Box></Link>
-            <Link to="/living" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
+            <Link to="/dining" _hover={{color:"#bf9852" }} ><Box bgColor="#f5f6f7">
                 <Image width='100%' objectFit="cover" src="https://ak1.ostkcdn.com/img/mxc/10312022_HOLIDAY2022_Furniture_PopCat_2.jpg?imwidth=400"/>
                 <Text textAlign="center" pt="10px" pb="10px">Dining Room Furniture</Text>
             </Box></Link>

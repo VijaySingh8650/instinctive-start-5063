@@ -4,7 +4,7 @@ import { ADMIN_PRODUCTS_ERROR, ADMIN_PRODUCTS_LOADING, ADMIN_PRODUCTS_SUCCESS } 
 export const getProductsAdminSide = ({page,limit})=>async(dispatch) => {
     dispatch({ type: ADMIN_PRODUCTS_LOADING });
     try {
-        let res = await axios.get("https://homedecoraserver.onrender.com/api/furniture/products", {
+        let res = await axios.get(`${process.env.REACT_APP_URL}/api/furniture/products`, {
             params: {
                 page:page,
                 limit: limit
