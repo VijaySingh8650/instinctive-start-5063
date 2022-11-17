@@ -10,7 +10,7 @@ ReactJS | React-Redux | CSS | Chakra UI | MongoDB | NodeJS | ExpressJS
 - Vijay Singh Rathore 
 - Shahbaz Ali 
 - Amit Singh Chauhan
-- Sirtaz Khan
+- Sirtaj Khan
 - Lakhan Kumar 
 
 
