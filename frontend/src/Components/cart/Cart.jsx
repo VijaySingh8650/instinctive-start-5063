@@ -5,24 +5,15 @@ import { Box, Button, Flex, Image, Input, SimpleGrid, Text, Toast } from '@chakr
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios'
 import CartDetails from './CartDetails'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
-// import StripeCheckout from 'react-stripe-checkout';
-
-
-// const getCartItems=()=>{
-
-// return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts`)
-
-
-// }
 
 
 const Cart = () => {
 
-  // let auth = useSelector(store => store.auth);
-  // let [id, email, password] = auth.token.split(":"); 
-  // let [zartItem,setCartItem]=useState([])
-  // let [cartSum,setCartSum]=useState(0);
+  
+   const { accessToken } = useSelector(store => store.auth);
 
   const cartItem=[{
     image:"https://ak1.ostkcdn.com/images/products/is/images/direct/466343107cab3e7c879f53099991f03c082bcca1/Modern-Arched-Mirror-Full-length-Floor-Mirror-with-Standing.jpg?imwidth=480&impolicy=medium",
@@ -43,8 +34,22 @@ const Cart = () => {
     rating:"3.5"
   }
 ]
-
-
+  async function getCartData() {
+    try {
+      let res = await axios.get(`${process.env.REACT_APP_URL}/api/cart`, {
+            headers: {
+                authorization:accessToken
+            }
+      });
+      console.log(res);
+    }
+    catch (err) {
+      console.log(err.message);
+    }
+  }
+  useEffect(() => {
+    getCartData();
+  },[])
 
   const toast = useToast()
   return (

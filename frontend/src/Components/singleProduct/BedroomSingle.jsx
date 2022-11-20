@@ -4,15 +4,18 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./bedroom.module.css";
 import { Link } from 'react-router-dom';
+import { addProductsTocart } from '../../Store/Cart/cart.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const BedroomSingle = () => {
-
+  const dispatch = useDispatch();
   const [sizeOf, setSize] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
    const {id}=useParams();
-   const toast = useToast()
+  const toast = useToast();
+  const { accessToken } = useSelector(store => store.auth);
   
   const [data, setData] = useState({});
 
@@ -30,6 +33,19 @@ const BedroomSingle = () => {
      getData();
        
    },[id]);
+
+  
+  const addProduct = () => {
+    alert("Add product To cart");
+  }
+  
+  const productTocart = () => {
+   const productId = id;
+    const size = sizeOf;
+    console.log(accessToken, productId, size, price, quantity);
+    dispatch(addProductsTocart(accessToken,productId,size, quantity, price))
+    
+  }
 
 
   return (<>
@@ -53,13 +69,15 @@ const BedroomSingle = () => {
             <Text fontSize="18px" >{data.bedroom.heading}</Text>
             <Flex gap = "1rem" m="1rem 0">
 
-              <Text  color="#bf9850"  fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.bedroom.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
+              <Text color="#bf9850" fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.bedroom.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
+              {!price && setPrice(data.bedroom.price)}
               <Text gap="5px">MRP ₹ {data.bedroom.originalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} </Text>
               
             </Flex>
             {
               data.ColorAndSize[0].size && <Flex mt="1rem">
-              <Text fontWeight={500}>Size : {sizeOf === "" ? "Choose Size" : sizeOf}</Text>
+                <Text fontWeight={500}>Size : {sizeOf || data.ColorAndSize[0].size}</Text>
+                {!sizeOf && setSize(data.ColorAndSize[0].size)}
             </Flex>
             }
             
@@ -98,16 +116,10 @@ const BedroomSingle = () => {
               })
             }
             </Flex>
-            <Button onClick={() =>
-        toast({
-          position: 'top-center',
-          title: 'Added to cart.',
-          description: "We've added the selected item to you cart.",
-          status: 'success',
-          duration: 2000,
-          isClosable: true,
-        })
-      }  width="200px" bg="#bf9850" color={"white"}>Add to Cart</Button>
+            <Button onClick={() => 
+              !accessToken ? addProduct() : productTocart()
+            }
+              width="200px" bg="#bf9850" color={"white"}>Add to Cart</Button>
 
           </Box>
           
