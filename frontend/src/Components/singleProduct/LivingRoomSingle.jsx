@@ -53,7 +53,8 @@ const LivingRoomSingle = () => {
             <Text fontSize="18px" >{data.livingRoom.heading}</Text>
             <Flex gap = "1rem" m="1rem 0">
 
-              <Text  color="#bf9850"  fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.livingRoom.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
+              <Text color="#bf9850" fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.livingRoom.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
+              {/* {!price && setPrice(data.livingRoom.price)} */}
               <Text gap="5px">MRP ₹ {data.livingRoom.originalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} </Text>
               
             </Flex>

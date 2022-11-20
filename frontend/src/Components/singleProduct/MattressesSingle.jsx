@@ -55,6 +55,7 @@ const MattressesSingle = () => {
 
               <Text  color="#bf9850"  fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.mattresses.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
               <Text gap="5px">MRP ₹ {data.mattresses.originalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} </Text>
+               {!price && setPrice(data.mattresses.price)}
               
             </Flex>
             {
