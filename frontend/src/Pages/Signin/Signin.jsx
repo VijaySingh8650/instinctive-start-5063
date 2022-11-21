@@ -53,7 +53,7 @@ const SignIn = () => {
       position: "top-center",
       duration: 1000,
       render: () => (
-        <Box borderRadius={5} align="center" color="white" p={3} bg="blue.500">
+        <Box borderRadius={5} align="center" color="white" p={3} bg="#bf9850">
           Log In Successfully
         </Box>
       ),

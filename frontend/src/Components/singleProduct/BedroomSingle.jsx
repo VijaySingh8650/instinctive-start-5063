@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Select, SimpleGrid, Text, Toast, useToast } from '@chakra-ui/react'
+import { Box, Button, Flex, Image, Select,  Text,  useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import styles from "./bedroom.module.css";
 import { Link } from 'react-router-dom';
 import { addProductsTocart } from '../../Store/Cart/cart.action';
 import { useDispatch, useSelector } from 'react-redux';
+
 
 const BedroomSingle = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,15 @@ const BedroomSingle = () => {
 
   
   const addProduct = () => {
-    alert("Add product To cart");
+    toast({
+          position: 'top',
+          title: 'Log-In',
+          description: "Get HomeDecor To Your Home",
+          status: 'error',
+          duration: 1500,
+          isClosable: true,
+        })
+    
   }
   
   const productTocart = () => {
@@ -44,7 +53,14 @@ const BedroomSingle = () => {
     const size = sizeOf;
     console.log(accessToken, productId, size, price, quantity);
     dispatch(addProductsTocart(accessToken,productId,size, quantity, price))
-    
+    toast({
+          position: 'top',
+          title: 'Item Added',
+          description: "Lets buy it!!",
+          status: 'success',
+          duration: 1500,
+          isClosable: true,
+        })
   }
 
 
