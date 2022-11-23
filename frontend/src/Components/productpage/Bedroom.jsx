@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Hide, Image, MenuButton, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Button, Checkbox, Flex, Hide, Image, MenuButton, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillStar  } from 'react-icons/ai';
@@ -12,9 +12,27 @@ import axios from 'axios';
 
 const Bedroom = () => {
   const [data, setData] = useState(false);
+  const [showPrice, setShowPrice] = useState(false);
+  const [maxPrice, setShowMaxPrice] = useState(0);
+  const [maxCheck1, setMaxCheck1] = useState(false);
+  const [maxCheck2, setMaxCheck2] = useState(false);
+  
+  const [minPrice, setShowMinPrice] = useState(0);
+  const [minCheck1, setMinCheck1] = useState(false);
+  const [minCheck2, setMinCheck2] = useState(false);
+
   const getKids = async () => {
     let res = await axios.get(
       `https://homedecoraserver.onrender.com/api/furniture/bedroom`
+    );
+    setData(res.data.bedroom);
+  };
+
+  const getKidsSort = async (max,min) => {
+    let res = await axios.get(
+      `https://homedecoraserver.onrender.com/api/furniture/bedroom`, {params:{
+        max,min
+      }}
     );
     setData(res.data.bedroom);
   };
@@ -24,8 +42,79 @@ const Bedroom = () => {
     getKids();
   },[]);
 
+  useEffect(() => {
+    if (minPrice && maxPrice) {
+      let max = maxPrice;
+      let min = minPrice;
+      getKidsSort(max, min);
+      
+    }
+    else if (!minPrice && maxPrice) {
+      let max = maxPrice;
+      let min = undefined;
+      getKidsSort(max, min);
+      
+    }
+    else if (minPrice && !maxPrice) {
+      let min = minPrice;
+      let max = undefined;
+      getKidsSort(max, min);
+      
+    } else {
+      getKids();
+    }
+  },[minPrice, maxPrice])
+  
+
+  const changeMaxPrice = (e) => {
+    const { value, checked } = e.target;
+    let checkValue = checked ? +value : 0;
+    if (checkValue === 30000) {
+      
+        setMaxCheck2(!maxCheck2);
+        setMaxCheck1(false);
+        setShowMaxPrice(checkValue);
+
+       
+      } else if (checkValue === 20000) {
+        setMaxCheck1(!maxCheck1);
+        setMaxCheck2(false);
+        setShowMaxPrice(checkValue);
+
+        
+    } else {
+        setMaxCheck1(false);
+        setMaxCheck2(false);
+        setShowMaxPrice(0);
+      }
+    
+  }
+
+    const changeMinPrice = (e) => {
+    const { value, checked } = e.target;
+    let checkValue = checked ? +value : 0;
+    if (checkValue === 8000) {
+      
+        setMinCheck2(!minCheck2);
+        setMinCheck1(false);
+        setShowMinPrice(checkValue);
+
+        
+      } else if (checkValue === 4000) {
+        setMinCheck1(!minCheck1);
+        setMinCheck2(false);
+        setShowMinPrice(checkValue);
+
+        
+    } else {
+        setMinCheck1(false);
+        setMinCheck2(false);
+        setShowMinPrice(0);
+      }
+    
+  }
  
-// console.log("from beackend",data)
+
   return (
    <>
    <Box  width="100%" mt="100px" >
@@ -37,22 +126,49 @@ const Bedroom = () => {
     <Flex gap="2%" width="96%" m="auto" height="auto" mb="140px">
       
           {/* ////////////// Filter By/////////////// */}
-          <Hide below="md">
-        <Box  position={"sticky"} top={"120px"} width="20%" height="320px">
+          
+        <Box  position={"sticky"} top={"120px"} width="20%" height="150px">
 
         <Flex flexDir={"column"} gap="10px" >
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Types</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Price</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
+         <Button  bgColor="#f5f5f6" onClick={()=>setShowPrice(!showPrice)}><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Price</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
+          {
+                showPrice && <Box style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                  <Box>
+                    <Text>
+                      Minimum
+                    </Text>
+                    <Stack spacing={1} direction='column'>
+                      <Checkbox isChecked={minCheck1} colorScheme='blue' value={4000}  onChange={(e)=>changeMinPrice(e)}>
+                        ₹ 4,000
+                      </Checkbox>
+                      <Checkbox isChecked={minCheck2} colorScheme='blue' value={8000} onChange={(e)=>changeMinPrice(e)}>
+                        ₹ 8,000
+                      </Checkbox>
+                    </Stack>
+                  </Box>
+
+                  <Box>
+                    <Text>
+                      Maximum
+                    </Text>
+                    <Stack spacing={1} direction='column'>
+                      <Checkbox  isChecked={maxCheck1} colorScheme='blue' value={20000} onChange={(e)=>changeMaxPrice(e)}>
+                        ₹ 20,000
+                      </Checkbox>
+                      <Checkbox isChecked={maxCheck2} colorScheme='blue' value={30000} onChange={(e)=>changeMaxPrice(e)}>
+                         ₹ 30,000
+                      </Checkbox>
+                    </Stack>
+                  </Box>
+             </Box>
+         }
          <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Colors</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
          <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Sizes</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
          <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Shapes</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
          <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Brand</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Hide below="md"><Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Customer Ratings</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button> </Hide>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Types</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Hide below="md"><Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Availability</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button></Hide>
          </Flex>
           </Box>
-          </Hide>
+        
 
       <SimpleGrid columns={[1,2,3,3]} width="80%" m="auto" rowGap={"20px"} >
 
