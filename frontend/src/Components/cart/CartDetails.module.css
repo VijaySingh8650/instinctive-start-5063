@@ -10,3 +10,16 @@
     right: .5rem;
     bottom: .5rem;
 }
+
+.cart_empty{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+}
+.link_to_sign{
+    text-decoration: underline;
+    color: blue;
+}

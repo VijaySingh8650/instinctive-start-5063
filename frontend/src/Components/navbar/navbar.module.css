@@ -68,3 +68,8 @@
     background-color: rgba(26, 26, 26, 0.8);
     color:#ffffff
 }
+.flex_home_menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

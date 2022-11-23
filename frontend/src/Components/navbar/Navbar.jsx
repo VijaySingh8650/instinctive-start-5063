@@ -19,6 +19,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAPI } from "../../Store/Auth/auth.actions";
 import style from "./navbar.module.css"
+import styles from "../Admin/Navbar/navbar.module.css";
 import profile from "./images/profile.png"
 import jwt from "jwt-decode"
 const Navbar = () => {
@@ -71,100 +72,86 @@ const { accessToken } = useSelector(store => store.auth);
           
         </Flex>
         {/* ///////////// Account /////////////// */}
-        <Flex width="auto" gap="20px" >
-        {/* <Flex flexDir="column" align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
-          <Box ><BsPerson size="20px" color="#717288" /></Box>
-          <Text mt="-2px" fontSize="12px" fontWeight="bold">Profile</Text> */}
-          {token?(<Flex flexDir="column" align="center">
-            <Box>
-              <ul>
-                <li className={style.li1} style={{ float: "right" }}>
-                  <Text
-                    color="white"
-                    display="flex"
-                    alignItems="center"
-                    gap={2}
-                    pt={2}
-                    pl={1}
-                    pr={1}
-                    _hover={{ bgColor: "rgba(218, 218, 218,.3)" }}
-                  >
-                    <WrapItem  mt="-8px">
+        <Flex gap="1rem" alignItems={"center"}>
+          {
+            token ? 
+              <Menu>
+              
+             
+               <MenuButton>
+                <WrapItem >
                       <Avatar
                         width="40px" height="38px"
-                        name="Kent Dodds"
+                        
                         src={profile}
                         borderRadius="0"
                         pt="0"
                         mt="0"
                       />{" "}
                     </WrapItem>
-                  </Text>
-                  <Box className={style.dropbox}>
-                    <Text className={style.text12} textAlign="center">
-                     {email}
-                    </Text>
-                    <hr/>
-                    {isAdminTrue && <Button onClick={()=>navigate('/admin')} fontSize="16px" fontWeight={"500"} >Admin</Button>}
-                    <Button fontSize="18px" fontWeight={"500"} onClick={handleSignOut} mt="10px">Logout</Button>
-                  </Box>
-                </li>
-              </ul>
-            </Box>
-          </Flex>):(  <Flex flexDir="column" align="center">
-            <Box>
-              <ul>
-                <li className={style.li1} style={{ float: "right" }}>
-                  <Text
-                    color="white"
-                    display="flex"
-                    alignItems="center"
-                    gap={2}
-                    pt={2}
-                    pl={1}
-                    pr={1}
-                    _hover={{ bgColor: "rgba(218, 218, 218,.3)" }}
-                  >
-                    <WrapItem mt="-8px">
+              </MenuButton>
+              
+              <MenuList minW="0" w={"auto"} className={style.home_navbar_menu}>
+                <MenuItem>
+                  {isAdminTrue ? <Text>Welcome Admin</Text> : <Text>Welcome</Text>}
+                </MenuItem>
+                <MenuItem>
+                  {isAdminTrue && <Button onClick={()=>navigate('/admin')} > <Text>Go To Admin Page</Text></Button>}
+                </MenuItem>
+                <MenuItem align="center">
+                 <Text>{email}</Text>
+                </MenuItem>
+                <MenuItem onClick={()=>navigate("/cart")}>
+                  <Text>Cart</Text>
+                </MenuItem>
+                <MenuItem  className={styles.edit_box} onClick={()=>{
+                  dispatch(logoutAPI())
+                  navigate("/signin")
+                }}>
+                  
+                  <Text>Sign Out</Text>
+                </MenuItem>
+                
+              
+              </MenuList>
+            </Menu> : 
+              <Menu>
+              
+             
+               <MenuButton>
+                <WrapItem >
                       <Avatar
                         width="40px" height="38px"
-                        name="Kent Dodds"
+                        
                         src={profile}
                         borderRadius="0"
                         pt="0"
                         mt="0"
                       />{" "}
                     </WrapItem>
-                  </Text>
-                  <Box className={style.dropbox}>
-                    <Text className={style.text12}>
-                      <Link to="/signin">Sign In</Link>
-                    </Text>
-                    <Text className={style.text12}>
-                      <Link to="/signup">Create an Account</Link>
-                    </Text>
-                    <hr />
-                    <Text className={style.text11}>
-                      <Link to="">My Account</Link>
-                    </Text>
-                    <Text className={style.text11}>
-                      <Link to="">My Orders</Link>
-                    </Text>
-
-                    <Text className={style.text11}>
-                      <Link to="">My Reviews</Link>
-                    </Text>
-                    <Text className={style.text11}>
-                      <Text>Help</Text>
-                    </Text>
-                  </Box>
-                </li>
-              </ul>
-            </Box>
-          </Flex>
-)}
-        {/* </Flex> */}
-        
+              </MenuButton>
+              
+              <MenuList minW="0" w={"auto"} className={style.home_navbar_menu}>
+                
+               
+               
+                <MenuItem onClick={()=>navigate("/cart")}>
+                  <Text>Cart</Text>
+                </MenuItem>
+                <MenuItem  className={styles.edit_box} onClick={()=>{
+                  
+                  navigate("/signin")
+                }}>
+                  
+                  <Text>Sign in</Text>
+                </MenuItem>
+                
+              
+              </MenuList>
+            </Menu> 
+         }
+      
+         
         <Link to="/wishlist" ><Flex flexDir="column"  align="center" cursor="pointer" _hover={{color:"#bf9852" }}>
           <Box ><AiOutlineHeart size="20px" color="#717288" /></Box>
           <Text mt="-2px" fontSize="12px" fontWeight="bold">Wishlist</Text>
