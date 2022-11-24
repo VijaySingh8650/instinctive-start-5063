@@ -14,7 +14,7 @@ const BedroomSingle = () => {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-   const {id}=useParams();
+  const {id}=useParams();
   const toast = useToast();
   const { accessToken } = useSelector(store => store.auth);
   

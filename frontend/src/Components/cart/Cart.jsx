@@ -9,10 +9,10 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styles from "./CartDetails.module.css";
 import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-
+  const navigate = useNavigate();
   const toast = useToast();
   const [cartProducts, setCartProducts] = useState({});
   const { accessToken } = useSelector(store => store.auth);
@@ -64,7 +64,7 @@ const Cart = () => {
             {/* Cart box */}
 
        
-            <Box width={["100%", "100%", "100%", "70%"]} /*border="1px solid red"*/ minH="550px" >
+            <Box width={["100%", "100%", "100%", "70%"]} >
               {
                 cartProducts.cart?.item.map((item) => {
               
@@ -91,12 +91,12 @@ const Cart = () => {
               <Text>Total Products : {cartProducts?.total}</Text>
               <Flex justifyContent={"space-between"} fontSize={"14px"} >
                 <Text fontWeight={"400"}>Bag total </Text><Text fontWeight={"600"}>₹ {cartProducts.cart?.subTotal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text></Flex>
-              {/* <Flex justifyContent={"space-between"}  fontSize={"14px"} ><Text fontWeight={"400"}>Bag discount </Text><Text fontWeight={"600"}>- ₹560/-</Text></Flex> */}
-              <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontWeight={"400"}>Convenience Fee : </Text ><Text fontWeight={"400"} color="#176c93" fontSize='14px'>₹ 199</Text></Flex>
-              <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹ 99</Text></Flex>
-              <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹ {(cartProducts.cart?.subTotal + 199 + 99).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}.00</Text></Flex>
+              
+              <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontWeight={"400"}>Convenience Fee : </Text ><Text fontWeight={"400"} color="#176c93" fontSize='14px'>₹ 0</Text></Flex>
+              <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹ 0</Text></Flex>
+              <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹ {(cartProducts.cart?.subTotal ).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}.00</Text></Flex>
           
-              <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="1rem" mt="15px" p="1.5em" _hover={{ bgColor: "teal" }} >PROCEED TO SHIPPING</Button>
+              <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="1rem" mt="15px" p="1.5em" _hover={{ bgColor: "teal" }} onClick={()=>navigate("/address")}>PROCEED TO SHIPPING</Button>
           
             </Flex>
 

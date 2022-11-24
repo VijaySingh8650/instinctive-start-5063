@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AiFillDelete } from 'react-icons/ai';
 import styles from "./CartDetails.module.css";
-
+import { Link } from 'react-router-dom';
 
 
 const CartDetails = ({cartItem, deletCartItem}) => {
@@ -15,11 +15,16 @@ const CartDetails = ({cartItem, deletCartItem}) => {
   
 
   return (<>
-   
-       <Box className={styles.box} m="0  1rem 1rem 1rem" boxShadow="" borderRadius={"1rem"} p="1rem">
+    
+    
+
+       <Box className={styles.box} m="0  1rem 1rem 1rem" boxShadow="" borderRadius={"1rem"} p="1rem" >
       <Flex justifyContent="space-between" gap="1rem">
-   
-      <Image h={[100, 150, 200]}   src={productId.images[0]} alt="cartImage"/>
+        <Link to={`/${productId.set.toLowerCase()}/${productId.subSet.split(" ")[0].toLowerCase()}/${productId._id}`}>
+          
+          <Image h={[100, 150, 200]} src={productId.images[0]} alt="cartImage" />
+          
+      </Link>
       <Box  width="70%">
         <Text>{productId.heading}</Text>
        
