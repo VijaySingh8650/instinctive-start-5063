@@ -38,7 +38,7 @@ const CartDetails = ({cartItem, deletCartItem}) => {
           </Flex>
           <Flex gap="1rem" alignItems={"center"}>
             
-              <Text fontWeight="600">Size : {size}</Text>
+              <Text fontWeight="600">Size : {size ? size : "Default"}</Text>
             
           </Flex>
           <Flex gap="1rem" alignItems={"center"}>

@@ -96,7 +96,7 @@ const Cart = () => {
               <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹ 0</Text></Flex>
               <Flex justifyContent={"space-between"} fontSize={"14px"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹ {(cartProducts.cart?.subTotal ).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}.00</Text></Flex>
           
-              <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="1rem" mt="15px" p="1.5em" _hover={{ bgColor: "teal" }} onClick={()=>navigate("/address")}>PROCEED TO SHIPPING</Button>
+              <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="1rem" mt="15px" p="1.5em" _hover={{ bgColor: "#d5a249" }} onClick={()=>navigate("/address")}>PROCEED TO SHIPPING</Button>
           
             </Flex>
 

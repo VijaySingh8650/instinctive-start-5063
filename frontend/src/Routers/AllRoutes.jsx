@@ -26,7 +26,9 @@ import { Navigate } from "react-router-dom";
 import jwt from "jwt-decode"
 import { logoutAPI } from "../Store/Auth/auth.actions";
 import Dining from "../Components/productpage/Dining";
-import { AddForm } from "../Components/AddressForm/AddForm";
+
+import AddAddress from "../Components/AddressForm/AddAddress";
+import { Payment } from "../Components/payment/Payment";
 
 
 const AllRoutes = () => {
@@ -68,7 +70,8 @@ const AllRoutes = () => {
        <Route path="/cart" element={<><Navbar /><Cart/><Footer /></>}></Route>
        <Route path="/wishlist" element={<><Navbar /><Wishlist/><Footer /></>}></Route>
        <Route path="/checkout" element={<><Navbar /><CheckoutPage/></>}></Route>
-       <Route path="/address" element={<><Navbar /><AddForm/></>}></Route>
+       <Route path="/address" element={<><Navbar /><AddAddress/><Footer /></>}></Route>
+       <Route path="/payment" element={<><Navbar /><Payment/><Footer /></>}></Route>
 
 
     </Routes>

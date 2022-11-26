@@ -1,0 +1,47 @@
+.house_block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.box{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.container{
+    position: relative;
+    width: 100%;
+
+}
+.btn_address{
+    /* background-color: white; */
+    width: 97.5%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 7rem;
+    /* right: 1rem; */
+    /* padding: 0 1rem; */
+    
+}
+.box_child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box_child_child{
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.address_empty{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.address_empty_child{
+    text-align: center;
+}
