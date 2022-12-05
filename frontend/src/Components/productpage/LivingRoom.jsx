@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillStar  } from 'react-icons/ai';
 import { BiHeartCircle  } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
   
@@ -13,6 +13,10 @@ import axios from 'axios';
 
 const LivingRoom = () => {
   const [data, setData] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialPage = Number(searchParams.get("page")) || 1;
+  const [page, setPage] = useState(initialPage);
+  const [totalPage, setTotalPage] = useState("");
   const [showPrice, setShowPrice] = useState(false);
   const [maxPrice, setShowMaxPrice] = useState(0);
   const [maxCheck1, setMaxCheck1] = useState(false);
@@ -24,26 +28,29 @@ const LivingRoom = () => {
 
   const getKids = async () => {
     let res = await axios.get(
-      `https://homedecoraserver.onrender.com/api/furniture/living`
+      `https://homedecoraserver.onrender.com/api/furniture/living?limit=6&page=${page}`
     );
     setData(res.data.livingRoom);
+    setTotalPage(res.data.totalPages);
   };
 
   const getKidsSort = async (max,min) => {
     let res = await axios.get(
-      `https://homedecoraserver.onrender.com/api/furniture/living`, {params:{
+      `https://homedecoraserver.onrender.com/api/furniture/living?limit=6&page=${page}`, {params:{
         max,min
       }}
     );
     setData(res.data.livingRoom);
+    setTotalPage(res.data.totalPages);
   };
 
 
   useEffect(() => {
     getKids();
-  },[]);
+  },[page]);
 
   useEffect(() => {
+    
     if (minPrice && maxPrice) {
       let max = maxPrice;
       let min = minPrice;
@@ -64,7 +71,7 @@ const LivingRoom = () => {
     } else {
       getKids();
     }
-  },[minPrice, maxPrice])
+  },[minPrice, maxPrice,page])
   
 
   const changeMaxPrice = (e) => {
@@ -114,6 +121,13 @@ const LivingRoom = () => {
       }
     
   }
+
+  useEffect(() => {
+    setSearchParams({
+      page,
+      limit:6
+    })
+  },[page])
  
 
   return (
@@ -124,11 +138,11 @@ const LivingRoom = () => {
       </>}
       
     </Box>
-    <Flex gap="2%" width="96%" m="auto" height="auto" mb="140px">
+    <Flex gap="2%" width="96%" m="auto" height="auto">
       
           {/* ////////////// Filter By/////////////// */}
           
-        <Box  position={"sticky"} top={"120px"} width="25%" height="200px">
+        <Box  position={"sticky"} top={"120px"} width="25%" height="230px">
 
         <Flex flexDir={"column"} gap="10px">
          <Button  bgColor="#f5f5f6" onClick={()=>setShowPrice(!showPrice)}><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Price</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
@@ -194,7 +208,16 @@ const LivingRoom = () => {
       </SimpleGrid>
 
     </Flex>
-  
+   
+          
+    {
+      totalPage && <Flex gap="1rem" justifyContent={"center"} mt="1rem">
+         <Button disabled={page===1} onClick={()=>setPage(page-1)}>PREV</Button>   
+            <Button>{page}</Button>   
+         <Button disabled={page===totalPage} onClick={()=>setPage(page+1)}>NEXT</Button>   
+      </Flex>
+    }
+    
 
    </Box>
    </>
