@@ -1,18 +1,24 @@
-import { Box, Button, Flex, Image, Select, SimpleGrid, Text, Toast, useToast } from '@chakra-ui/react'
+
+
+import { Box, Button, Flex, Image, Select,  Text,  useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./bedroom.module.css";
 import { Link } from 'react-router-dom';
+import { addProductsTocart } from '../../Store/Cart/cart.action';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const LivingRoomSingle = () => {
-
+  const dispatch = useDispatch();
   const [sizeOf, setSize] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-   const {id}=useParams();
-   const toast = useToast()
+  const {id}=useParams();
+  const toast = useToast();
+  const { accessToken } = useSelector(store => store.auth);
   
   const [data, setData] = useState({});
 
@@ -30,6 +36,34 @@ const LivingRoomSingle = () => {
      getData();
        
    },[id]);
+
+  
+  const addProduct = () => {
+    toast({
+          position: 'top',
+          title: 'Log-In',
+          description: "Get HomeDecor To Your Home",
+          status: 'error',
+          duration: 1500,
+          isClosable: true,
+        })
+    
+  }
+  
+  const productTocart = () => {
+   const productId = id;
+    const size = sizeOf;
+    console.log(accessToken, productId, size, price, quantity);
+    dispatch(addProductsTocart(accessToken,productId,size, quantity, price))
+    toast({
+          position: 'top',
+          title: 'Item Added',
+          description: "Lets buy it!!",
+          status: 'success',
+          duration: 1500,
+          isClosable: true,
+        })
+  }
 
 
   return (<>
@@ -54,13 +88,14 @@ const LivingRoomSingle = () => {
             <Flex gap = "1rem" m="1rem 0">
 
               <Text color="#bf9850" fontSize="18px" fontWeight="600"> ₹ {price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") || data.livingRoom.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</Text>
-              {/* {!price && setPrice(data.livingRoom.price)} */}
+              {!price && setPrice(data.livingRoom.price)}
               <Text gap="5px">MRP ₹ {data.livingRoom.originalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} </Text>
               
             </Flex>
             {
               data.ColorAndSize[0]?.size && <Flex mt="1rem">
-              <Text fontWeight={500}>Size : {sizeOf === "" ? "Choose Size" : sizeOf}</Text>
+                <Text fontWeight={500}>Size : {sizeOf || data.ColorAndSize[0].size}</Text>
+                {!sizeOf && setSize(data.ColorAndSize[0].size)}
             </Flex>
             }
             
@@ -99,30 +134,25 @@ const LivingRoomSingle = () => {
               })
             }
             </Flex>
-            <Button onClick={() =>
-        toast({
-          position: 'top-center',
-          title: 'Added to cart.',
-          description: "We've added the selected item to you cart.",
-          status: 'success',
-          duration: 2000,
-          isClosable: true,
-        })
-      }  width="200px" bg="#bf9850" color={"white"}>Add to Cart</Button>
+            <Button onClick={() => 
+              !accessToken ? addProduct() : productTocart()
+            }
+              width="200px" bg="#bf9850" color={"white"}>Add to Cart</Button>
 
           </Box>
           
 
         </Flex>
+
         <Box m="1rem 2rem">
-          <hr/>
+        <hr/>
           <Text fontWeight={"500"}>DETAILS: </Text>
           {data.livingRoom.details}
         </Box>
 
         {/* features */}
         <Box m="1rem 2rem">
-          <hr/>
+        <hr/>
           <Text fontWeight={"500"}>FEATURES: </Text>
           {
             data.livingRoom.features?.map((feature, index) => {
@@ -130,10 +160,10 @@ const LivingRoomSingle = () => {
            }) 
          }
         </Box>
-        
+
         {/* dimensions */}
         <Box m="1rem 2rem">
-          <hr/>
+        <hr/>
           <Text fontWeight={"500"}>DIMENSIONS: </Text>
           {
             data.livingRoom.dimensions?.map((dimension, index) => {

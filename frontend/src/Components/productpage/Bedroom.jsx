@@ -119,17 +119,17 @@ const Bedroom = () => {
    <>
    <Box  width="100%" mt="100px" >
     <Box width="96%" m="auto" textAlign="left" pt="1.5%"  mb="2%">
-      { data && <><Text>Home Decor/ {data[0].set} / {data[0].subSet}</Text>
-      <Text fontWeight="600" fontSize="36px">{data[0].subSet}</Text></>}
+      { data && <><Text><Link to="/">Home Decor </Link>/ <Link to="/furniture">{data[0].set} </Link>/ <Link to="/bedroom">{data[0].subSet} </Link></Text>
+      </>}
       
     </Box>
     <Flex gap="2%" width="96%" m="auto" height="auto" mb="140px">
       
           {/* ////////////// Filter By/////////////// */}
           
-        <Box  position={"sticky"} top={"120px"} width="20%" height="150px">
+        <Box  position={"sticky"} top={"120px"} width="25%" height="200px">
 
-        <Flex flexDir={"column"} gap="10px" >
+        <Flex flexDir={"column"} gap="10px">
          <Button  bgColor="#f5f5f6" onClick={()=>setShowPrice(!showPrice)}><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Price</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
           {
                 showPrice && <Box style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
@@ -170,7 +170,7 @@ const Bedroom = () => {
           </Box>
         
 
-      <SimpleGrid columns={[1,2,3,3]} width="80%" m="auto" rowGap={"20px"} >
+      <SimpleGrid columns={[1,1,3,3]} width="75%" m="auto" rowGap={"20px"} >
 
           {/* //////////////// Product display card ///////////////// */}
           {data && data.map((el)=>{
