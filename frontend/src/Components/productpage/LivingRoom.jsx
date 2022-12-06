@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillStar  } from 'react-icons/ai';
 import { BiHeartCircle  } from 'react-icons/bi';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
   
@@ -12,6 +12,7 @@ import axios from 'axios';
 
 
 const LivingRoom = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const initialPage = Number(searchParams.get("page")) || 1;
@@ -26,12 +27,25 @@ const LivingRoom = () => {
   const [minCheck1, setMinCheck1] = useState(false);
   const [minCheck2, setMinCheck2] = useState(false);
 
+  
+
   const getKids = async () => {
-    let res = await axios.get(
+    try {
+      let res = await axios.get(
       `https://homedecoraserver.onrender.com/api/furniture/living?limit=6&page=${page}`
     );
+    console.log(res);
+    
+    if (res.data.total===0) {
+      return navigate("/*");
+    }
+    
     setData(res.data.livingRoom);
     setTotalPage(res.data.totalPages);
+    }
+    catch(err){
+      console.log(err.message);
+    }
   };
 
   const getKidsSort = async (max,min) => {
@@ -40,14 +54,13 @@ const LivingRoom = () => {
         max,min
       }}
     );
+    console.log(res);
     setData(res.data.livingRoom);
     setTotalPage(res.data.totalPages);
   };
 
 
-  useEffect(() => {
-    getKids();
-  },[page]);
+
 
   useEffect(() => {
     
@@ -71,10 +84,13 @@ const LivingRoom = () => {
     } else {
       getKids();
     }
-  },[minPrice, maxPrice,page])
+  }, [minPrice, maxPrice, page]);
+
+  
   
 
   const changeMaxPrice = (e) => {
+    setPage(1);
     const { value, checked } = e.target;
     let checkValue = checked ? +value : 0;
     if (checkValue === 30000) {
@@ -98,7 +114,8 @@ const LivingRoom = () => {
     
   }
 
-    const changeMinPrice = (e) => {
+  const changeMinPrice = (e) => {
+    setPage(1);
     const { value, checked } = e.target;
     let checkValue = checked ? +value : 0;
     if (checkValue === 8000) {
@@ -125,16 +142,19 @@ const LivingRoom = () => {
   useEffect(() => {
     setSearchParams({
       page,
-      limit:6
+      limit: 6,
+      orderby:"asc"
     })
-  },[page])
+  }, [page])
+  
  
 
   return (
    <>
    <Box  width="100%" mt="100px" >
+    
     <Box width="96%" m="auto" textAlign="left" pt="1.5%"  mb="2%">
-      { data && <><Text><Link to="/">Home Decor </Link>/ <Link to="/furniture">{data[0].set} </Link>/ <Link to="/living">{data[0].subSet} </Link></Text>
+      { data && <><Text><Link to="/">Home Decor </Link>/ <Link to="/furniture">{data[0]?.set} </Link>/ <Link to="/living">{data[0]?.subSet} </Link></Text>
       </>}
       
     </Box>

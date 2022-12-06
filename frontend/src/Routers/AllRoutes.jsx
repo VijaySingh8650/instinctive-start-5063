@@ -30,6 +30,8 @@ import Dining from "../Components/productpage/Dining";
 import AddAddress from "../Components/AddressForm/AddAddress";
 import { Payment } from "../Components/payment/Payment";
 
+import NotFound from "../Pages/NotFound";
+
 
 const AllRoutes = () => {
   const { accessToken } = useSelector(store => store.auth);
@@ -71,7 +73,8 @@ const AllRoutes = () => {
        <Route path="/wishlist" element={<><Navbar /><Wishlist/><Footer /></>}></Route>
        <Route path="/checkout" element={<><Navbar /><CheckoutPage/></>}></Route>
        <Route path="/address" element={<><Navbar /><AddAddress/><Footer /></>}></Route>
-       <Route path="/payment" element={<><Navbar /><Payment/><Footer /></>}></Route>
+      <Route path="/payment" element={<><Navbar /><Payment /><Footer /></>}></Route>
+      <Route path="/*" element={<><Navbar /><NotFound/><Footer /></>} /> 
 
 
     </Routes>
