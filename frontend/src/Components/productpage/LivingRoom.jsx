@@ -232,9 +232,15 @@ const LivingRoom = () => {
           
     {
       totalPage && <Flex gap="1rem" justifyContent={"center"} mt="1rem">
-         <Button disabled={page===1} onClick={()=>setPage(page-1)}>PREV</Button>   
+            <Button disabled={page === 1} onClick={() => {
+              window.scrollTo(0,0);
+              setPage(page - 1);
+            }}>PREV</Button>   
             <Button>{page}</Button>   
-         <Button disabled={page===totalPage} onClick={()=>setPage(page+1)}>NEXT</Button>   
+            <Button disabled={page === totalPage} onClick={() => {
+              window.scrollTo(0,0);
+              setPage(page + 1);
+            }}>NEXT</Button>   
       </Flex>
     }
     
