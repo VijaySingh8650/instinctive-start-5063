@@ -1,12 +1,10 @@
 import { CART_ERROR, CART_LOADING, CART_SUCCESS } from "./cart.types";
-import Cookies from 'js-cookie';
+
 
 let initialvalue = {
   loading: false,
   error: false,
-  cartItems: Cookies.get('cartItems')
-    ? JSON.parse(Cookies.get('cartItems'))
-    : { cartItems: [] },
+  cartItems: JSON.parse(localStorage.getItem("cartItems")) || { cartItems: [] },
 };
 
 export const cartReducer = (state = initialvalue, { type, payload })=>{
@@ -32,8 +30,9 @@ export const cartReducer = (state = initialvalue, { type, payload })=>{
                   el.productId._id === payload.productId._id ? payload : el
                 )
               : [...state.cartItems.cartItems, payload];
-          console.log(cartItems);
-          Cookies.set('cartItems', JSON.stringify({ cartItems }));
+          
+            
+            localStorage.setItem('cartItems', JSON.stringify({ cartItems }));
           return {
             error: false,
             loading: false,
@@ -44,7 +43,8 @@ export const cartReducer = (state = initialvalue, { type, payload })=>{
             const cartItems = state.cartItems.cartItems.filter(
               (el) => el.productId._id !== payload.id
             );
-            Cookies.set('cartItems', JSON.stringify({ cartItems }));
+            
+            localStorage.setItem('cartItems', JSON.stringify({ cartItems }));
             return {
               error: false,
               loading: false,
@@ -52,7 +52,8 @@ export const cartReducer = (state = initialvalue, { type, payload })=>{
             };
         }
         case "GET_DEFAULT_CART": {
-            Cookies.remove('cartItems');
+            
+            localStorage.removeItem('cartItems');
             return {
               error: false,
               loading: false,
