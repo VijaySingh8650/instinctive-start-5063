@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./bedroom.module.css";
 import { Link } from 'react-router-dom';
-import { addProductsTocart } from '../../Store/Cart/cart.action';
+import { addProductsTocart, addProductsTocartWithoutLogin } from '../../Store/Cart/cart.action';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -39,14 +39,21 @@ const MattressesSingle = () => {
 
   
   const addProduct = () => {
+    const productId = data.mattresses;
+    const size = sizeOf;
+
+    dispatch(
+      addProductsTocartWithoutLogin({ productId, size, quantity, price })
+    );
+
     toast({
-          position: 'top',
-          title: 'Log-In',
-          description: "Get HomeDecor To Your Home",
-          status: 'error',
-          duration: 1500,
-          isClosable: true,
-        })
+      position: 'top',
+      title: 'Item Added',
+      description: 'Lets buy it!!',
+      status: 'success',
+      duration: 1500,
+      isClosable: true,
+    });
     
   }
   

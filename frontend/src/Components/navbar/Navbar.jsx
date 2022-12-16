@@ -54,7 +54,10 @@ const { accessToken } = useSelector(store => store.auth);
         <Hide below="lg">
         <Text color="#bf9852" fontSize="20px" fontWeight={500}>HomeDecor</Text>
         </Hide>
-        </Flex></Link>
+        </Flex>
+      </Link>
+        
+        <Hide below="md">
         <Flex alignItems="center" bgColor="#f5f5f6" width="40%" pl=".6rem" borderRadius="5px">
           <Box width="10%">
             <BiSearchAlt2 color="#717288" />
@@ -70,7 +73,8 @@ const { accessToken } = useSelector(store => store.auth);
               placeholder="Search... which suits your home"
             />
           
-        </Flex>
+          </Flex>
+          </Hide>
         {/* ///////////// Account /////////////// */}
         <Flex gap="1rem" alignItems={"center"}>
           {
@@ -172,8 +176,8 @@ const { accessToken } = useSelector(store => store.auth);
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Furniture</Button></Link>
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Rugs</Button></Link>
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Decor</Button></Link>
-        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Bedding</Button></Link>
         <Hide below="lg">
+        <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Bedding</Button></Link>
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Home Improvement</Button></Link>
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Kitchen</Button></Link>
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Outdoor</Button></Link>
@@ -185,8 +189,8 @@ const { accessToken } = useSelector(store => store.auth);
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }} color='grey'>|</Button></Link>
        
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400"  _hover={{color:"#bf9852", borderBottom:"1px solid #bf9852", borderRadius:"none" }}>Ideas</Button></Link>
-        </Hide>
         <Link to="/furniture" ><Button variant="unstyled" fontSize="13px" fontWeight="400" color="#bf9852">Sales & Deals</Button></Link>
+        </Hide>
 
         <Menu  >
             {/* //////////// Button ///////////// */}

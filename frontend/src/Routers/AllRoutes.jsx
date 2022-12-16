@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import ForgotPassword from "../Pages/Forgot_Password/ForgotPassword";
 import SignIn from "../Pages/Signin/Signin";
@@ -31,10 +31,12 @@ import AddAddress from "../Components/AddressForm/AddAddress";
 import { Payment } from "../Components/payment/Payment";
 
 import NotFound from "../Pages/NotFound";
+import { addProductsTocart } from "../Store/Cart/cart.action";
 
 
 const AllRoutes = () => {
   const { accessToken } = useSelector(store => store.auth);
+  const { cartItems } = useSelector((store) => store.cart.cartItems);
   let isAdminTrue; 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -53,6 +55,33 @@ const AllRoutes = () => {
     console.log(exp*1000);
     console.log(date, "date");
   }
+   useEffect(() => {
+     if (accessToken && cartItems.length > 0) {
+       for (var i = 0; i < cartItems.length; i++) {
+         function add(i) {
+           console.log(i);
+           let productId = cartItems[i].productId._id;
+           let size = cartItems[i].size;
+           let quantity = cartItems[i].quantity;
+           let price = cartItems[i].price;
+           dispatch(
+             addProductsTocart(
+               accessToken,
+               productId,
+               size,
+               quantity,
+               price
+             )
+           );
+         }
+         add(i);
+       }
+       dispatch({ type: "GET_DEFAULT_CART" });
+
+
+     }
+    
+   }, [accessToken]);
   
   return (
     <Routes>
