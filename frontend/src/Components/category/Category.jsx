@@ -1,8 +1,12 @@
 import { Box, Button, Hide, Image, Show, SimpleGrid, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Category = () => {
+
+    useEffect(() => {
+      window.document.title = 'Furniture - HomeDecor';
+    }, []);
 
   return (<>
     <Box  width="100%" mt="120px">

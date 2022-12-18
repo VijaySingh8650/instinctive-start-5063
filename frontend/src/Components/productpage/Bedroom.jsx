@@ -37,6 +37,9 @@ const Bedroom = () => {
     setData(res.data.bedroom);
   };
 
+  useEffect(() => {
+    window.document.title = 'Bedroom - HomeDecor';
+  }, []);
 
   useEffect(() => {
     getKids();

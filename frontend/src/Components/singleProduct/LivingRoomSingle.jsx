@@ -39,12 +39,17 @@ const LivingRoomSingle = () => {
   };
 
   useEffect(() => {
+    window.document.title = 'LivingRoom - HomeDecor';
+  }, []);
+
+  useEffect(() => {
     getData();
   }, [id]);
 
   const addProduct = () => {
     const productId = data.livingRoom;
     const size = sizeOf;
+
    
     dispatch(addProductsTocartWithoutLogin({ productId, size, quantity, price }));
 

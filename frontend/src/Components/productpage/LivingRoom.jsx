@@ -140,6 +140,10 @@ const LivingRoom = () => {
   }
 
   useEffect(() => {
+    window.document.title = 'LivingRoom - HomeDecor';
+  }, []);
+
+  useEffect(() => {
     setSearchParams({
       page,
       limit: 6,

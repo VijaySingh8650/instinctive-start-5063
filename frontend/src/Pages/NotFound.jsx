@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 const NotFound = () => {
 
   useEffect(() => {
-    window.document.title = "Welcome Admin - something went wrong";
+    window.document.title = '404 | Not Found - something went wrong';
   }, [])
 
   return (

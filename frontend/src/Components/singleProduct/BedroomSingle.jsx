@@ -26,8 +26,11 @@ const BedroomSingle = () => {
      console.log(res.data);
      setData(res.data);
     
-   };
- 
+  };
+  
+   useEffect(() => {
+     window.document.title = 'Bedroom - HomeDecor';
+   }, []);
  
    useEffect(() => {
 

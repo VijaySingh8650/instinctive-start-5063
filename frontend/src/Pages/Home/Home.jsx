@@ -1,9 +1,12 @@
 import { Heading } from '@chakra-ui/react';
 import { Box, Button, Hide, Image, Show, SimpleGrid, Text} from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./Home.module.css";
 
 const Home = () => {
+  useEffect(() => {
+    window.document.title = 'Home - HomeDecor';
+  }, []);
   return ( <>
         
 

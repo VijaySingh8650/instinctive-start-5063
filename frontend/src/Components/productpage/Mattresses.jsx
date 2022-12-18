@@ -28,6 +28,10 @@ const Mattresses = () => {
     setData(res.data.mattresses);
   };
 
+  useEffect(() => {
+    window.document.title = 'Mattresses - HomeDecor';
+  }, []);
+
   const getKidsSort = async (max,min) => {
     let res = await axios.get(
       `https://homedecoraserver.onrender.com/api/furniture/mattresses`, {params:{

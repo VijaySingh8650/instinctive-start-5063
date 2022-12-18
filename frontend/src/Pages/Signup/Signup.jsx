@@ -10,7 +10,7 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signupAPI } from "../../Store/Auth/auth.actions";
@@ -27,6 +27,11 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   const userData = { email, password, confirm_password };
+
+
+  useEffect(() => {
+    window.document.title = 'Signup - HomeDecor';
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

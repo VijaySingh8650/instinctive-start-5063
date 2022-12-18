@@ -22,6 +22,10 @@ const MattressesSingle = () => {
   
   const [data, setData] = useState({});
 
+  useEffect(() => {
+    window.document.title = 'Mattresses - HomeDecor';
+  }, []);
+
    const getData = async () => {
    
      let res = await axios.get(`https://homedecoraserver.onrender.com/api/furniture/mattresses/${id}`);

@@ -25,6 +25,9 @@ const SignIn = () => {
   const [googleAuthCheck, setGoogleAuthCheck] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useEffect(() => {
+    window.document.title = 'Signin - HomeDecor';
+  }, []);
 
   const [userData, setUserData] = useState({
     email: "",
