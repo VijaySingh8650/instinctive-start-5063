@@ -165,29 +165,50 @@ const Bedroom = () => {
                   </Box>
              </Box>
          }
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Colors</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Sizes</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Shapes</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Brand</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
          </Flex>
           </Box>
         
 
-      <SimpleGrid columns={[1,1,3,3]} width="75%" m="auto" rowGap={"20px"} >
+      <SimpleGrid columns={[1,2,3,3]} width="75%" m="auto" rowGap={"20px"} >
 
           {/* //////////////// Product display card ///////////////// */}
           {data && data.map((el)=>{
 
-        return(<Box align="left" boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px" width="95%">
-        <Link to={`/furniture/bedroom/${el._id}`} ><Image  src={el.images[0]} alt="productImages"></Image></Link>
-        <Button p="0" position="absolute" mt={["-69%", "-34%", "-23%", "-23%"]} ml={["58%", "28%", "18.5%", "20%"]} borderRadius="50%" bgColor="hsl(0deg 0% 100% / 80%)" color='hsl(0deg 0% 55%)' _hover={{color:'#c7202c'}} ><BiHeartCircle  size='25px' /></Button>
-        <Link to={`/furniture/bedroom/${el._id}`} ><Box p="2%">
-        <Text color="#c7202c" fontSize="18px" fontWeight="600">Price ₹ {el.price}</Text>
-        <Flex align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP<s >₹ {el.originalPrice}</s>  </Flex>
-        <Text fontSize="14px">{el.heading}</Text>
-        </Box></Link>
-        </Box>
-        )
+        return (
+          <Box
+            align="left"
+            boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px"
+            width="95%"
+          >
+            <Link to={`/furniture/bedroom/${el._id}`}>
+              <Image src={el.images[0]} alt="productImages"></Image>
+            </Link>
+            <Button
+              p="0"
+              position="absolute"
+              mt={['-69%', '-34%', '-23%', '-23%']}
+              ml={['58%', '28%', '18.5%', '20%']}
+              borderRadius="50%"
+              bgColor="hsl(0deg 0% 100% / 80%)"
+              color="hsl(0deg 0% 55%)"
+              _hover={{ color: '#c7202c' }}
+            >
+              <BiHeartCircle size="25px" />
+            </Button>
+            <Link to={`/furniture/bedroom/${el._id}`}>
+              <Box p="2%">
+                <Text color="#c7202c" fontSize="18px" fontWeight="600">
+                  Price ₹ {el.price}
+                </Text>
+                <Flex align="center" gap="5px">
+                  <AiFillStar color="#bf9852" />
+                  MRP<s>₹ {el.originalPrice}</s>{' '}
+                </Flex>
+                <Text fontSize="14px">{el.heading}</Text>
+              </Box>
+            </Link>
+          </Box>
+        );
 
 
           })}

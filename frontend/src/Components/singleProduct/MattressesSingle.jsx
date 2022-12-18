@@ -137,11 +137,11 @@ const MattressesSingle = () => {
                     </Select>
                     
             </Flex>
-            <Flex m="1rem 0" gap="1rem">
+            <Flex m="1rem 0" gap="1rem" flexWrap={"wrap"}>
 
               {
               data.mattresses.images.map((image, index) => {
-                return <Image cursor="pointer"  w={[20,30,50]} h={[20,30,50]} key={index} src={image} alt="bedroom"  onClick={()=>setImage(index)}/>
+                return <Image cursor="pointer"  w={[10,30,50]} h={[10,30,50]} key={index} src={image} alt="bedroom"  onClick={()=>setImage(index)}/>
               })
             }
             </Flex>

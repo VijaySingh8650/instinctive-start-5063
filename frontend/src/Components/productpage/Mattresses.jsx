@@ -120,88 +120,146 @@ const Mattresses = () => {
  
 
   return (
-   <>
-   <Box  width="100%" mt="100px" >
-    <Box width="96%" m="auto" textAlign="left" pt="1.5%"  mb="2%">
-      { data && <><Text><Link to="/">Home Decor </Link>/ <Link to="/furniture">{data[0].set} </Link>/ <Link to="/mattresses">{data[0].subSet} </Link></Text>
-      </>}
-      
-    </Box>
-    <Flex gap="2%" width="96%" m="auto" height="auto" mb="140px">
-      
+    <>
+      <Box width="100%" mt="100px">
+        <Box width="96%" m="auto" textAlign="left" pt="1.5%" mb="2%">
+          {data && (
+            <>
+              <Text>
+                <Link to="/">Home Decor </Link>/{' '}
+                <Link to="/furniture">{data[0].set} </Link>/{' '}
+                <Link to="/mattresses">{data[0].subSet} </Link>
+              </Text>
+            </>
+          )}
+        </Box>
+        <Flex gap="2%" width="96%" m="auto" height="auto" mb="140px">
           {/* ////////////// Filter By/////////////// */}
-          
-        <Box  position={"sticky"} top={"120px"} width="25%" height="200px">
 
-        <Flex flexDir={"column"} gap="10px">
-         <Button  bgColor="#f5f5f6" onClick={()=>setShowPrice(!showPrice)}><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Price</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-          {
-                showPrice && <Box style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+          <Box position={'sticky'} top={'120px'} width="25%" height="200px">
+            <Flex flexDir={'column'} gap="10px">
+              <Button
+                bgColor="#f5f5f6"
+                onClick={() => setShowPrice(!showPrice)}
+              >
+                <Flex
+                  width="100%"
+                  justifyContent="space-between"
+                  pl=".5rem"
+                  pr=".1rem"
+                >
+                  <Text>Price</Text>
                   <Box>
-                    <Text>
-                      Minimum
-                    </Text>
-                    <Stack spacing={1} direction='column'>
-                      <Checkbox isChecked={minCheck1} colorScheme='blue' value={4000}  onChange={(e)=>changeMinPrice(e)}>
+                    <RiArrowDropDownLine size="24px" />
+                  </Box>
+                </Flex>
+              </Button>
+              {showPrice && (
+                <Box
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Box>
+                    <Text>Minimum</Text>
+                    <Stack spacing={1} direction="column">
+                      <Checkbox
+                        isChecked={minCheck1}
+                        colorScheme="blue"
+                        value={4000}
+                        onChange={(e) => changeMinPrice(e)}
+                      >
                         ₹ 4,000
                       </Checkbox>
-                      <Checkbox isChecked={minCheck2} colorScheme='blue' value={8000} onChange={(e)=>changeMinPrice(e)}>
+                      <Checkbox
+                        isChecked={minCheck2}
+                        colorScheme="blue"
+                        value={8000}
+                        onChange={(e) => changeMinPrice(e)}
+                      >
                         ₹ 8,000
                       </Checkbox>
                     </Stack>
                   </Box>
 
                   <Box>
-                    <Text>
-                      Maximum
-                    </Text>
-                    <Stack spacing={1} direction='column'>
-                      <Checkbox  isChecked={maxCheck1} colorScheme='blue' value={20000} onChange={(e)=>changeMaxPrice(e)}>
+                    <Text>Maximum</Text>
+                    <Stack spacing={1} direction="column">
+                      <Checkbox
+                        isChecked={maxCheck1}
+                        colorScheme="blue"
+                        value={20000}
+                        onChange={(e) => changeMaxPrice(e)}
+                      >
                         ₹ 20,000
                       </Checkbox>
-                      <Checkbox isChecked={maxCheck2} colorScheme='blue' value={30000} onChange={(e)=>changeMaxPrice(e)}>
-                         ₹ 30,000
+                      <Checkbox
+                        isChecked={maxCheck2}
+                        colorScheme="blue"
+                        value={30000}
+                        onChange={(e) => changeMaxPrice(e)}
+                      >
+                        ₹ 30,000
                       </Checkbox>
                     </Stack>
                   </Box>
-             </Box>
-         }
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Colors</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Sizes</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Shapes</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         <Button  bgColor="#f5f5f6"><Flex width="100%" justifyContent="space-between" pl=".5rem" pr='.1rem'><Text>Brand</Text><Box><RiArrowDropDownLine size="24px" /></Box></Flex></Button>
-         </Flex>
+                </Box>
+              )}
+            </Flex>
           </Box>
-        
 
-      <SimpleGrid columns={[1,1,3,3]} width="75%" m="auto" rowGap={"20px"} >
-
-          {/* //////////////// Product display card ///////////////// */}
-          {data && data.map((el)=>{
-
-        return(<Box align="left" boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px" width="95%">
-        <Link to={`/furniture/living/${el._id}`} ><Image  src={el.images[0]} alt="productImages"></Image></Link>
-        <Button p="0" position="absolute" mt={["-69%", "-34%", "-23%", "-23%"]} ml={["58%", "28%", "18.5%", "20%"]} borderRadius="50%" bgColor="hsl(0deg 0% 100% / 80%)" color='hsl(0deg 0% 55%)' _hover={{color:'#c7202c'}} ><BiHeartCircle  size='25px' /></Button>
-        <Link to={`/furniture/living/${el._id}`} ><Box p="2%">
-        <Text color="#c7202c" fontSize="18px" fontWeight="600">Price ₹ {el.price}</Text>
-        <Flex align="center" gap="5px"><AiFillStar color="#bf9852"/>MRP<s >₹ {el.originalPrice}</s>  </Flex>
-        <Text fontSize="14px">{el.heading}</Text>
-        </Box></Link>
-        </Box>
-        )
-
-
-          })}
-        
-
-      </SimpleGrid>
-
-    </Flex>
-  
-
-   </Box>
-   </>
-  )
+          <SimpleGrid
+            columns={[1, 2, 3, 3]}
+            width="75%"
+            m="auto"
+            rowGap={'20px'}
+          >
+            {/* //////////////// Product display card ///////////////// */}
+            {data &&
+              data.map((el) => {
+                return (
+                  <Box
+                    align="left"
+                    boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px"
+                    width="95%"
+                  >
+                    <Link to={`/furniture/living/${el._id}`}>
+                      <Image src={el.images[0]} alt="productImages"></Image>
+                    </Link>
+                    <Button
+                      p="0"
+                      position="absolute"
+                      mt={['-69%', '-34%', '-23%', '-23%']}
+                      ml={['58%', '28%', '18.5%', '20%']}
+                      borderRadius="50%"
+                      bgColor="hsl(0deg 0% 100% / 80%)"
+                      color="hsl(0deg 0% 55%)"
+                      _hover={{ color: '#c7202c' }}
+                    >
+                      <BiHeartCircle size="25px" />
+                    </Button>
+                    <Link to={`/furniture/living/${el._id}`}>
+                      <Box p="2%">
+                        <Text color="#c7202c" fontSize="18px" fontWeight="600">
+                          Price ₹ {el.price}
+                        </Text>
+                        <Flex align="center" gap="5px">
+                          <AiFillStar color="#bf9852" />
+                          MRP<s>₹ {el.originalPrice}</s>{' '}
+                        </Flex>
+                        <Text fontSize="14px">{el.heading}</Text>
+                      </Box>
+                    </Link>
+                  </Box>
+                );
+              })}
+          </SimpleGrid>
+        </Flex>
+      </Box>
+    </>
+  );
 }
 
 export default Mattresses
