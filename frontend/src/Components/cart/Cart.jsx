@@ -85,7 +85,7 @@ const Cart = () => {
     <>
       {accessToken &&
         (cartProducts.cart?.item.length > 0 ? (
-          <Box mt={'7rem'} /*border="1px solid black"*/ mb="1%">
+          <Box mt={'7rem'} mb="1%">
             {/* <Image width="100%" height="68px" src={adv} alt="image"  /> */}
             <Box mt="1%" width="100%">
               <Flex
@@ -215,12 +215,12 @@ const Cart = () => {
             </Link>
           </Box>
         ) : (
-          <Box mt="1%" width="100%">
+          <Box mt={'7rem'} width="100%">
             <Flex
               justifyContent={'space-between'}
               flexDir={['column', 'column', 'column', 'row']}
             >
-              <Box width={['100%', '100%', '100%', '70%']} mt={'7rem'}>
+              <Box width={['100%', '100%', '100%', '70%']} >
                 {cartItems?.map((item) => {
                   const { _id } = item;
                   return (
@@ -233,6 +233,7 @@ const Cart = () => {
                 })}
               </Box>
               <Flex
+                
                 flexDir={'column'}
                 gap="12px"
                 width={['100%', '100%', '100%', '30%']}
